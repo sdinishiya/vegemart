@@ -84,7 +84,7 @@ body{
 
 .login input[type="submit" i]
 {
-    margin-top: 13px;  
+    margin-top: 4%;  
     margin-left: 20%;
     background: transparent;
     border: none;
@@ -100,7 +100,7 @@ body{
 
 .login input[type="reset" i]
 {
-    margin-top: 13px;  
+    margin-top: 4%;  
     margin-left: 15%;
     background: transparent;
     border: none;

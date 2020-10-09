@@ -128,10 +128,10 @@ body{
 .anchor{
   display: block;
   position: relative;
-  top: 0px;
-  margin-bottom: 15px;
-      
+  top: 0px;  
+  margin-bottom: 15px;    
 }
+
 </style>  
 </head>
 <body>
@@ -146,13 +146,13 @@ body{
           <input type="password" name="password" required="">
           <label>Password</label> 
         <div class="anchor">
-          <a href="./reset/email_verify.php">Forgot password?</a>
+          <a href="./reset/email_verify.php" style="color:blue;text-decoration:none;">Forgot password?</a>
         </div>   
 
         </div>      
           <input type="submit" name="login" value="Login">
           <input type="reset" name="" value="Reset">
-          <p style= "color:Yellow;font-size:16px; margin-top:10%px;;">Don't have an account?  &nbsp<a  href="signup.php">Sign up</a> </p>
+          <p style= "color:Yellow;font-size:16px; margin-top:10%px;;">Don't have an account?  &nbsp<a  href="signup.php" style="color:blue;text-decoration:none;">Sign up</a> </p>
          
       </form>
     
