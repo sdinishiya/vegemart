@@ -17,7 +17,7 @@ body{
 
 .reset{
     position: absolute;
-    top: 10%;
+    top: 5%;
     left: 50%;
     transform: translate(-50%,50%);
     width: 30%;
@@ -153,13 +153,9 @@ a:hover {
                 
                 if(mysqli_affected_rows($con)>0){
                     
-                    
+                    $alert="<div class='sent'>Password Reseted sucessfully.</div>";
                     $delete_query="DELETE FROM tokens WHERE token='$token'";
                     $delete_result=mysqli_query($con,$delete_query);
-                    echo "<script>alert('Password has been reseted');
-                        window.location = '../login.php';
-                        </script>";
-
                 }
                 else{
                     

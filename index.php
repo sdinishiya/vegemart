@@ -1,3 +1,7 @@
+<?php
+@ob_start();
+session_start();
+?>
 <?php include('./database/dbconfig.php') ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -7,13 +11,13 @@
   <title>Vegemart</title>
   <link rel="stylesheet" href="./css/styles.css">
 <style>
-    * {box-sizing: border-box;}
+    
 body {
 font-family: Verdana, sans-serif;
 background-color:#FFFFFF ;
-background-repeat: no-repeat;
- background-size: cover;
+
 }
+/* slideshow css starts here */
 .mySlides {
     display: none;
 }
@@ -59,31 +63,37 @@ background-repeat: no-repeat;
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
 }
+/* slideshow css ends here */
 
-.search-icon{
-  height: 60px;
+/* search-box css starts here */
+.search-box{
+  height: 55px;
   width: 50%;
   display: flex;
   background: white;
   border-radius: 5px;
-  margin-left: 25%;
+  margin-left: 20%;
   margin-top: 19.25%;
   z-index: 1;  
   color:black;
   background: rgba(0,0,0,.6);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.5);
-    border-radius: 10px;
-    display: flex; 
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.5);
+  border-radius: 10px;
+  display: flex; 
 }
+/* search text */
 ::placeholder { 
-  color: white;
+  color: #D2DFD1;
   font-size: 18px;
+  font-weight: bold;
   opacity: 1;
 }
-.search-icon input{
+/* input inside search*/
+.search-input{
+  margin-left: -1%;
   height: 100%;
-  width: 218%;
+  width: 87%;
   border: none;
   outline: none;
   padding: 0 10px;
@@ -94,24 +104,101 @@ background-repeat: no-repeat;
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0,0,0,.5);
   border-radius: 10px; 
-   
 }
-.icon{  
+/*clickable filter box*/
+.filter-box{
+  margin-top: 0%;
+  margin-left: 0%;
+  font-size: 22px;
+  font-weight: bold;
+  box-sizing: border-box;
+  box-shadow: 0 15px 50px rgba(0,0,0,.5);
+  background-color: rgba(0,0,0,.5);
+  border-radius: 10px;   
   cursor: pointer;
-  margin-left: -12.5%;
+  height: 100%;
+  width: 18%; 
+  z-index=1;
+}
+/*filters text*/
+.filter-text{
+  margin-top: 12%;
+  margin-left: 15%;
+  color: white;
+}
+.filter-box::before{
+  content: "";
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: white transparent;  
+  position: absolute;
+  top: 45.7%;
+  left: 27.2%;
+}
+/*dropdown filter box*/
+.dropdown{  
+  margin-left: -95%;
+  margin-top: 8%;  
+}
+.ul-class{
+  display:none;
+}
+.ul-class ul{
+  list-style:none;
+  background-color: rgba(0,0,0,1);
+  position: absolute;  
+  width: 14.2%;
+  border-radius: 0 0 10px 10px;
+  display: flex;  
 }
 
-.icon span{
+.ul-class ul li{
+  padding: 20px 0px 20px 0px;
+  font-size: 18px;
+}
+
+.dropdown-input{  
+  margin-top:4%;
+  margin-left:8%;
+  margin-right: -40%;
+  height:30px;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  background: rgba(0,0,0,1);
+}
+
+/*search icon*/
+.search-button{  
+  background: transparent;
+  margin-left: 87.3%;
+  width: 8%;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  
+}
+.icon{   
+  margin-left: 0%;
+  color: white;
+  z-index: -1; 
+  width: 80px; 
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.search-icon span{
+  
   position:relative;
   top:-40px;
-  left: 232%;
-  color: white;
+  left: 2%;  
   width: 55px;
-  font-size: 22px;
-  margin-top: -1px;
-  margin-left: 3px;
-  margin-bottom: -10px;
+  
+  margin-top: 0%;
+  margin-left: 3px;  
 }
+
+/*css flex for retrived images*/
 .row-25{
     float: left;
     position: relative;
@@ -127,13 +214,15 @@ background-repeat: no-repeat;
     margin-top: 15%;
     width:100%;
 }
+/*products block*/
 .block{ 
   background: white; 
   height:325px; 
   width:300px; 
   display:flex; 
   border-style: solid;
-  border-color: black;   
+  border-color: black;
+     
 } 
 .block img{
     height: 210px;
@@ -163,15 +252,22 @@ background-repeat: no-repeat;
     margin-top: 85%;
     display:flex;
 }
+.show{
+  display:block;
+}
 
-  </style>
+</style>
 </head>
 <body>
-  <?php
-  session_start();
+<?php
+  //session_start();
+  if (isset($_SESSION["loggedInUserID"])) {
     include "./includes/loggedIn-user-nav.php";
-  ?>
-
+  }else{
+    include "./includes/loggedOut-user-nav.php";
+  }
+?>
+<!--slideshow starts here -->
 
 <div class="slideshow-container">
 
@@ -185,48 +281,6 @@ background-repeat: no-repeat;
 <div class="mySlides">  
   <img src="./images/3.jpg">  
 </div>
-
-</div>
-<li class="search-icon">
-      <form action="#">
-        <input type="search" placeholder="Search">
-        <label class="icon">
-          <span class="fas fa-search"></span>
-        </label>
-      </form>
-</li>
-<br>
-
-<div style="text-align:center">
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-</div>
-<!-- Fetching Products PHP -->
-    <?php
-    
-        $retrieveProduct = 'SELECT * FROM `products`'; //Selecting all data from Table
-        $resultProduct = mysqli_query($con, $retrieveProduct); //Passing SQL
-
-    ?>
-<!-- End of Fetching Products PHP -->
-
-
-<div class="row-100">
-    <?php
-        while($rowProduct  = mysqli_fetch_assoc($resultProduct)){
-            echo "<div class=\"row-25\">
-                    <div class= \"block\">
-                        <img src= \"./images/products/{$rowProduct['image_name']}\">
-                        <h3 class=\"name\">". $rowProduct['name'] ."</h3> 
-                        <h3 class=\"location\">Location: ". $rowProduct['address3']."</h3>
-                        <h3 class=\"price\">Rs. ". $rowProduct['minprice'] ." (1kg)</h3>             
-                    </div>                          
-                </div>";
-        }
-    ?>   
-</div> 
-
 
 <script>
 var slideIndex = 0;
@@ -249,6 +303,242 @@ function showSlides() {
   setTimeout(showSlides, 5000); // Change image every 2 seconds
 }
 </script>
+
+</div>
+<!--slideshow ends here -->
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+<!--search box starts here -->
+<form name="theform" action="" method="post">
+  <li class="search-box">
+    <div class="filter-box">
+      <div class="filter-text" onclick="myFunction()">Filters</div>
+    </div>      
+    <input type="search" class="search-input" name="search" id="search" placeholder="Search">          
+      <div class="dropdown">
+        <div class="ul-class" id="myDropdown">
+        <ul>
+          <li><input type="text" size="1.75" name="min_price" pattern="\d*" title="Should be valid price" class="dropdown-input" placeholder="Min price"></li>            
+          <li><input type="text" size="1.75" name="max_price" pattern="\d*"  title="Should be valid price" class="dropdown-input" placeholder="Max price"></li>
+          <li><select name="location" class="dropdown-input">
+              <option>  Location </option>
+              <?php
+                $sql = "SELECT `address3` FROM `products`;";
+                $result = mysqli_query($con,$sql);
+                while($row = mysqli_fetch_assoc($result))
+                {
+              ?>
+              <option value="<?php echo $row['address3']; ?>"> <?php echo $row['address3']; ?> </option>
+              <?php
+              }
+              ?>
+              </select>
+          </li>
+            
+        </ul>
+        </div>
+      </div>
+      <button type="submit" class="search-button" name="submit">
+      <label class="icon">
+      <span class="fas fa-search"></span>
+      </label> 
+      </button>
+    </div>      
+  </li>
+</form>
+
+<!--search box ends here -->
+
+<?php
+  
+  if(isset($_POST["submit"]))
+  {
+    $min_price = $_POST["min_price"];
+    $max_price = $_POST["max_price"];
+    $location = $_POST["location"];
+    $search = $_POST["search"];
+    
+    if($max_price=="" && $location=="Location" && $min_price==""){
+      $retrieveProduct = "SELECT * FROM `products` WHERE name LIKE '$search%' "; //Selecting all data from Table
+      $resultProduct = mysqli_query($con, $retrieveProduct); //Passing SQL
+      echo"<div class=\"row-100\">";              
+        while($rowProduct  = mysqli_fetch_assoc($resultProduct)){
+          echo "<div class=\"row-25\">
+                  <div class= \"block\" onclick=\"bidding_process.php?id={$rowProduct['productID']}\" style=\"cursor: pointer;\">
+                    <img src= \"./images/products/{$rowProduct['image_name']}\">
+                    <h3 class=\"name\">". $rowProduct['name'] ."</h3> 
+                    <h3 class=\"location\">Location: ". $rowProduct['address3']."</h3>
+                    <h3 class=\"price\">Rs. ". $rowProduct['minprice'] ." (1kg)</h3>             
+                  </div>                          
+                </div>";
+          }         
+      echo"</div>";
+    }
+    // $_GET['id]
+
+    else if(!empty($min_price) && $max_price=="" && $location=="Location"){      
+      $retrieveProduct = "SELECT * FROM `products` WHERE `minprice` >= '".$min_price."' AND name LIKE '$search%'"; //Selecting all data from Table
+      $resultProduct = mysqli_query($con, $retrieveProduct); //Passing SQL
+      echo"<div class=\"row-100\">";              
+        while($rowProduct  = mysqli_fetch_assoc($resultProduct)){
+          echo "<div class=\"row-25\">
+                  <div class= \"block\" onclick=\"bidding_process.php?id={$rowProduct['productID']}\" style=\"cursor: pointer;\">
+                    <img src= \"./images/products/{$rowProduct['image_name']}\">
+                    <h3 class=\"name\">". $rowProduct['name'] ."</h3> 
+                    <h3 class=\"location\">Location: ". $rowProduct['address3']."</h3>
+                    <h3 class=\"price\">Rs. ". $rowProduct['minprice'] ." (1kg)</h3>             
+                  </div>                          
+                </div>";
+          }         
+      echo"</div>";
+    }
+    
+    else if(!empty($max_price) && $min_price=="" && $location=="Location"){      
+      $retrieveProduct = "SELECT * FROM `products` WHERE `minprice` <= '".$max_price."' AND name LIKE '$search%'"; //Selecting all data from Table
+      $resultProduct = mysqli_query($con, $retrieveProduct); //Passing SQL
+      echo"<div class=\"row-100\">";              
+        while($rowProduct  = mysqli_fetch_assoc($resultProduct)){
+            echo "<div class=\"row-25\">
+                    <div class= \"block\">
+                      <img src= \"./images/products/{$rowProduct['image_name']}\">
+                      <h3 class=\"name\">". $rowProduct['name'] ."</h3> 
+                      <h3 class=\"location\">Location: ". $rowProduct['address3']."</h3>
+                      <h3 class=\"price\">Rs. ". $rowProduct['minprice'] ." (1kg)</h3>             
+                    </div>                          
+                  </div>";
+          }         
+      echo"</div>";
+    }
+    else if(!empty($max_price) && !empty($min_price)&& $location=="Location"){      
+      $retrieveProduct = "SELECT * FROM `products` WHERE `minprice` >= '".$min_price."' AND `minprice` <= '".$max_price."' AND name LIKE '$search%'"; //Selecting all data from Table
+      $resultProduct = mysqli_query($con, $retrieveProduct); //Passing SQL
+        echo"<div class=\"row-100\">";             
+          while($rowProduct  = mysqli_fetch_assoc($resultProduct)){              
+            echo "<div class=\"row-25\">
+                    <div class= \"block\">
+                      <img src= \"./images/products/{$rowProduct['image_name']}\">
+                      <h3 class=\"name\">". $rowProduct['name'] ."</h3> 
+                      <h3 class=\"location\">Location: ". $rowProduct['address3']."</h3>
+                      <h3 class=\"price\">Rs. ". $rowProduct['minprice'] ." (1kg)</h3>             
+                    </div>                          
+                  </div>";
+          }         
+      echo"</div>";
+    }
+    else if($location!="Location" &&  $min_price=="" && $max_price=="" ){      
+      $retrieveProduct = "SELECT * FROM `products` WHERE `address3`= '".$location."' AND name LIKE '$search%'"; //Selecting all data from Table
+      $resultProduct = mysqli_query($con, $retrieveProduct); //Passing SQL
+        echo"<div class=\"row-100\">";   
+          while($rowProduct  = mysqli_fetch_assoc($resultProduct)){              
+            echo "<div class=\"row-25\">
+                    <div class= \"block\">
+                      <img src= \"./images/products/{$rowProduct['image_name']}\">
+                      <h3 class=\"name\">". $rowProduct['name'] ."</h3> 
+                      <h3 class=\"location\">Location: ". $rowProduct['address3']."</h3>
+                      <h3 class=\"price\">Rs. ". $rowProduct['minprice'] ." (1kg)</h3>             
+                    </div>                          
+                  </div>";
+          }         
+      echo"</div>";
+    }
+    else if($location!="Location" &&  !empty($min_price) && $max_price=="" ){      
+      $retrieveProduct = "SELECT * FROM `products` WHERE `address3`= '".$location."' AND `minprice` >= '".$min_price."' AND name LIKE '$search%'"; //Selecting all data from Table
+      $resultProduct = mysqli_query($con, $retrieveProduct); //Passing SQL
+        echo"<div class=\"row-100\">";   
+          while($rowProduct  = mysqli_fetch_assoc($resultProduct)){              
+            echo "<div class=\"row-25\">
+                    <div class= \"block\">
+                      <img src= \"./images/products/{$rowProduct['image_name']}\">
+                      <h3 class=\"name\">". $rowProduct['name'] ."</h3> 
+                      <h3 class=\"location\">Location: ". $rowProduct['address3']."</h3>
+                      <h3 class=\"price\">Rs. ". $rowProduct['minprice'] ." (1kg)</h3>             
+                    </div>                          
+                  </div>";
+          }         
+      echo"</div>";
+    } 
+    else if($location!="Location" &&  !empty($max_price) && $min_price=="" ){      
+      $retrieveProduct = "SELECT * FROM `products` WHERE `address3`= '".$location."' AND `minprice` <= '".$max_price."' AND name LIKE '$search%'"; //Selecting all data from Table
+      $resultProduct = mysqli_query($con, $retrieveProduct); //Passing SQL
+        echo"<div class=\"row-100\">";   
+          while($rowProduct  = mysqli_fetch_assoc($resultProduct)){              
+            echo "<div class=\"row-25\">
+                    <div class= \"block\">
+                      <img src= \"./images/products/{$rowProduct['image_name']}\">
+                      <h3 class=\"name\">". $rowProduct['name'] ."</h3> 
+                      <h3 class=\"location\">Location: ". $rowProduct['address3']."</h3>
+                      <h3 class=\"price\">Rs. ". $rowProduct['minprice'] ." (1kg)</h3>             
+                    </div>                          
+                  </div>";
+          }         
+      echo"</div>";
+    }  
+    else if($location!="Location" &&  !empty($max_price) && !empty($min_price) ){      
+      $retrieveProduct = "SELECT * FROM `products` WHERE `address3`= '".$location."' AND `minprice` >= '".$min_price."' AND `minprice` <= '".$max_price."'AND name LIKE '$search%'"; //Selecting all data from Table
+      $resultProduct = mysqli_query($con, $retrieveProduct); //Passing SQL
+        echo"<div class=\"row-100\">";   
+          while($rowProduct  = mysqli_fetch_assoc($resultProduct)){              
+            echo "<div class=\"row-25\">
+                    <div class= \"block\">
+                      <img src= \"./images/products/{$rowProduct['image_name']}\">
+                      <h3 class=\"name\">". $rowProduct['name'] ."</h3> 
+                      <h3 class=\"location\">Location: ". $rowProduct['address3']."</h3>
+                      <h3 class=\"price\">Rs. ". $rowProduct['minprice'] ." (1kg)</h3>             
+                    </div>                          
+                  </div>";
+          }         
+      echo"</div>";
+    }
+     
+    
+  }else{
+  $retrieveProduct = "SELECT * FROM `products`"; //Selecting all data from Table
+  $resultProduct = mysqli_query($con, $retrieveProduct); //Passing SQL
+  echo"<div class=\"row-100\">";           
+    while($rowProduct  = mysqli_fetch_assoc($resultProduct)){              
+      echo "<div class=\"row-25\" >
+              <div class= \"block\" onclick=\"location.href='bidding_process.php?id={$rowProduct['productID']}';\" style=\"cursor: pointer;\">
+                <img src= \"./images/products/{$rowProduct['image_name']}\">
+                <h3 class=\"name\">". $rowProduct['name'] ."</h3> 
+                <h3 class=\"location\">Location: ". $rowProduct['address3']."</h3>
+                <h3 class=\"price\">Rs. ". $rowProduct['minprice'] ." (1kg)</h3>             
+              </div>                          
+            </div>";
+    }       
+  echo"</div>";
+  }
+   
+
+?>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>  
+
+  
+
 </body>
 </html>
 

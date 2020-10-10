@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2020 at 06:52 AM
+-- Generation Time: Oct 10, 2020 at 08:16 AM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- PHP Version: 7.3.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,8 +38,13 @@ CREATE TABLE `advertisements` (
 --
 
 INSERT INTO `advertisements` (`adID`, `date`, `description`) VALUES
+(40617565, '0000-00-00', ''),
+(236513889, '0000-00-00', ''),
+(431911544, '0000-00-00', ''),
 (562360163, '0000-00-00', ''),
-(1271090235, '0000-00-00', '');
+(1169447677, '0000-00-00', ''),
+(1271090235, '0000-00-00', ''),
+(1719155431, '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -52,8 +57,8 @@ CREATE TABLE `products` (
   `sellerID` int(20) NOT NULL,
   `name` text NOT NULL,
   `quantity` int(10) NOT NULL,
-  `minprice` int(10) NOT NULL,
-  `image_name` text NOT NULL,
+  `minPrice` int(10) NOT NULL,
+  `imageName` text NOT NULL,
   `address1` varchar(20) NOT NULL,
   `address2` varchar(20) NOT NULL,
   `address3` varchar(20) NOT NULL,
@@ -65,10 +70,12 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`productID`, `sellerID`, `name`, `quantity`, `minprice`, `image_name`, `address1`, `address2`, `address3`, `adID_fk`, `date`) VALUES
-(18, 10, 'Carrot', 5, 300, '2.jpg', '5', '5', 'Badulla', 0, '0000-00-00'),
-(19, 10, 'Beetroot', 6, 50, '3.jpg', '5', '5', 'Kandy', 0, '0000-00-00'),
-(20, 10, 'Gu', 9, 2, '5.jpg', '9', '9', '2', 0, '0000-00-00');
+INSERT INTO `products` (`productID`, `sellerID`, `name`, `quantity`, `minPrice`, `imageName`, `address1`, `address2`, `address3`, `adID_fk`, `date`) VALUES
+(19, 10, 'cabbage', 250, 50, 'cabbage.jpg', '40/A', 'ampitiya', 'kandy', 1169447677, '0000-00-00'),
+(20, 10, 'potato', 250, 50, 'potato.jpg', 'a', 'a', 'a', 1719155431, '0000-00-00'),
+(21, 10, 'pumpkin', 200, 35, '', 'c', 'v', 'v', 0, '0000-00-00'),
+(22, 10, 'broccali', 250, 1, 'broccoli.jpg', 'a', 'ampitiya', 'a', 236513889, '0000-00-00'),
+(23, 10, 'a', 1, 1, 'Pumpkin.jpg', '', 'a', 'a', 40617565, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -109,14 +116,15 @@ INSERT INTO `tokens` (`id`, `email`, `token`) VALUES
 
 CREATE TABLE `users` (
   `id` int(10) NOT NULL,
-  `fname` varchar(50) NOT NULL,
-  `lname` varchar(50) NOT NULL,
-  `username` varchar(50) NOT NULL,
+  `fName` varchar(50) NOT NULL,
+  `lName` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phoneNum` varchar(10) NOT NULL,
   `street` varchar(50) NOT NULL,
-  `city` varchar(50) NOT NULL,
-  `pnumber` varchar(10) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
+  `city` text NOT NULL,
+  `profilePic` text NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `userType` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -124,19 +132,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `fname`, `lname`, `username`, `street`, `city`, `pnumber`, `email`, `password`, `userType`) VALUES
-(4, 'Anushk', 'Darshana', 'anushkaD', 'aojsopj', 'asjflajsf', 'alsjd', 'alsdj', 'aaaa', 'user'),
-(5, 'Anushk', 'Darshana', 'anushkaD', 'aojsopj', 'asjflajsf', 'alsjd', 'alsdj', 'aaaa', 'user'),
-(6, 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'seller'),
-(7, 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'seller'),
-(8, 'Anushk', 'Darshana', 'anushkaDa', 'aojsopj', 'asjflajsf', 'alsjd', 'alsdja', 'aaaa', 'seller'),
-(11, 'Anushka', 'Darshana', 'anu', 'Badulla', 'Badulla', '455', '456', '7878', 'user'),
-(15, '777', '777', '777', '777', '777', 'vegemartuc', 'vegemartucsc@gmail.com', '68053af2923e00204c3ca7c6a3150cf7', 'user'),
-(16, '222', '222', '222', '222', '222', '222', '222', 'bcbe3365e6ac95ea2c0343a2395834dd', 'seller'),
-(17, '456', '456', '456', '456', '456', '456', '456', 'bcbe3365e6ac95ea2c0343a2395834dd', 'seller'),
-(18, '888', '888', '888', '888', '888', '888', '888', '$2y$10$d23JwnD/a8KOeGepVeDXG.AcVb7blavfKLpRFTNlYAW', 'user'),
-(19, '999', '999', '999', '999', '999', '999', '999', '$2y$10$99ikZwzg2vRiN8mvEdAjMOp23inRqpZ7qnXiU4OyiMV', 'user'),
-(20, '111', '111', '111', '111', '111', '111', '111', '698d51a19d8a121ce581499d7b701668', 'seller');
+INSERT INTO `users` (`id`, `fName`, `lName`, `email`, `phoneNum`, `street`, `city`, `profilePic`, `username`, `password`, `userType`) VALUES
+(3, 'ucsc', 'ucsc', 'ucsc@ucsc.com', '1234', 'ucsc', 'ucsc', '', 'ucsc', 'd32934b31349d77e70957e057b1bcd28', 'seller'),
+(4, 'imashi', 'imashi', 'imashi921a@gmail.com', '1234', 'imashi', 'imashi', '', 'imashi', '8df5b615a66f91fd35831d1130ee5daf', 'seller');
 
 --
 -- Indexes for dumped tables
@@ -174,13 +172,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `advertisements`
 --
 ALTER TABLE `advertisements`
-  MODIFY `adID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1271090236;
+  MODIFY `adID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1719155432;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tokens`
@@ -192,7 +190,7 @@ ALTER TABLE `tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

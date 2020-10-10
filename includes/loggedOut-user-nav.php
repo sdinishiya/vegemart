@@ -30,7 +30,7 @@ nav ul{
   list-style: none;
   align-items: center;
   justify-content: center;
-  margin-right: 2%;
+  margin-right: -3%;
 }
 nav ul li a{
   color: #fff;
@@ -117,19 +117,10 @@ a:hover{
       <li><a href="#">Blogs</a></li>
       <li><a href="#">Contact</a></li>
       <li><a href="#">Feedback</a></li>
+      <li><a href="#">Login</a></li>
     </div>    
-    <li class="nav-item-has-dropdown">  
-      <img class="profile" src="./images/bg.jpg" id="profile" alt="Avatar">
-           
-    </li>    
   </ul>
 </nav>
-<div class="sub-menu-1" id="sub-menu-1">
-            <ul>
-              <li><a href="#" class="drop">View Profile</a></li>
-              <li><a href="#" class="drop">Log out</a></li>             
-            </ul>
-</div>  
   <script>
     let visible = false
     let dropdown = document.getElementById("sub-menu-1")
