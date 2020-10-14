@@ -8,6 +8,7 @@ body {
 
 h1,h2,h3,h4,h5,h6,p,span,i {
     color: black !important;
+    flex-wrap: wrap;
 }
 button {
     background-color: #29BF3A;

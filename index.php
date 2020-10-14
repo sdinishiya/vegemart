@@ -139,7 +139,7 @@
                 <div class= \"block\" onclick=\"bidding_process.php?id={$rowProduct['productID']}\" style=\"cursor: pointer;\">
                     <img src= \"./images/products/{$rowProduct['imageName']}\">
                     <h3>". $rowProduct['name'] ."</h3>
-                    <h3>Location: ". $rowProduct['address3']." </h3>
+                    <h3>Location: ". $rowProduct['city']." </h3>
                     <h3>Rs. ". $rowProduct['minPrice'] ." (250g)</h3>
                 </div>";
         }

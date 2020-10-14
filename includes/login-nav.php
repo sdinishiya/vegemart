@@ -109,7 +109,7 @@
     <body>
         <header class="header">
             
-            <a href="./index.php"><img class="logopic" src="./images/llogo.png"></a>
+            <a href="./index.php"><img class="logopic" src="../images/llogo.png"></a>
             <ul class="main-nav">
                 <li><a href="#p">Home</a></li>
                 <li><a href="#">About</a></li>
