@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <title>Sign up</title>
-        <link type="text/css" rel=stylesheet href="css/signup.css">
+        <link type="text/css" rel=stylesheet href="./css/signup.css">
     </head>
     <body>
         <div class="login">
@@ -39,7 +39,7 @@
                     <label>City</label>    
                 </div>
                 <div class="inputBox">
-                    <input type="file" id="profilePic" name="profilePic">
+                    <input type="file" id="profilePic" name="profilePic"/>
                     <label>Display Picture</label>    
                 </div>
                 <div class="inputBox">
@@ -59,9 +59,11 @@
                     <label for="user">User</label>
                     <input type="radio" id="seller" name="type" value="seller" required>
                     <label for="seller">Seller</label> 
-                </div>                      
-                <input type="submit" name="register" value="Sign up">
-                <input type="reset" name="" value="Reset">
+                </div> 
+                <div>
+                    <input class="button" type="submit" name="register" value="Sign up">
+                    <input class="button" type="reset" name="" value="Reset">
+                </div>                     
             </form>              
         </div>
     </body>

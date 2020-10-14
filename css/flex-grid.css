@@ -5,83 +5,88 @@
     clear: both;
     padding: 0px;
     margin: 0px;
-  }
+}
   
   /*  Single Column  */
-  .column {
+.column {
     display: block;
     float: left;
     margin: 1% 0 1% 1.6%;
     text-align: center !important;
     border-radius: 10px;
-  }
+}
+
   .column:first-child {
     margin-left: 0;
-  }
+}
   
   /*  Column Grouping  */
-  .group:before,
-  .group:after {
+.group:before,
+.group:after {
     content: "";
     display: table;
-  }
-  .group:after {
+}
+
+.group:after {
     clear: both;
-  }
-  .group {
+}
+  
+.group {
     zoom: 1; /* For IE 6/7 */
-  }
+}
   
-  /*  Grid with 12 blocks  */
-  .is-12 {
+/*  Grid with 12 blocks  */
+  
+.is-12 {
     width: 100%;
-  }
+}
   
-  .is-11 {
+.is-11 {
     width: 91.53%;
-  }
-  .is-10 {
+}
+
+.is-10 {
     width: 83.06%;
-  }
+}
   
-  .is-9 {
+.is-9 {
     width: 74.6%;
-  }
+}
   
-  .is-8 {
+.is-8 {
     width: 66.13%;
-  }
+}
   
-  .is-7 {
+.is-7 {
     width: 57.66%;
-  }
+}
   
-  .is-6 {
+.is-6 {
     width: 49.2%;
-  }
+}
   
-  .is-5 {
+.is-5 {
     width: 40.73%;
-  }
+}
   
-  .is-4 {
+.is-4 {
     width: 32.26%;
-  }
+}
   
-  .is-3 {
+.is-3 {
     width: 23.8%;
-  }
+}
   
-  .is-2 {
+.is-2 {
     width: 15.33%;
-  }
+}
   
-  .is-1 {
+.is-1 {
     width: 6.866%;
-  }
+}
   
-  /*  GO FULL WIDTH BELOW 480 PIXELS */
-  @media only screen and (max-width: 480px) {
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
     .column {
       margin: 1% 0 1% 0%;
     }
@@ -98,7 +103,7 @@
     .is-10,
     .is-11,
     .is-12 {
-      width: 100%;
+        width: 100%;
     }
-  }
+}
   

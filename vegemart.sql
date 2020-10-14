@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2020 at 06:52 AM
+-- Generation Time: Oct 14, 2020 at 10:19 AM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- PHP Version: 7.3.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,8 +38,33 @@ CREATE TABLE `advertisements` (
 --
 
 INSERT INTO `advertisements` (`adID`, `date`, `description`) VALUES
+(40617565, '0000-00-00', ''),
+(222199893, '0000-00-00', ''),
+(236513889, '0000-00-00', ''),
+(364832472, '0000-00-00', ''),
+(371959471, '0000-00-00', ''),
+(431911544, '0000-00-00', ''),
 (562360163, '0000-00-00', ''),
-(1271090235, '0000-00-00', '');
+(567319303, '0000-00-00', ''),
+(615930963, '0000-00-00', ''),
+(692267887, '0000-00-00', ''),
+(868004428, '0000-00-00', ''),
+(1019718091, '0000-00-00', ''),
+(1020784954, '0000-00-00', ''),
+(1162701798, '0000-00-00', ''),
+(1169447677, '0000-00-00', ''),
+(1271090235, '0000-00-00', ''),
+(1455503618, '0000-00-00', ''),
+(1473340855, '0000-00-00', ''),
+(1473524655, '0000-00-00', ''),
+(1485330690, '0000-00-00', ''),
+(1548259270, '0000-00-00', ''),
+(1587641020, '0000-00-00', ''),
+(1619761038, '0000-00-00', ''),
+(1719155431, '0000-00-00', ''),
+(1817564683, '0000-00-00', ''),
+(1899237320, '0000-00-00', ''),
+(1966593794, '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -52,8 +77,8 @@ CREATE TABLE `products` (
   `sellerID` int(20) NOT NULL,
   `name` text NOT NULL,
   `quantity` int(10) NOT NULL,
-  `minprice` int(10) NOT NULL,
-  `image_name` text NOT NULL,
+  `minPrice` int(10) NOT NULL,
+  `imageName` text NOT NULL,
   `address1` varchar(20) NOT NULL,
   `address2` varchar(20) NOT NULL,
   `address3` varchar(20) NOT NULL,
@@ -65,10 +90,17 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`productID`, `sellerID`, `name`, `quantity`, `minprice`, `image_name`, `address1`, `address2`, `address3`, `adID_fk`, `date`) VALUES
-(18, 10, 'Carrot', 5, 300, '2.jpg', '5', '5', 'Badulla', 0, '0000-00-00'),
-(19, 10, 'Beetroot', 6, 50, '3.jpg', '5', '5', 'Kandy', 0, '0000-00-00'),
-(20, 10, 'Gu', 9, 2, '5.jpg', '9', '9', '2', 0, '0000-00-00');
+INSERT INTO `products` (`productID`, `sellerID`, `name`, `quantity`, `minPrice`, `imageName`, `address1`, `address2`, `address3`, `adID_fk`, `date`) VALUES
+(41, 6, 'cabbage', 250, 23, 'cabbage.jpg', '40/A', 'ampitiya', 'a', 1817564683, '0000-00-00'),
+(44, 8, 'beet', 250, 56, 'beetroot.jpg', '40/A', 'a', 'kandy', 1548259270, '0000-00-00'),
+(46, 8, 'beans', 1, 23, 'beans.png', '40/A', 'a', 'a', 1162701798, '0000-00-00'),
+(47, 0, 'carrot', 60, 15, 'carrots.jpg', '40/A', 'a', 'a', 0, '0000-00-00'),
+(48, 0, 'onion', 250, 56, 'onion.png', 'a', 'a', 'a', 0, '0000-00-00'),
+(49, 0, 'tomato', 250, 23, 'tomato.jpg', 'a', 'a', 'kandy', 0, '0000-00-00'),
+(50, 9, 'Garlic', 40, 25, 'garlic.jpg', '40/A', 'Brisbane', 'London', 1485330690, '0000-00-00'),
+(51, 9, 'Pumpkin', 20, 35, 'Pumpkin.jpg', '40/A', 'Brisbane', 'London', 0, '0000-00-00'),
+(53, 9, 'broccali', 250, 100, 'broccoli.jpg', '40/A', 'Brisbane', 'London', 0, '0000-00-00'),
+(54, 8, 'Leeks', 45, 40, 'leeks.png', '40/A', 'ampitiya', 'kandy', 0, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -109,14 +141,15 @@ INSERT INTO `tokens` (`id`, `email`, `token`) VALUES
 
 CREATE TABLE `users` (
   `id` int(10) NOT NULL,
-  `fname` varchar(50) NOT NULL,
-  `lname` varchar(50) NOT NULL,
-  `username` varchar(50) NOT NULL,
+  `fName` varchar(50) NOT NULL,
+  `lName` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phoneNum` varchar(10) NOT NULL,
   `street` varchar(50) NOT NULL,
-  `city` varchar(50) NOT NULL,
-  `pnumber` varchar(10) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
+  `city` text NOT NULL,
+  `profilePic` text NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `userType` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -124,19 +157,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `fname`, `lname`, `username`, `street`, `city`, `pnumber`, `email`, `password`, `userType`) VALUES
-(4, 'Anushk', 'Darshana', 'anushkaD', 'aojsopj', 'asjflajsf', 'alsjd', 'alsdj', 'aaaa', 'user'),
-(5, 'Anushk', 'Darshana', 'anushkaD', 'aojsopj', 'asjflajsf', 'alsjd', 'alsdj', 'aaaa', 'user'),
-(6, 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'seller'),
-(7, 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'seller'),
-(8, 'Anushk', 'Darshana', 'anushkaDa', 'aojsopj', 'asjflajsf', 'alsjd', 'alsdja', 'aaaa', 'seller'),
-(11, 'Anushka', 'Darshana', 'anu', 'Badulla', 'Badulla', '455', '456', '7878', 'user'),
-(15, '777', '777', '777', '777', '777', 'vegemartuc', 'vegemartucsc@gmail.com', '68053af2923e00204c3ca7c6a3150cf7', 'user'),
-(16, '222', '222', '222', '222', '222', '222', '222', 'bcbe3365e6ac95ea2c0343a2395834dd', 'seller'),
-(17, '456', '456', '456', '456', '456', '456', '456', 'bcbe3365e6ac95ea2c0343a2395834dd', 'seller'),
-(18, '888', '888', '888', '888', '888', '888', '888', '$2y$10$d23JwnD/a8KOeGepVeDXG.AcVb7blavfKLpRFTNlYAW', 'user'),
-(19, '999', '999', '999', '999', '999', '999', '999', '$2y$10$99ikZwzg2vRiN8mvEdAjMOp23inRqpZ7qnXiU4OyiMV', 'user'),
-(20, '111', '111', '111', '111', '111', '111', '111', '698d51a19d8a121ce581499d7b701668', 'seller');
+INSERT INTO `users` (`id`, `fName`, `lName`, `email`, `phoneNum`, `street`, `city`, `profilePic`, `username`, `password`, `userType`) VALUES
+(6, 'may', 'may', 'may@may.com', '12345', 'may', 'may', 'may.jpg', 'may', '9a4b6f884971dcb4a5172876b335baab', 'seller'),
+(7, 'ucsc', 'ucsc', 'ucsc@ucsc.com', '1234', 'ucsc', 'ucsc', 'farmer4.jpg', 'ucsc', 'd32934b31349d77e70957e057b1bcd28', 'seller'),
+(8, 'imashi', 'Dissanayake', 'imashi921a@gmail.com', '12345678', 'imashi', 'imashi', 'farmer2.jpg', 'imashi', '8df5b615a66f91fd35831d1130ee5daf', 'seller'),
+(9, 'Tom', 'Hanks', 'tom@tom.com', '8156384292', 'Brisbane', 'London', 'farmer8.jpg', 'tom', '34b7da764b21d298ef307d04d8152dc5', 'seller');
 
 --
 -- Indexes for dumped tables
@@ -174,13 +199,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `advertisements`
 --
 ALTER TABLE `advertisements`
-  MODIFY `adID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1271090236;
+  MODIFY `adID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1966593795;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `tokens`
@@ -192,7 +217,7 @@ ALTER TABLE `tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,4 +1,5 @@
 <?php
+    include('../database/dbconfig.php') ;
     session_start();
       
     $target_dir = "../images/users/";
@@ -38,8 +39,6 @@
         $password = $_POST["password"];
         $confirmPassword = $_POST["confirm_password"];
         $userType=$_POST["type"];
-           
-        include "../database/dbconfig.php";
 
         if ($password === $confirmPassword) {
             $sql_u = "SELECT * FROM users WHERE username='".$username."'";

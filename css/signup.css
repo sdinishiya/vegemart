@@ -1,11 +1,17 @@
-body{
+html {
+    height: 100%;
+} 
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-image: url('../images/bg.jpg');
-    background-repeat: no-repeat;
+    background-image: url('../images/bg.png');
     background-size: cover;
-
 }
 
 a{
@@ -13,9 +19,8 @@ a{
     top: 0px; 
     left: 5px; 
     text-decoration: none;
-    display: inline-block;
+    display: flex;
     padding: 6px 11px;
-    
 }
 
 a:hover {
@@ -24,12 +29,11 @@ a:hover {
 }
 
 .login{
+    display: flex;  
+    flex-direction: column;
     position: absolute;
-    top: -49%;
-    left: 50%;
-    transform: translate(-50%,50%);
-    width: 35%;
-    padding: 15px;
+    width: 33%;
+    padding: 30px;
     background: rgba(0,0,0,.8);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.5);
@@ -67,7 +71,7 @@ a:hover {
     left: 0;  
     padding: 10px 0;
     margin-left: 5.5%;
-    font-size: 18px; 
+    font-size: 16px; 
     color: #fff;
     pointer-events: none;
     transition: .5s;
@@ -81,59 +85,37 @@ a:hover {
     font-size: 14px;
 } 
 
-.login input[type="submit" i]{
-    margin-top: 13px;  
+.login .button{
+    margin-top: 10px;  
     margin-left: 20%;
     background: transparent;
     border: none;
     outline: none;
     color: #fff;
-    background: #03a9f4;
+    background:#03a9f4;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-    display: inline-block;
+    display: inline-flex;
     font-size: 16px;
 }
 
-.login input[type="reset" i]{
-    margin-top: 13px;  
-    margin-left: 15%;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #fff;
-    background: #03a9f4;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    display: inline-block;
-    font-size: 16px;
-}
-
-.login input[type="reset" i]:hover{
-    background-color: #3e8e41;
-    color: white;
-}
-
-.login input[type="submit" i]:hover{
+.login .button:hover{
     background-color: #3e8e41;
     color: white;
 }
 
 .login .form-check-inline input[type="radio" i]{
-    float: left;
-    display: inline-block;
+    display: inline-flex;
     margin-left: 22%;
     border: 1px solid black;
     margin-bottom: 10px; 
 }
 
 .login .form-check-inline label{
-    float: left;
-    display: inline-block;
+    display: inline-flex;
     margin-left: 5px;
-    font-size: 18px;
+    font-size: 17px;
     color: #fff;
 }
 

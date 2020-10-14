@@ -1,20 +1,31 @@
-body{
+html {
+    height: 100%;
+} 
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-image: url('../images/bg.jpg');
-    background-repeat: no-repeat;
+    background-image: url('../images/bg.png');
     background-size: cover;
 }
-    
+
+p{
+    color:Yellow; 
+    font-size:16px; 
+    margin-top:10%;
+}
+ 
 .login{
+    display: flex;  
+    flex-direction: column;
     position: absolute;
-    top: -10%;
-    left: 50%;
-    transform: translate(-50%,50%);
-    width: 27%;
-    height: 60%;
-    padding: 45px;
+    width: 28%;
+    padding: 50px 45px 70px 45px;
     background: rgba(0,0,0,.8);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.5);
@@ -22,9 +33,8 @@ body{
 }
 
 .login h2{
-    margin: 0 0 30px;
-    margin-left: -5%;
-    padding: 0;
+    margin: 0 0 3px;
+    padding: 2px;
     color: #fff;
     text-align: center;
 }
@@ -57,58 +67,38 @@ body{
     transition: .5s;
 }
 
-.login .inputBox input:focus ~ label, .login .inputBox input:valid ~ label {
+.login .inputBox input:focus ~ label, 
+.login .inputBox input:valid ~ label {
     top: -20px;
     left: 0;
     color: #03a9f4;
     font-size: 14px;
 } 
 
-.login input[type="submit" i]{
-    margin-top: 8px;  
-    margin-left: 13%;
-    margin-bottom: 2px;
+.login .button{
+    margin-top: 10px;  
+    margin-left: 20%;
     background: transparent;
     border: none;
     outline: none;
     color: #fff;
-    background: #03a9f4;
+    background:#03a9f4;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-    display: inline-block;
+    display: inline-flex;
     font-size: 16px;
 }
 
-.login input[type="reset" i]{
-    margin-top: 8px;  
-    margin-left: 15%;
-    margin-bottom: 2px;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #fff;
-    background: #03a9f4;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    display: inline-block;
-    font-size: 16px;
-}
-
-.login input[type="reset" i]:hover{
+.login .button:hover{
     background-color: #3e8e41;
     color: white;
 }
 
-.login input[type="submit" i]:hover{
-    background-color: #3e8e41;
-    color: white;
-}
-
-.anchor{
-    display: block;
+.anchor a{
+    display: flex;
     position: relative;
     top: 0px;
+    color: lightsteelblue;
     margin-bottom: 15px;
 }
