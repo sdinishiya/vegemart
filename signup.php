@@ -31,8 +31,12 @@
                     <label>Phone number</label>    
                 </div>  
                 <div class="inputBox">
-                    <input type="text" name="street" required="">
-                    <label>Street</label>    
+                    <input type="text" name="address1" required="">
+                    <label>Address Line 1</label>    
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="address2" required="">
+                    <label>Address Line 2</label>    
                 </div>
                 <div class="inputBox">
                     <input type="text" name="city" required="">

@@ -33,7 +33,8 @@
         $lName = $_POST["lName"];
         $email = $_POST["email"];
         $phoneNum = $_POST["phoneNum"];
-        $street = $_POST["street"];
+        $address1 = $_POST["address1"];
+        $address2 = $_POST["address2"];
         $city = $_POST["city"];
         $username = $_POST["username"];
         $password = $_POST["password"];
@@ -60,7 +61,7 @@
                         
             }else{
                 $password_hash = md5($password);       
-                $sql = "INSERT INTO `users` (`id`, `fName`,`lName`,`email`,`phoneNum`,`street`,`city`,`profilePic`,`username`,`password`, `userType`) VALUES (NULL,'".$fName."','".$lName."','".$email."','".$phoneNum."','".$street."','".$city."','".$imageName."','".$username."','".$password_hash."','".$userType."');";
+                $sql = "INSERT INTO `users` (`id`, `fName`,`lName`,`email`,`phoneNum`,`address1`,`address2`,`city`,`profilePic`,`username`,`password`, `userType`) VALUES (NULL,'".$fName."','".$lName."','".$email."','".$phoneNum."','".$address1."','".$address2."','".$city."','".$imageName."','".$username."','".$password_hash."','".$userType."');";
                 mysqli_query($con,$sql);
                 header('Location:../login.php');
             }
