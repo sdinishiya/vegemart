@@ -159,14 +159,30 @@
     <body>
         <header class="header">
             
-            <a href="./index.php"><img class="logopic" src="../images/llogo.png"></a>
+            <a href="./seller_home.php"><img class="logopic" src="../images/llogo.png"></a>";
+            
             <ul class="main-nav">
-                <li><a href="#">Home</a></li>
+                <li><a href="../index.php">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Forum</a></li>
                 <li><a href="#">Help Desk</a></li>
                 <li class="nav-item-has-dropdown">  
-                    <img class="profile" src="../images/users/may.jpg" id="profile" alt="Avatar">       
+                    <?php  
+                        if (isset($_SESSION["loggedInSellerID"])) {
+                            $userID = $_SESSION["loggedInSellerID"];
+                            $retrieveInfo =  "SELECT * FROM users WHERE id='$userID';"; //Selecting all data from Table
+                            $resultInfo = mysqli_query($con, $retrieveInfo); //Passing SQL
+
+                            while($rowUser  = mysqli_fetch_assoc($resultInfo)){
+                                echo "<img class=\"profile\" src=\"../images/users/{$rowUser['profilePic']}\" id=\"profile\" alt=\"Avatar\">";
+                            }
+                        }
+                            //$userID=6;
+                        else{
+                            echo"<li><a href=\"./login.php\">Login</a></li>";
+                        }          
+                            
+                    ?> 
                 </li> 
             </ul>
         </header> 
@@ -175,7 +191,8 @@
                 <li><a href="#" class="drop">View Profile</a></li>
                 <li><a href="#" class="drop">Log out</a></li>             
                 </ul>
-        </div>  
+        </div> 
+        
         <script>
             let visible = false
             let dropdown = document.getElementById("sub-menu-1")

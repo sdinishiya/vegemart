@@ -16,11 +16,8 @@
     <body>
         <?php
             //session_start();
-            if (isset($_SESSION["loggedInUserID"])) {
-                include_once "./includes/logout-nav.php";
-            }else{
-                include_once "./includes/login-nav.php";
-            }
+            include_once "./includes/nav.php";
+            
         ?>
 
         <!--slideshow starts here -->

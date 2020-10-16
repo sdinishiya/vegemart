@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -109,13 +110,21 @@
     <body>
         <header class="header">
             
-            <a href="./index.php"><img class="logopic" src="../images/llogo.png"></a>
+            <a href="./index.php"><img class="logopic" src="./images/llogo.png"></a>
             <ul class="main-nav">
                 <li><a href="#p">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Forum</a></li>
                 <li><a href="#">Help Desk</a></li>
-                <li><a href="./login.php">Login</a></li>
+                <?php
+                //session_start();
+                if (isset($_SESSION["loggedInUserID"])) {
+                    include_once "./includes/logout-nav.php";
+                }else{
+                    include_once "./includes/login-nav.php";
+                }
+                ?>
+                    <li><a href="./login.php">login</a></li>
             </ul>
         </header> 
     </body>

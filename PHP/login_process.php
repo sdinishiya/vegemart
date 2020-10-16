@@ -31,7 +31,7 @@
             }
         }
         else{
-                echo "<script>alert('Username is incorrect');
+                echo "<script>alert('Email is incorrect');
                 window.location = '../login.php';
                 </script>";
                 $_SESSION["valid"] = 0; 

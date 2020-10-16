@@ -19,7 +19,7 @@ if (!(isset($_SESSION['loggedInSellerID']) || isset($_SESSION['loggedInUserID'])
     </head>
 
     <body>
-        <?php include "../includes/logout-nav.php"; ?>
+        <?php include "./seller_nav.php"; ?>
  
         <div class="row">
             <div class="columns group">
@@ -129,54 +129,47 @@ if (!(isset($_SESSION['loggedInSellerID']) || isset($_SESSION['loggedInUserID'])
                                 <i class="fas fa-star"></i>
                             </div>
                         </div>
-                        <div class="user-review mt-2">
-                            <div class="row mt-1">
-                                <div class="columns group">
-                                    <div class="column is-3">
-                                        <img class="review-image" src="https://www.flaticon.com/premium-icon/icons/svg/2633/2633302.svg" alt="">
-                                    </div>
-                                    <div class="column is-9">
-                                        <h4 class="justify-text">A good review should describe various aspects of the customer experience. Did the customer receive fantastic customer service? </h4>
-                                    </div>
-                                </div>
-                                <hr>
-                            </div>
-                            <div class="row mt-1">
-                                <div class="columns group">
-                                    <div class="column is-3">
-                                        <img class="review-image" src="https://www.flaticon.com/premium-icon/icons/svg/2633/2633302.svg" alt="">
-                                    </div>
-                                    <div class="column is-9">
-                                        <h4 class="justify-text">A good review should describe aspects of the customer experience.</h4>
-                                    </div>
-                                </div>
-                                <hr>
-                            </div>
-                            <div class="row mt-1">
-                                <div class="columns group">
-                                    <div class="column is-3">
-                                        <img class="review-image" src="https://www.flaticon.com/premium-icon/icons/svg/2633/2633302.svg" alt="">
-                                    </div>
-                                    <div class="column is-9">
-                                        <h4 class="justify-text">A good review should describe various aspects of the customer experience. the customer received customer service </h4>
-                                    </div>
-                                </div>
-                                <hr>
-                            </div>
-                            <div class="row mt-1">
-                                <div class="columns group">
-                                    <div class="column is-3">
-                                        <img class="review-image" src="https://www.flaticon.com/premium-icon/icons/svg/2633/2633302.svg" alt="">
-                                    </div>
-                                    <div class="column is-9">
-                                        <h4 class="justify-text">A good review should describe aspects of the customer experience.</h4>
-                                    </div>
-                                </div>
-                                <hr>
-                            </div>
-                            <div class="row has-text-centered mt-2">
-                                <h5>View All Reviews</h5>
-                            </div>
+                        <?php
+                        $retrieveInfo =  "SELECT * FROM reviews WHERE sellerID='$userID';"; //Selecting all data from Table
+                        $result = mysqli_query($con, $retrieveInfo); //Passing SQL                        
+                           
+                        while($row = mysqli_fetch_assoc($result)){
+                            $buyerID = $row['userID']; 
+                            //echo "123";
+                           // $buyerID = 7;
+                            $retrieveUserInfo =  "SELECT * FROM users WHERE id='$buyerID';"; //Selecting all data from Table
+                            $resultUserInfo = mysqli_query($con, $retrieveUserInfo); //Passing SQL
+                            while($rowPic= mysqli_fetch_assoc($resultUserInfo)){ 
+                                echo"<div class=\"user-review mt-2\">
+                                        <div class=\"row mt-1\">
+                                            <div class=\"columns group\">
+                                                <div class=\"column is-3\">
+                                                    <img class=\"review-image\" src=\"../images/users/{$rowPic['profilePic']}\" alt=\"\">
+                                                </div>
+                                                <div class=\"column is-9\">
+                                                    <h4 class=\"justify-text\">". $row['review'] ." </h4>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                        </div>
+                                    </div>";
+                            }  
+                        }                       
+
+                          
+                        if(isset($_SESSION["loggedInUserID"])){
+                                echo"<form action=\"\" method=\"post\">
+                                     <div class=\"row has-text-centered mt-2 pl-1\">                            
+                                     <textarea rows=\"5\" cols=\"30\" name=\"Description\" placeholder=\"Give Feedback\" form=\"addReview\"></textarea>
+                                     </div>
+                                     <button type=\"submit\" class=\"button ml-5 pr-1 pl-1 mt-1\" name=\"send\"><i class=\"fas fa-cog mr-1\"></i>Save</button>
+                                     </form>";
+                            
+                        }
+                        if(isset($_POST["send"])){
+                            echo"<script><alert>jjjj</alert></script>";
+                        }
+                        ?>
                         </div>
                     </div>
                 </div>

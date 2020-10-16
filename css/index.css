@@ -60,7 +60,7 @@ body {
     height: 55px;
     width: 50%;
     background: white;
-    margin:12% 25%;
+    margin:18% 25%;
     text-align: center;
     border-radius: 5px;
     z-index: 1;  
@@ -108,7 +108,7 @@ body {
     cursor: pointer;
     height: 100%;
     width: 18%; 
-    z-index: 1;
+    
 }
 
 /*filters text*/
@@ -124,8 +124,8 @@ body {
     border-style: solid;
     border-color: white transparent;  
     position: absolute;
-    top: 42%;
-    left: 31.5%;
+    top: 53.5%;
+    left: 31.75%;
 }
 
 /*dropdown filter box*/
