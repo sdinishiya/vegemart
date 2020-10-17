@@ -28,7 +28,8 @@ if (!(isset($_SESSION['loggedInSellerID']) || isset($_SESSION['loggedInUserID'])
                         <div class="user-card">
                             <div class="columns group">
                             <?php
-                            $userID = $_SESSION["loggedInSellerID"];
+                           // $userID = $_SESSION["loggedInSellerID"];
+                            $userID=16;
                             $retrieveInfo =  "SELECT * FROM users WHERE id='$userID';"; //Selecting all data from Table
                             $resultInfo = mysqli_query($con, $retrieveInfo); //Passing SQL
 
@@ -154,11 +155,10 @@ if (!(isset($_SESSION['loggedInSellerID']) || isset($_SESSION['loggedInUserID'])
                                         </div>
                                     </div>";
                             }  
-                        }                       
+                        }                 
 
-                          
                         if(isset($_SESSION["loggedInUserID"])){
-                                echo"<form action=\"\" method=\"post\">
+                                echo"<form action=\"\" method=\"post\" id=\"addReview\">
                                      <div class=\"row has-text-centered mt-2 pl-1\">                            
                                      <textarea rows=\"5\" cols=\"30\" name=\"Description\" placeholder=\"Give Feedback\" form=\"addReview\"></textarea>
                                      </div>
@@ -167,7 +167,20 @@ if (!(isset($_SESSION['loggedInSellerID']) || isset($_SESSION['loggedInUserID'])
                             
                         }
                         if(isset($_POST["send"])){
-                            echo"<script><alert>jjjj</alert></script>";
+                           // $sellerID=8;
+                            $userID=$_SESSION["loggedInUserID"];
+                            $description = mysql_real_escape_string($_POST["Description"]);
+                            $insertReviews = "INSERT INTO `reviews` (`userID`,`sellerID`,`review`) VALUES ('".$userID."','".$sellerID."','".$description."');";                         
+                            if (mysqli_query($con, $insertReviews) === TRUE) {                            
+                                $message = base64_encode(urlencode("Review Added."));
+                                
+                                exit();
+                            }
+                            else {                           
+                                $message = base64_encode(urlencode("SQL Error while Registering"));
+                                
+                                exit();
+                            } 
                         }
                         ?>
                         </div>

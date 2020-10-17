@@ -60,7 +60,10 @@
                 </script>";
                         
             }else{
-                $password_hash = md5($password);       
+                $password_hash = md5($password); 
+                if($imageName==""){
+                    $imageName="default.png";
+                }      
                 $sql = "INSERT INTO `users` (`id`, `fName`,`lName`,`email`,`phoneNum`,`address1`,`address2`,`city`,`profilePic`,`username`,`password`, `userType`) VALUES (NULL,'".$fName."','".$lName."','".$email."','".$phoneNum."','".$address1."','".$address2."','".$city."','".$imageName."','".$username."','".$password_hash."','".$userType."');";
                 mysqli_query($con,$sql);
                 header('Location:../login.php');
