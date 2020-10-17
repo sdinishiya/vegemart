@@ -29,8 +29,8 @@ if (!(isset($_SESSION['loggedInSellerID']) || isset($_SESSION['loggedInUserID'])
                             <div class="columns group">
                             <?php
                            // $userID = $_SESSION["loggedInSellerID"];
-                            $userID=16;
-                            $retrieveInfo =  "SELECT * FROM users WHERE id='$userID';"; //Selecting all data from Table
+                            $sellerID=16;
+                            $retrieveInfo =  "SELECT * FROM users WHERE id='$sellerID';"; //Selecting all data from Table
                             $resultInfo = mysqli_query($con, $retrieveInfo); //Passing SQL
 
                             while ($rowUser  = mysqli_fetch_assoc($resultInfo)) {
@@ -66,7 +66,7 @@ if (!(isset($_SESSION['loggedInSellerID']) || isset($_SESSION['loggedInUserID'])
                     <br/>
                 </div>";
 
-                $retrieve = "SELECT * FROM products WHERE sellerID='$userID';";
+                $retrieve = "SELECT * FROM products WHERE sellerID='$sellerID';";
                 $result = mysqli_query($con, $retrieve); //Passing SQL
                 echo "<div class=\"items-grid\">
                     <div class=\"row item-legend\">
@@ -131,7 +131,7 @@ if (!(isset($_SESSION['loggedInSellerID']) || isset($_SESSION['loggedInUserID'])
                             </div>
                         </div>
                         <?php
-                        $retrieveInfo =  "SELECT * FROM reviews WHERE sellerID='$userID';"; //Selecting all data from Table
+                        $retrieveInfo =  "SELECT * FROM reviews WHERE sellerID='$sellerID';"; //Selecting all data from Table
                         $result = mysqli_query($con, $retrieveInfo); //Passing SQL                        
                            
                         while($row = mysqli_fetch_assoc($result)){
@@ -158,22 +158,23 @@ if (!(isset($_SESSION['loggedInSellerID']) || isset($_SESSION['loggedInUserID'])
                         }                 
 
                         if(isset($_SESSION["loggedInUserID"])){
-                                echo"<form action=\"\" method=\"post\" id=\"addReview\">
+                                echo"
                                      <div class=\"row has-text-centered mt-2 pl-1\">                            
-                                     <textarea rows=\"5\" cols=\"30\" name=\"Description\" placeholder=\"Give Feedback\" form=\"addReview\"></textarea>
+                                     <textarea rows=\"5\" cols=\"30\" id=\"description\" name=\"description\" placeholder=\"Give Feedback\" form=\"addReview\"></textarea>
                                      </div>
+                                     <form action=\"\" method=\"post\" id=\"addReview\" name=\"addReview\">
                                      <button type=\"submit\" class=\"button ml-5 pr-1 pl-1 mt-1\" name=\"send\"><i class=\"fas fa-cog mr-1\"></i>Save</button>
                                      </form>";
                             
                         }
                         if(isset($_POST["send"])){
-                           // $sellerID=8;
+                            //$sellerID=8;
                             $userID=$_SESSION["loggedInUserID"];
-                            $description = mysql_real_escape_string($_POST["Description"]);
+                            $description = $_POST["description"];;
                             $insertReviews = "INSERT INTO `reviews` (`userID`,`sellerID`,`review`) VALUES ('".$userID."','".$sellerID."','".$description."');";                         
                             if (mysqli_query($con, $insertReviews) === TRUE) {                            
                                 $message = base64_encode(urlencode("Review Added."));
-                                
+                                echo "<meta http-equiv='refresh' content='0'>";
                                 exit();
                             }
                             else {                           
