@@ -18,7 +18,7 @@
             <?php   
                 $userID = $_SESSION["loggedInSellerID"];
                 
-                $selectusers = "SELECT * FROM users WHERE id='$userID'";
+                $selectusers = "SELECT * FROM client WHERE id='$userID'";
 
                 $userquery = mysqli_query($con,$selectusers);
 

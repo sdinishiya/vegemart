@@ -28,9 +28,9 @@ if (!(isset($_SESSION['loggedInSellerID']) || isset($_SESSION['loggedInUserID'])
                         <div class="user-card">
                             <div class="columns group">
                             <?php
-                           // $userID = $_SESSION["loggedInSellerID"];
-                            $sellerID=16;
-                            $retrieveInfo =  "SELECT * FROM users WHERE id='$sellerID';"; //Selecting all data from Table
+                            $sellerID = $_SESSION["loggedInSellerID"];
+                            //$sellerID=16;
+                            $retrieveInfo =  "SELECT * FROM client WHERE id='$sellerID';"; //Selecting all data from Table
                             $resultInfo = mysqli_query($con, $retrieveInfo); //Passing SQL
 
                             while ($rowUser  = mysqli_fetch_assoc($resultInfo)) {
@@ -138,7 +138,7 @@ if (!(isset($_SESSION['loggedInSellerID']) || isset($_SESSION['loggedInUserID'])
                             $buyerID = $row['userID']; 
                             //echo "123";
                            // $buyerID = 7;
-                            $retrieveUserInfo =  "SELECT * FROM users WHERE id='$buyerID';"; //Selecting all data from Table
+                            $retrieveUserInfo =  "SELECT * FROM client WHERE id='$buyerID';"; //Selecting all data from Table
                             $resultUserInfo = mysqli_query($con, $retrieveUserInfo); //Passing SQL
                             while($rowPic= mysqli_fetch_assoc($resultUserInfo)){ 
                                 echo"<div class=\"user-review mt-2\">

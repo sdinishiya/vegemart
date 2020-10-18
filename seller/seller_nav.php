@@ -170,7 +170,7 @@
                     <?php  
                         if (isset($_SESSION["loggedInSellerID"])) {
                             $userID = $_SESSION["loggedInSellerID"];
-                            $retrieveInfo =  "SELECT * FROM users WHERE id='$userID';"; //Selecting all data from Table
+                            $retrieveInfo =  "SELECT * FROM client WHERE id='$userID';"; //Selecting all data from Table
                             $resultInfo = mysqli_query($con, $retrieveInfo); //Passing SQL
 
                             while($rowUser  = mysqli_fetch_assoc($resultInfo)){

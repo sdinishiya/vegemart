@@ -45,7 +45,7 @@
         $newPassword = md5($_POST['editPassword']);
         $newConfirmPassword = md5($_POST['editConfirmPassword']);
     
-        $sql = "SELECT * FROM users WHERE id='".$id."'";
+        $sql = "SELECT * FROM client WHERE id='".$id."'";
         $result = mysqli_query($con, $sql);
         
         while($row = mysqli_fetch_assoc($result)){
@@ -62,10 +62,10 @@
                         $newPassword=$oldPassword;
                     }           
                     if($imageName==""){
-                        $updateQuery= "UPDATE `users` SET fName = '".$newFName."', lName = '".$newLName."', email ='".$newEmail."', phoneNum = '".$newPhoneNum."', address1 = '".$newAddress1."', address2 = '".$newAddress2."', city = '".$newCity."', username = '".$newUsername."', `password` = '".$newPassword."' WHERE id = '".$id."' ";
+                        $updateQuery= "UPDATE `client` SET fName = '".$newFName."', lName = '".$newLName."', email ='".$newEmail."', phoneNum = '".$newPhoneNum."', address1 = '".$newAddress1."', address2 = '".$newAddress2."', city = '".$newCity."', username = '".$newUsername."', `password` = '".$newPassword."' WHERE id = '".$id."' ";
                     }
                     else{
-                        $updateQuery= "UPDATE `users` SET fName = '".$newFName."', lName = '".$newLName."', email ='".$newEmail."', phoneNum = '".$newPhoneNum."',profilePic = '".$imageName."', address1 = '".$newAddress1."', address2 = '".$newAddress2."', city = '".$newCity."', username = '".$newUsername."', `password` = '".$newPassword."' WHERE id = '".$id."' ";   
+                        $updateQuery= "UPDATE `client` SET fName = '".$newFName."', lName = '".$newLName."', email ='".$newEmail."', phoneNum = '".$newPhoneNum."',profilePic = '".$imageName."', address1 = '".$newAddress1."', address2 = '".$newAddress2."', city = '".$newCity."', username = '".$newUsername."', `password` = '".$newPassword."' WHERE id = '".$id."' ";   
                     }   
                     if (mysqli_query($con,$updateQuery) === TRUE) {
                         $message = base64_encode(urlencode("Successfully Edited!"));

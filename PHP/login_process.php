@@ -20,6 +20,10 @@
                         $_SESSION["loggedInUserID"] =$row['id']; 
                         header('Location:../index.php');
                     }
+                    elseif($row['userType'] === "deliverer"){
+                        $_SESSION["loggedInDelivererID"] =$row['id']; 
+                        header('Location:../deliverer/deliverer_home.php');
+                    }
                 }
                 else{  
                     //return false;  

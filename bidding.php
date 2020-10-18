@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0", meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="./css/bidding.css">
     <title>Seller Dashboard | Vegemart</title>
 </head>
@@ -11,17 +11,17 @@
         <?php include "./includes/loggedIn-user-nav.php"; ?>   
     </div>
     <div class="row">
+        <div class="product-card mt-3">
         <div class="columns group">
             <div class="column is-5 pl-2 pr-1">
                 <div class="row">
-                    <div class="items-container">
+                    
                         <img class="product-image" src="https://i2.wp.com/ultimateguide.club/wp-content/uploads/2020/05/PissuKanna.jpg?resize=384%2C358&ssl=1" alt="">
-                    </div>
+                    
                 </div>
             </div> 
               
-            <div class="column is-7 pl-2 pr-2">
-                <div class="product-card mt-2">
+            <div class="column is-7 pl-2 pr-2">               
                     <div class="row mt-1">
                         <div class="columns group">
                             <div class="column is-3">
@@ -31,10 +31,10 @@
                                 <h4 class="justify-text">lalalalla</h4>
                             </div>
                         </div>
-                    </div>
-                </div>     
+                    </div>                     
             </div>
         </div> 
+        </div>
            
     <div class="items-grid ml-3">
         <div class="row item-legend">

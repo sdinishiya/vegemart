@@ -42,7 +42,7 @@
         $userType=$_POST["type"];
 
         if ($password === $confirmPassword) {
-            $sql_u = "SELECT * FROM users WHERE username='".$username."'";
+            $sql_u = "SELECT * FROM client WHERE username='".$username."'";
             $sql_e = "SELECT * FROM users WHERE email='".$email."'";
             $res_u = mysqli_query($con, $sql_u);
             $res_e = mysqli_query($con, $sql_e);
@@ -63,9 +63,12 @@
                 $password_hash = md5($password); 
                 if($imageName==""){
                     $imageName="default.png";
-                }      
-                $sql = "INSERT INTO `users` (`id`, `fName`,`lName`,`email`,`phoneNum`,`address1`,`address2`,`city`,`profilePic`,`username`,`password`, `userType`) VALUES (NULL,'".$fName."','".$lName."','".$email."','".$phoneNum."','".$address1."','".$address2."','".$city."','".$imageName."','".$username."','".$password_hash."','".$userType."');";
-                mysqli_query($con,$sql);
+                }  
+                $id = rand(); 
+                $client = "INSERT INTO `client` (`id`, `fName`,`lName`,`phoneNum`,`address1`,`address2`,`city`,`profilePic`,`username`) VALUES ('".$id."','".$fName."','".$lName."','".$phoneNum."','".$address1."','".$address2."','".$city."','".$imageName."','".$username."');";
+                $user = "INSERT INTO `users` (`id`,`email`,`password`, `userType`) VALUES ('".$id."','".$email."','".$password_hash."','".$userType."');";
+                mysqli_query($con,$client);
+                mysqli_query($con,$user);
                 header('Location:../login.php');
             }
                               
