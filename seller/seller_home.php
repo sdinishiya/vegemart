@@ -29,7 +29,7 @@ if (!(isset($_SESSION['loggedInSellerID']) || isset($_SESSION['loggedInUserID'])
                             <div class="columns group">
                             <?php
                             $sellerID = $_SESSION["loggedInSellerID"];
-                            //$sellerID=16;
+                           // $sellerID=16;
                             $retrieveInfo =  "SELECT * FROM client WHERE id='$sellerID';"; //Selecting all data from Table
                             $resultInfo = mysqli_query($con, $retrieveInfo); //Passing SQL
 
@@ -49,7 +49,6 @@ if (!(isset($_SESSION['loggedInSellerID']) || isset($_SESSION['loggedInUserID'])
                                             <h3 class=\"mb-0 mt-0\">Location:</h3><br>
                                         </div>
                                         <div class=\"column is-5 has-text-left pb-3\">
-                                            <h3 class=\"mb-0 mt-0\">" . $rowUser['email'] . " </h3><br>
                                             <h3 class=\"mb-0 mt-0\">" . $rowUser['phoneNum'] . " </h3><br>
                                             <h3 class=\"mb-0 mt-0\">" . $rowUser['address1'] . ",</h3>
                                             <h3 class=\"mb-0 mt-0\">" . $rowUser['address2'] . ",</h3>
@@ -168,7 +167,6 @@ if (!(isset($_SESSION['loggedInSellerID']) || isset($_SESSION['loggedInUserID'])
                             
                         }
                         if(isset($_POST["send"])){
-                            //$sellerID=8;
                             $userID=$_SESSION["loggedInUserID"];
                             $description = $_POST["description"];;
                             $insertReviews = "INSERT INTO `reviews` (`userID`,`sellerID`,`review`) VALUES ('".$userID."','".$sellerID."','".$description."');";                         
