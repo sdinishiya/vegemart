@@ -1,4 +1,4 @@
 <?php
  echo  "hello";
- echo "minwor";
+ echo "world";
 ?>
