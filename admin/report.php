@@ -39,18 +39,18 @@
         <div class="col-4">
 
             <div class="col-5">
-            <h4>SELECT PRODUCTS TO VIEW COMPLAINT REPORTS</h4>
+            <h4>SELECT PRODUCTS TO VIEW COMPLAIN REPORTS</h4>
             <div class="container">
-                <img src="../images/users/farmer2.jpg" alt="image" class="image" >
-                        <a href="seller-order.php" class="button">Seller</a>
+                <img src="../images/users/complain.jpg" alt="image" class="image" >
+                        <a href="seller-order.php" class="button">Product Complain</a>
                     </div> 
             </div>
-
+            <div class="col-1"></div>
             <div class="col-5">
             <h4>SELECT FORUMS TO VIEW POST REPORTS </h4>
             <div class="container">
-                <img src="../images/users/customer.jpg" alt="image" class="image" >
-                        <a href="cus-order.php" class="button">Customer</a>
+                <img src="../images/users/forum.jpg" alt="image" class="image" >
+                        <a href="cus-order.php" class="button">Forum Posts</a>
                     </div> 
             </div>
 
