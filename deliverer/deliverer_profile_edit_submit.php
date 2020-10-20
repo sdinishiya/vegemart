@@ -23,7 +23,7 @@
         } 
         else {
             $message = base64_encode(urlencode("Sorry, there was an error uploading your file."));
-            header('Location:seller_profile_add.php?msg=' . $message);
+            header('Location:deliverer_home.php?msg=' . $message);
             exit();
             }
     }
@@ -34,8 +34,8 @@
         $newLName = $_POST['editLName'];
         $newEmail = $_POST['editEmail'];
         $newPhoneNum = $_POST['editPhoneNum'];
-        $newAddress1 = $_POST['editAddress1'];
-        $newAddress2 = $_POST['editAddress2'];
+        $newVehicle = $_POST['vehicle'];
+        $newVehicleNo = $_POST['vehicleNo'];
         $newCity = $_POST['editCity'];
         $imageName = $_FILES["profilePic"]["name"];
         $imageData = $_FILES["profilePic"]["tmp_name"];
@@ -45,43 +45,44 @@
         $newPassword = md5($_POST['editPassword']);
         $newConfirmPassword = md5($_POST['editConfirmPassword']);
     
-        $user = "SELECT * FROM users WHERE id='".$id."'";
-        $resultuser = mysqli_query($con, $user);
-        while($row = mysqli_fetch_assoc($resultuser)){
-            if($oldPassword === $row['password']) {    
+        $sql = "SELECT * FROM users WHERE id='".$id."'";
+        $result = mysqli_query($con, $sql);
+        
+        while($row = mysqli_fetch_assoc($result)){
+            if($oldPassword === $row['password'])  {    
         
                 if ($newPassword != $newConfirmPassword){
                     $message = base64_encode(urlencode("Passwords do not match"));
-                    header('Location:seller_profile_edit.php?msg=' . $message);
+                    header('Location:deliverer_profile_edit.php?msg=' . $message);
                     exit();
                 }
                 
                 else{ 
                     if($newPassword=="d41d8cd98f00b204e9800998ecf8427e"){
                         $newPassword=$oldPassword;
-                    } 
-                        $updateUser= "UPDATE `users` SET email = '".$newEmail."',`password` = '".$newPassword."' WHERE id = '".$id."' ";
+                    }   
+                     $updateUser= "UPDATE `users` SET email = '".$newEmail."',`password` = '".$newPassword."' WHERE id = '".$id."' ";      
                     if($imageName==""){
-                        $updateQuery= "UPDATE `client` SET fName = '".$newFName."', lName = '".$newLName."', phoneNum = '".$newPhoneNum."', address1 = '".$newAddress1."', address2 = '".$newAddress2."', city = '".$newCity."', username = '".$newUsername."' WHERE id = '".$id."' ";
+                        $updateQuery= "UPDATE `deliverer` SET fName = '".$newFName."', lName = '".$newLName."', phoneNum = '".$newPhoneNum."', vehicle = '".$newVehicle."', vehicleNo = '".$newVehicleNo."', city = '".$newCity."', username = '".$newUsername."' WHERE delivererID = '".$id."' ";
                     }
                     else{
-                        $updateQuery= "UPDATE `client` SET fName = '".$newFName."', lName = '".$newLName."', phoneNum = '".$newPhoneNum."',profilePic = '".$imageName."', address1 = '".$newAddress1."', address2 = '".$newAddress2."', city = '".$newCity."', username = '".$newUsername."' WHERE id = '".$id."' ";   
+                        $updateQuery= "UPDATE `deliverer` SET fName = '".$newFName."', lName = '".$newLName."', phoneNum = '".$newPhoneNum."',profilePic = '".$imageName."', vehicle = '".$newVehicle."', vehicleNo = '".$newVehicleNo."', city = '".$newCity."', username = '".$newUsername."' WHERE delivererID = '".$id."' ";   
                     }   
-                    if (mysqli_query($con,$updateQuery) && mysqli_query($con,$updateUser)) {
+                    if (mysqli_query($con,$updateQuery)&&mysqli_query($con,$updateUser)) {
                         $message = base64_encode(urlencode("Successfully Edited!"));
-                        header('Location:seller_home.php?msg=' . $message);
+                        header('Location:deliverer_home.php?msg=' . $message);
                         exit();
                     } 
                     else {
                         $message = base64_encode(urlencode("SQL Error while Registering"));
-                        header('Location:seller_profile_edit.php?msg=' . $message);
+                        header('Location:deliverer_profile_edit.php?msg=' . $message);
                         exit();
                     }
                 }
             }
             else{  
                 //return false;  
-                echo "<script>alert('Password does not match');
+                echo "<script>alert('Current password does not match');
                 window.history.back();
                 </script>";
             }

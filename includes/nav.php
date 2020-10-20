@@ -8,7 +8,7 @@
                 box-sizing: border-box;
             }
             body {
-                font-family: 'Trebuchet MS', sans-serif;
+                font-family: sans-serif;
                 line-height: 1.6;
                 margin: 0;
                 min-height: 100vh;
@@ -160,7 +160,7 @@
     <body>
         <header class="header">
             
-            <a href="./index.php"><img class="logopic" src="./images/llogo.png"></a>";
+            <a href="./index.php"><img class="logopic" src="./images/logot.png"></a>";
             
             <ul class="main-nav">
                 <li><a href="./index.php">Home</a></li>

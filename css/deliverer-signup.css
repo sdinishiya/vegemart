@@ -1,0 +1,94 @@
+@import url(./style.css);
+
+*{
+    font-family: sans-serif;
+}
+
+body {
+    background-image: url('../images/del1.jpg');
+    background-size: cover;
+}
+
+.signupForm {
+    background: rgba(0,0,0,.8);
+    border-radius: 15px;
+    padding: 1.5rem;
+    align-self: center;
+    box-shadow: 0 15px 25px rgba(0,0,0,.5);
+    border-radius: 10px;
+}
+
+.signupForm h2{
+    color: #fff;
+    flex-wrap: wrap;
+}
+
+.input-row{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 20px;
+    align-self: center;
+}
+
+.input-row label, ::placeholder{
+    color: #fff;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.input-row input{
+    display: flex;
+    flex: 1 0 150px;
+    flex-wrap: wrap;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.img-row{
+    display: flex;
+    flex-wrap: wrap;
+    margin:12px;
+    align-items: center;
+}
+
+.image-input{
+    display: flex;
+    font-size: 14px;
+    max-width: 200px;
+    color: #fff;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.signupForm .form-button{
+    display: inline-flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    white-space: nowrap;
+    margin: 20px;
+    border: none;
+    outline: none;
+    background:#4db151;;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.signupForm .form-button:hover{
+    background-color: #3e8e41;
+    color: white;
+}
+
+span{
+    font-size: 16px;
+    padding: 5px;
+    background-color: transparent;
+}
+
+

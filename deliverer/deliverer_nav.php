@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -160,18 +159,17 @@
     <body>
         <header class="header">
             
-            <a href="./seller_home.php"><img class="logopic" src="../images/llogo.png"></a>";
+            <a href="./deliverer_home.php"><img class="logopic" src="../images/llogo.png"></a>";
             
             <ul class="main-nav">
-                <li><a href="../index.php">Home</a></li>
+                <li><a href="./deliverer_home.php">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Forum</a></li>
-                <li><a href="#">Help Desk</a></li>
+                <li><a href="#">My Deliveries</a></li>
                 <li class="nav-item-has-dropdown">  
                     <?php  
-                        if (isset($_SESSION["loggedInSellerID"])) {
-                            $userID = $_SESSION["loggedInSellerID"];
-                            $retrieveInfo =  "SELECT * FROM client WHERE id='$userID';"; //Selecting all data from Table
+                        if (isset($_SESSION["loggedInDelivererID"])) {
+                            $userID = $_SESSION["loggedInDelivererID"];
+                            $retrieveInfo =  "SELECT * FROM deliverer WHERE delivererID='$userID';"; //Selecting all data from Table
                             $resultInfo = mysqli_query($con, $retrieveInfo); //Passing SQL
 
                             while($rowUser  = mysqli_fetch_assoc($resultInfo)){

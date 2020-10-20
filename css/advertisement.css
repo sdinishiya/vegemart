@@ -1,4 +1,5 @@
 @import url(./style.css);
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css");
 
 *{
     font-family: Georgia, serif;
@@ -10,7 +11,6 @@ body {
 }
 
 h1,h2,h3,h4,h5,h6,p{
-    color: black !important;
     flex-wrap: wrap;
 }
 
@@ -18,47 +18,54 @@ p{
     font-weight: 500;
 }
 
-.addForm {
+.adForProduct{
     background-color: #fff;
+    text-align: center;
     border-radius: 15px;
     padding: 1rem;
     margin: 10px;
     align-self: center;
+
+    background-image: url('../images/OPlogok.png');
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: bottom;
 }
+
+.adForProduct h3{
+    margin: 0;
+}
+
+.img-row{
+    display: flex;
+    flex-wrap: wrap;
+    margin:12px;
+    align-items: center;
+}
+
 .input-row{
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    padding: 8px 20px;
-    text-align: left;
+    padding: 10px 20px;
+    align-self: center;
 }
 
-label{
-    flex: 1 0 160px;
-    font-size: 17px;
-    vertical-align: top;
-}
-
-.input-box{
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 14px;
-    min-height: 25px;
-    min-width: 200px;
-    color: #232523;
-    background-color: whitesmoke;
-    border-color: transparent;
-    align-self: flex-end;
-}
-
-.image-input{
+.input-row input{
     display: flex;
     flex: 1 0 150px;
-    font-size: 14px;
-    min-height: 25px;
-    color: #232523;
-    background-color: whitesmoke;
-    border-color: transparent;
+    flex-wrap: wrap;
+    font-size: 16px;
+    color: #000;
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    padding-top: 1em;
+    background: transparent;
+}
+
+.item-img{
+    max-height: 200px;
+    text-align: center;
 }
 
 textarea{
@@ -67,12 +74,11 @@ textarea{
     font-size: 14px;
     text-align: start;
     color: #232523;
-    background-color: whitesmoke;
-    border-color: transparent;
+    background-color: transparent;
     align-self: flex-end;
 }
 
-.addForm .form-button{
+.adForProduct .form-button{
     display: inline-flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -88,9 +94,8 @@ textarea{
     font-size: 1rem;
 }
 
-.addForm .form-button:hover{
+.adForProduct .form-button:hover{
     background-color: #3e8e41;
     color: white;
 }
-
 

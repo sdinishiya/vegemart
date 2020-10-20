@@ -30,8 +30,9 @@
         
     
    
-    if(isset($_POST["save"])){
+    if(isset($_POST["submit"])){
         $productID= $_POST['editProductID'];
+       // echo"$productID";
         $newName = $_POST['editProductName'];
         $newQuantity = $_POST['editQuantity'];
         $newminPrice = $_POST['editMinPrice'];
@@ -40,7 +41,7 @@
         $imageType = $_FILES["fileToUpload"]["type"];
         $newAddress1 = $_POST['editAddress1'];
         $newAddress2 = $_POST['editAddress2'];
-        $newcity = $_POST['editCity'];
+        $newCity = $_POST['editCity'];
          
         if($imageName==""){
                 $updateQuery= "UPDATE `products` SET `name` = '".$newName."', `quantity` = '".$newQuantity."', `minPrice` ='".$newminPrice."', `address1` = '".$newAddress1."', `address2` = '".$newAddress2."', `city` = '".$newCity."' WHERE `productID` = '".$productID."' ";   
@@ -61,6 +62,7 @@
         }
         
     }
+    
     
     mysqli_close($con);
 ?>

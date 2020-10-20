@@ -14,14 +14,16 @@
     </head>
     <body>
 
-    <?php include "./seller_nav.php"; ?>
+    <?php include "../deliverer/deliverer_nav.php"; ?>
             <?php   
-                $userID = $_SESSION["loggedInSellerID"];
+                $userID = $_SESSION["loggedInDelivererID"];
                 
-                $selectusers = "SELECT * FROM client WHERE id='$userID'";
+                $selectusers = "SELECT * FROM deliverer WHERE delivererID='$userID'";
                 $selectemail = "SELECT * FROM users WHERE id='$userID'";
+
                 $userquery = mysqli_query($con,$selectusers);
-                $emailquery=mysqli_query($con,$selectemail);
+                $emailquery = mysqli_query($con,$selectemail);
+
                 while($row = mysqli_fetch_assoc($userquery)){
                     echo "<div class=\"row\">
                     <div class=\"columns group\">
@@ -30,10 +32,11 @@
                             <div class=\"row\">
                                 <div class=\"updateForm\">
                                     <h2>My Profile</h2>
-                                    <form id=\"UpdateProduct\" action=\"seller_profile_edit_submit.php\" method=\"post\" enctype=\"multipart/form-data\">
+                                    <form id=\"UpdateProfile\" action=\"deliverer_profile_edit_submit.php\" method=\"post\" enctype=\"multipart/form-data\">
                                     <div class=\"columns group\">
                                         <div class=\"column is-1 pl-1 pr-1\"></div>
                                         <div class=\"column is-10\">
+                                       
                                             <div class=\"image-row\">
                                                 <img class=\"user-img\" src= \"../images/users/{$row['profilePic']}\">
                                             </div>
@@ -49,24 +52,28 @@
                                                 <label>Last Name</label>
                                                 <input class=\"input-box\" type=\"text\" name=\"editLName\" placeholder=\"Edit last name\" value=\"{$row['lName']}\" required>
                                             </div>";
-                                            while($rowEmail = mysqli_fetch_assoc($emailquery)){
+                                        while($rowEmail = mysqli_fetch_assoc($emailquery)){
                                             echo"<div class=\"input-row\">
                                                 <label>Email</label> 
                                                 <input class=\"input-box\" type=\"email\" name=\"editEmail\" placeholder=\"Edit email\" value=\"{$rowEmail['email']}\" required>
                                             </div>";
-                                            }
-
-                                            echo"<div class=\"input-row\">
+                                        }
+                                            echo" <div class=\"input-row\">
                                                 <label>Phone number</label>
                                                 <input class=\"input-box\" type=\"text\" name=\"editPhoneNum\" placeholder=\"Edit contact number\" value=\"{$row['phoneNum']}\" required>
                                             </div>
                                             <div class=\"input-row\">
-                                                <label>address1</label> 
-                                                <input class=\"input-box\" type=\"text\" name=\"editAddress1\" placeholder=\"Address line 1\" value=\"{$row['address1']}\" required>                                    
+                                                <label for=\"vehicle\">Choose Vehicle:</label>
+                                                <select id=\"vehicle\" name=\"vehicle\" form=\"UpdateProfile\">
+                                                    <option value=\"bike\">{$row['vehicle']}</option>
+                                                    <option value=\"bike\">Bike</option>
+                                                    <option value=\"tuk\">Tuk</option>
+                                                    <option value=\"lorry\">Lorry</option>
+                                                </select>   
                                             </div>
                                             <div class=\"input-row\">
-                                                <label>address2</label> 
-                                                <input class=\"input-box\" type=\"text\" name=\"editAddress2\" placeholder=\"Address line 2\" value=\"{$row['address2']}\" required>                                    
+                                                <label>Vehicle Registration Number</label>
+                                                <input class=\"input-box\" type=\"text\" name=\"vehicleNo\" placeholder=\"Vehicle Registration Number\" value=\"{$row['vehicleNo']}\" required>
                                             </div>
                                             <div class=\"input-row\">
                                                 <label>City</label> 
@@ -93,9 +100,9 @@
                                         <div class=\"column is-1 pl-1 pr-1\"></div>
                                     </div>
                                     <div class=\"row\">
-                                        <input type=\"hidden\" value=\"{$row['id']}\" name=\"editID\">
+                                        <input type=\"hidden\" value=\"{$row['delivererID']}\" name=\"editID\">
                                         <input class=\"form-button\"  type=\"submit\" name=\"submit\" value=\"Save\">
-                                        <input class=\"form-button\" type=\"button\" name=\"cancel\" onclick=\"window.location.replace('seller_home.php')\" value=\"Cancel\">                                           
+                                        <input class=\"form-button\" type=\"button\" name=\"cancel\" onclick=\"window.location.replace('deliverer_home.php')\" value=\"Cancel\">                                           
                                         <a style=\"color:#3e8e41; font-size:16px; margin-top:10%;\" href=\"#\">Deactivate account</a>
                                         </div>
                                     </form>
