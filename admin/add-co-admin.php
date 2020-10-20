@@ -36,7 +36,7 @@
   <div class="row">
     <div class="col-4"></div>
     <div class="col-4">
-      <form action="/action_page.php">
+      <form action="view-co-admin.php">
 
       <div class="row">
         <div class="col-3">
