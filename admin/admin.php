@@ -54,7 +54,7 @@
             <div class="col-3">
             <div class="container">
                 <img src="../images/users/sales-rec1.jpg" alt="image" class="image" >
-                        <a href="sales.php" class="button">Sales Records</a>
+                        <a href="sales-mgt.php" class="button">Sales Records</a>
                     </div> 
             </div>
 
