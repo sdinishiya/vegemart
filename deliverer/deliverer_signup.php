@@ -6,7 +6,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Sign up</title>
+        <title>Deliverer Sign up</title>
         <link type="text/css" rel=stylesheet href="../css/deliverer-signup.css">
     </head>
     <body>
