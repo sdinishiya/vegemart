@@ -24,6 +24,10 @@
                         $_SESSION["loggedInDelivererID"] =$row['id']; 
                         header('Location:../deliverer/deliverer_home.php');
                     }
+                    elseif($row['userType'] === "admin"){
+                        $_SESSION["loggedInAdminID"] =$row['id']; 
+                        header('Location:../admin/admin.php');
+                    }
                 }
                 else{  
                     //return false;  
