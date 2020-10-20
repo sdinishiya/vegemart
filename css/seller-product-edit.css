@@ -1,5 +1,4 @@
-@import url(./flex-grid.css);
-@import url(./helpers.css);
+@import url(./style.css);
 
 *{
     font-family: Georgia, serif;

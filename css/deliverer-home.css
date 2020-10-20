@@ -4,6 +4,7 @@
 h1,h2,h3,h4,h5,h6,p,span,i {
     flex-wrap: wrap;
 }
+
 button {
     background-color: #29BF3A;
     border-color: transparent;
@@ -24,41 +25,9 @@ button > i{
     color: white !important
 }
 
-.star-colored {
-    color: gold !important;
-}
-.review-image {
-    width: 4rem;
-}
-
-.user-card {
-    box-shadow: 4px 6px 25px -8px rgba(0, 0, 0, 0.75);
-    border-radius: 15px;
-    padding: 1rem;
-    margin: 10px;
-    align-self: center;
-}
-.user-image {
-    width: 200px;
-}
-.item-img{
-    width: 100px;
-}
 .item-row{
-    background-color: lightgray !important;
+    background-color: #caf3cf !important;
     border-radius: 10px !important;
     padding: 5px !important;
     vertical-align: middle;
 }
-  
-#addProduct{
-    position: fixed;
-    bottom: 10px;
-    right: 550px;
-}
-
-span{
-    vertical-align: middle;
-}
-
-

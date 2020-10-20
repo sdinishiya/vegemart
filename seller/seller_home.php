@@ -44,7 +44,6 @@ if (!(isset($_SESSION['loggedInSellerID']) || isset($_SESSION['loggedInUserID'])
                                     <div class=\"row pl-2\">
                                         <h2 class=\"mb-1\">" . $rowUser['fName'] . " " . $rowUser['lName'] . "</h2><br>                                                                              
                                         <div class=\"column is-3 has-text-left pl-2\">
-                                             <h3 class=\"mb-0 mt-0\">Email:</h3><br>
                                             <h3 class=\"mb-0 mt-0\">Phone:</h3><br>
                                             <h3 class=\"mb-0 mt-0\">Location:</h3><br>
                                         </div>

@@ -39,40 +39,34 @@
         $address1 = $_POST['address1'];
         $address2 = $_POST['address2'];
         $city = $_POST['city'];
+        $description = $_POST['description'];
         $date = date('Y-m-d', strtotime($_POST['date']));
-        $sellerID = $_SESSION["loggedInSellerID"];                            
+        $sellerID = $_SESSION["loggedInSellerID"];  
+       // $productID = rand();
+        //$adID = rand();                            
                     
-        if (isset($_POST['ad'])){
-            $adID = rand(); 
-            $insertProduct = "INSERT INTO `products` (`sellerID`,`name`,`quantity`,`minPrice`,`imageName`,`address1`,`address2`,`city`,`adID_fk`) VALUES ('".$sellerID."','".$productName."','".$quantity."','".$minPrice."','".$imageName."','".$address1."','".$address2."','".$city."','".$adID."');";
-            $advertise =  "INSERT INTO `advertisements` (`adID`) VALUES ('".$adID."');";      
-            if (mysqli_query($con, $insertProduct) === TRUE && mysqli_query($con, $advertise) === TRUE) {                            
-                $message = base64_encode(urlencode("Product Added."));
+        $insertProduct = "INSERT INTO `products` (`sellerID`,`name`,`quantity`,`minPrice`,`imageName`,`address1`,`address2`,`city`,`adID_fk`,`description`) VALUES ('".$sellerID."','".$productName."','".$quantity."','".$minPrice."','".$imageName."','".$address1."','".$address2."','".$city."','".$adID."','".$description."');";
+           // $advertise =  "INSERT INTO `advertisements` (`adID`,`productID`) VALUES ('".$adID."','".$productID."');";      
+        if (mysqli_query($con, $insertProduct)) {                            
+            $message = base64_encode(urlencode("Product Added."));
+            if (isset($_POST['ad'])){
+                $advertiseProduct = "SELECT * FROM products ORDER BY productID DESC LIMIT 1";
+                $advertiseQuery = mysqli_query($con,$advertiseProduct);
+                while($row = mysqli_fetch_assoc($advertiseQuery)){
+                    $productID = $row['productID'];
+                }
+                header('Location:advertisement.php?id=' . $productID);
+            }else{
                 header('Location:seller_home.php?msg=' . $message);
-                exit();
             }
-            else{                           
-                $message = base64_encode(urlencode("SQL Error while Registering"));
-                header('Location:seller_product_add.php?msg=' . $message);
-                exit();
-            } 
+            exit();
         }
-
-        else{  
-            $insertProduct = "INSERT INTO `products` (`sellerID`,`name`,`quantity`,`minPrice`,`imageName`,`address1`,`address2`,`address3`) VALUES ('".$sellerID."','".$productName."','".$quantity."','".$minPrice."','".$imageName."','".$address1."','".$address2."','".$address3."');";                         
-            if (mysqli_query($con, $insertProduct) === TRUE) {                            
-                $message = base64_encode(urlencode("Product Added."));
-                header('Location:seller_home.php?msg=' . $message);
-                exit();
-            }
-            else {                           
-                $message = base64_encode(urlencode("SQL Error while Registering"));
-                header('Location:seller_product_add.php?msg=' . $message);
-                exit();
-            } 
-        }               
+        else{                           
+            $message = base64_encode(urlencode("SQL Error while Adding products"));
+            header('Location:seller_product_add.php?msg=' . $message);
+            exit();
+        } 
     }
-
     mysqli_close($con);
 ?>
 

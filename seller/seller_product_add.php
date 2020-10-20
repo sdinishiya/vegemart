@@ -1,3 +1,9 @@
+<?php include('../database/dbconfig.php'); ?>
+<?php
+    if(empty(session_id())){
+        session_start();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +13,7 @@
     <title>Add New Product</title>
 </head>
     <body>
-        <?php include "../includes/logout-nav.php"; ?>   
+        <?php include "./seller_nav.php"; ?> 
         <div class="row">
             <div class="columns group">
                 <div class="column is-2 pl-1 pr-1"></div>
@@ -15,7 +21,7 @@
                     <div class="row">
                         <div class="addForm">
                             <h2>Add Product</h2>
-                            <form id="addProduct" action="seller_product_add_submit.php" method="post" enctype="multipart/form-data">
+                            <form id="addProduct" name="addProduct" action="seller_product_add_submit.php" method="post" enctype="multipart/form-data">
                             <div class="columns group">
                                 <div class="column is-6">
                                     <div class="input-row">
@@ -33,19 +39,19 @@
 
                                     <div class="input-row">                                               
                                         <label for="image">Image:</label>
-                                        <input class="image-input"type="file" id="fileToUpload" name="fileToUpload"/><br> 
+                                        <input class="image-input"type="file" id="fileToUpload" name="fileToUpload" required/><br> 
                                     </div>
                                     <div class="input-row">                                               
                                         <label for="address">Address:</label>
-                                    <input type="text" class="input-box" id="address1" name="address1" placeholder="Address line 1"/><br>
+                                    <input type="text" class="input-box" id="address1" name="address1" placeholder="Address line 1" required/><br>
                                     </div>
                                     <div class="input-row">   
                                     <label for="address"></label>                                            
-                                        <input type="text" class="input-box" id="address2" name="address2"placeholder="Address line 2"/><br>
+                                        <input type="text" class="input-box" id="address2" name="address2"placeholder="Address line 2" required/><br>
                                     </div>
                                     <div class="input-row">   
                                         <label for="address"></label>                                             
-                                        <input type="text" class="input-box" id="address3" name="city"placeholder="City"/><br> 
+                                        <input type="text" class="input-box" id="address3" name="city"placeholder="City" required/><br> 
                                     </div>
                                     
                                 </div>
@@ -60,8 +66,7 @@
                                         <input type="date" class="input-box" id="date" name="date" id="date"><br>
                                     </div>
                                     <div class="input-row">   
-                                        <label for="description">Description</label>   <br> 
-                                        <textarea rows="5" cols="30" name="Description" form="addProduct">Product descripiton</textarea>
+                                        <textarea rows="5" cols="30" name="description" placeholder="Product description" form="addProduct"></textarea>
                                     </div>
                                 </div>
                             </div>
