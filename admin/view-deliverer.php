@@ -16,8 +16,7 @@
             <?php include "../includes/admin-logout-nav.php"; ?>
         </div>
 
-<h2>Co-Admin Details Table</h2>
-
+<h2>Deliverer Details Table</h2>
 
 <table>
   <tr>
