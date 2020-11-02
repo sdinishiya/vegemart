@@ -53,8 +53,14 @@
                         <a href="cus-order.php" class="button">Forum Posts</a>
                     </div> 
             </div>
-
-            <!--report category ends-->
         </div>
+            <!--report category ends-->
+        <div class="row">
+            <div class="col-10"></div>
+            <div class="col-1"><a href="admin.php" class="button"> Back </a></div>
+        </div>
+
+        <?php include_once "../includes/footer.php"; ?> 
+        
     </body>
     </html>

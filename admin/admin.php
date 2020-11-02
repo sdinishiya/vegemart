@@ -33,10 +33,7 @@
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
-        <h4>User management (e.g adding, deleting, creating groups, enabling/disabling user privileges etc.)
-        Content management (i.e. so-called CRUD: create, read, update, and delete)
-        Export/import of data (i.e. basic integration with other systems)
-        Optional: payment system (either third-party or custom) </h4></div>
+        <h4>Select from below options to navigate to the corresponding page.</h4></div>
     </div>
 
     <!--sub topic begins-->
@@ -65,7 +62,12 @@
                     </div>  
             </div>
             </div>
-            <!--sub topic ends-->
         </div>
+            <!--sub topic ends-->
+        <div class="row">
+            <div class="col-10"></div>
+            <div class="col-1"><a href="../index.php" class="button"> Back </a></div>
+        </div>
+        <?php include_once "../includes/footer.php"; ?> 
     </body>
     </html>
