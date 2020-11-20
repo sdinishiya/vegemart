@@ -1,0 +1,110 @@
+@import url(./style.css);
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css");
+
+h1,h2,h3,h4,h5,h6,p,span,i {
+    flex-wrap: wrap;
+}
+
+h1,h2,h3,h4{
+    text-transform: capitalize;
+}
+
+p{
+    padding: 1em;
+}
+
+.heading{
+    flex: 1;
+}
+
+.heading h1{
+    font-size: 30px;
+    margin: auto;
+    padding: 20px 0 0 1em;
+    text-align: left;
+    color: black;
+}
+
+#title{
+    text-align:left; 
+    padding: 0 30px; 
+    font-family: Gabriola; 
+    margin:auto;
+}
+
+.bid-card {
+    box-shadow: 4px 6px 25px -8px rgba(0, 0, 0, 0.75);
+    border-radius: 15px;
+    padding: 1rem;
+    margin: 0.5rem;
+    align-self: center;
+    text-align: left;
+}
+
+.item-image {
+    width: 300px;
+    padding: 3em 0;
+    margin: 0 20px;
+}
+
+.text-box{
+    display:flex;  
+    min-height: 30px;
+    min-width: 250px;
+    margin-bottom: 1em;  
+}
+
+.input-box{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    font-size: 16px;
+    outline: none; 
+    color: #000000;
+    background-color: whitesmoke;
+    border-color: transparent;
+}
+
+.text-box input[type="submit" i]{
+    background-color: #20a727;
+    color: white;
+    cursor: pointer;
+    outline: transparent;
+    min-height: 30px;
+    min-width: 70px;
+}
+
+.tab{
+    align-items: center;
+}
+
+#tab-button{
+    border: none;
+    background-color:transparent ;
+    outline: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    margin: auto;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#tab-button:hover{
+    border-bottom: 3px solid #27b139;
+}
+
+.vl {
+    border-left: 2px solid green;
+    min-height: 100px;
+    left: 50%;
+    position: relative;
+}
+
+#grad1 {
+    height: fit-content;
+    width:400px;
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(56, 185, 51));
+    padding: 1px 0;
+}

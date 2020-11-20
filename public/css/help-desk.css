@@ -1,0 +1,71 @@
+@import url(./style.css);
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0/css/font-awesome.min.css");
+
+.heading{
+    flex: 1;
+    background-color: #138D75;
+    padding: 0.1rem;
+}
+
+.heading h1{
+    padding: 0;
+    font-size: 24px;
+    padding-left: 1em;
+    color: white;
+    text-align: left;
+}
+
+.ques-row{
+    border-style: ridge;
+    border-radius: 5px;
+    padding: 5px;
+    vertical-align: middle;
+}
+
+.user-img{
+    width: 50px;
+    margin-top: 0.5em;
+    border-radius: 50%;
+    border-color: gray;
+}
+
+.tech-img{
+    width: 40px;
+    margin-top: 0.5em;
+    border-color: gray;
+    border-radius: 50%;
+}
+
+.faq-section{
+    box-shadow: 4px 6px 20px -8px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 10px;
+    align-self: center;
+    text-align: left;
+}
+
+button {
+    background-color: #138D75;
+    border-color: transparent;
+    color: #000;
+    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    justify-content: center;
+    padding:1em 1.5em;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 0.3em;
+}
+
+button > i{
+    color: black !important
+}
+
+#askQ{
+    position: fixed;
+    bottom: 10px;
+    right: 30px;
+}

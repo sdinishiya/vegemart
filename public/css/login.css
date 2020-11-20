@@ -1,0 +1,120 @@
+html {
+    height: 100%;
+    
+} 
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: url('../images/bg.png');
+    background-size: cover;
+    backdrop-filter: brightness(60%); 
+    background-repeat: no-repeat;   
+}
+
+p{
+    color: #B6B2B1;
+    text-align: center;
+}
+ 
+.login{
+    display: flex;  
+    flex-direction: column;
+    position: relative;
+    top:18px;
+    width: 30%;
+    padding: 50px;
+    padding-bottom: 35px!important;
+    background: rgba(0,0,0,.8);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.5);
+}
+
+.login h2{
+    margin: 0 0 0px;
+    padding: 0px;
+    color: #fff;
+    text-align: center;
+    font-family: Helvetica;
+}
+
+.login .inputBox{
+    position: relative;
+}
+
+.login .inputBox input{
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.login .inputBox label{
+    position: absolute;
+    top: 0;
+    left: 0;  
+    padding: 15px 0;
+    font-size: 18px; 
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login .inputBox input:focus ~ label, 
+.login .inputBox input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03a9f4;
+    font-size: 14px;
+} 
+
+.login .button{
+    margin-top: 10px;  
+    margin-left: 15%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    background:#03a9f4;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-flex;
+    font-size: 16px;
+}
+
+.login .button:hover{
+    background-color: #3e8e41;
+    color: white;
+}
+.anchor{
+    text-align:left;
+}
+
+.anchor a{
+    display: flex;
+    position: relative;    
+    top: 0px;
+    color: lightsteelblue;
+    margin-bottom: 16px;
+}
+.logo{
+    position: absolute;
+    top: -9%;
+    left: 39%;
+    z-index:9999;
+    width:20%;
+    border: 7px solid rgba(0,0,0,.7);
+    border-radius: 50%;
+}
