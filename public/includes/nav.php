@@ -7,82 +7,241 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <link rel="stylesheet" href="css/style.css" type="text/css">  
-        <link rel="stylesheet" href="css/nav.css">
+        <link href="images/logo.png" rel="shortcut icon">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
         <script src="https://kit.fontawesome.com/85eb26c5dd.js" crossorigin="anonymous"></script>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                font-family:Candara;
+                line-height: 1.6;
+                margin: 0;
+                min-height: 90vh;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+                color:black;
+                list-style: none;
+            }
+
+            .header {
+                font-family:Candara;
+                display:flex;
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0;
+                z-index: 4;
+                padding: 5px 1.5%;
+                border-bottom: 1px solid #D7DBDD;
+                width: 100%;
+                background-color: white;
+            }
+
+            .logopic{
+                margin:auto;
+                margin-top:2px;
+                padding-bottom:0;
+                margin-bottom:0;
+                cursor: pointer;
+                max-height:40px;
+            }
+
+            .main-nav a {
+                text-decoration: none;
+                display: block;
+                padding: 0px 15px;
+                margin:auto;
+                text-align: center;
+                color:black;
+                font-family: Candara;
+                font-weight:500;               
+                font-size: 1.2rem;
+            }
+
+            .main-nav a:hover {
+                color: #A2D9CE;
+            }
+
+            .loginbtn {
+                background-color: #138D75;
+                border-color: transparent;
+                color: #fff;
+                font-size: 1.1rem;
+                cursor: pointer;
+                justify-content: center;
+                margin: 0 1em;
+                padding: 0.4em 1em;
+                text-align: center;
+                white-space: nowrap;
+                border-radius: 0.3em;
+            }
+
+            button > i{
+                color: white !important
+            }
+
+            .notifbtn {
+                background-color: transparent;
+                border-color: transparent;
+                margin:0 1em 0 1px;
+                padding: 0.4em 1em 0.4em 0.2em;
+                font-family: Candara;
+                font-size: 1.2rem;
+                border: none;
+                cursor: pointer;
+                color:black;
+            }
+            /* <i class=\"fa fa-bell\" style=\"font-size:16px; color:black; margin-left:1em; margin-right:0; padding-right:0;\"></i> */
+
+            .dp{
+                border-radius: 100%;
+                max-height: 40px;
+                cursor:pointer;
+                margin:0;
+                padding: 0.3em 0 0 0;
+            } 
+
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            #notifDrop{
+                min-width: 250px !important; 
+            }
+            #notifDrop a{
+                text-align:right;
+                font-size:14px;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                right:10%;
+                background-color: #F4F6F6;
+                min-width:160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                border-radius:5px;
+                z-index: 1;
+            }
+
+            .dropdown-content a {
+                display: block;
+                text-decoration: none;
+                color: black;
+                font-size: 1.1rem;
+                padding: 5px 16px;
+            }
+
+            .show {display: block;}
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            /* ================================= 
+            Media Queries
+            ==================================== */
+
+            @media (min-width: 769px) {
+                .header,
+                .main-nav {
+                    display: flex;
+                    align-items:center;
+                    
+                }
+                .header {
+                    flex-direction: column;
+                    align-items: center;
+                    .header{
+                        width: 80%;
+                        margin: 0 auto;
+                        max-width: 1150px;
+                    }
+                }
+
+            }
+
+            @media (min-width: 1025px) {
+                .header {
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+            }
+        </style>
     </head>
 
     <body>
         <header class="header">
-            
-            <a href="./index.php"><img class="logopic" src='images/blacklogo.png'></a>            
+            <a href="./index.php"><img class="logopic" src="http://localhost/vegemart/public/images/blacklogo.png"></a>
             <ul class="main-nav">
-                
                 <li><a href="./index.php">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="./forum.php">Forum</a></li>
-                <li><a href="./help_desk.php">Help Desk</a></li>
-                <li><div id="notification-icon" style="color:black;cursor:pointer"><i class="far fa-bell"></i>
-                <span>4</span>
-                </div></li> 
-                
-                <li class="nav-item-has-dropdown">  
-                <?php
-            //session_start();
-                    include '../src/nav_profilepic.php';
-
-                ?>
-                </li> 
-            </ul>
-        </header> 
-        <li>
-            <div class="dropdown">                    
-                    <?php
-                        include '../src/nav_dropdown.php';
-                    ?>
-                <div class="dropdown-content">
-                    <a href="#">View Profile</a>
-                    <a href="../src/logout.php">Logout</a>
-                </div>               
-            </div> 
-        </li>
-        <li>
-                        <div class="dropdown">
-                        <i class="fa fa-bell" style="font-size:16px; color:black; margin-left:1em; margin-right:0; padding-right:0;"></i><button onclick="dropFunc()" class="notifbtn">Messages</button>
-                            <div id="notifDrop" class="dropdown-content">
-                                <a href="#home">You have a message from Nimal Bandara</a>
+                <li><a href="#">Forum</a></li>
+                <li><a href="#">Help Desk</a></li>
+                <?php  
+                    if(isset($_SESSION["loggedInUserID"])||isset($_SESSION["loggedInSellerID"])){
+                        if (isset($_SESSION["loggedInUserID"])) {
+                            $userID = $_SESSION["loggedInUserID"];
+                        }
+                        elseif (isset($_SESSION["loggedInSellerID"])) {
+                            $userID = $_SESSION["loggedInSellerID"];
+                        }
+                        $retrieveInfo =  "SELECT * FROM client WHERE id='$userID';"; //Selecting all data from Table
+                        $resultInfo = mysqli_query($con, $retrieveInfo); //Passing SQL
+                        while($rowUser  = mysqli_fetch_assoc($resultInfo)){
+                            echo "
+                        <li>
+                        <div class=\"dropdown\">
+                        <i class=\"fa fa-bell\" style=\"font-size:16px; color:black; margin-left:1em; margin-right:0; padding-right:0;\"></i><button onclick=\"dropFunc()\" class=\"notifbtn\">Messages</button>
+                            <div id=\"notifDrop\" class=\"dropdown-content\">
+                                <a href=\"#home\">You have a message from Nimal Bandara</a>
                             </div>
                         </div>
-        </li>
-        <script>
-            let visible_notification = false
-            let notification = document.getElementById("notification-container")
-            let icon = document.getElementById("notification-icon")
-            icon.addEventListener('click', () => {
-                if(visible_notification !== true) {
-                    notification.style.display = 'block'
-                    visible_notification = true;
-                } else {
-                    notification.style.display = 'none'
-                    visible_notification = false;
+                        </li>
+
+                        <li>
+                        <div class=\"dropdown\">
+                            <img class=\"dp\" src=\"http://localhost/vegemart/images/users/{$rowUser['profilePic']}\" alt=\"Avatar\">
+                            <div class=\"dropdown-content\">
+                                <a href=\"#\">View Profile</a>
+                                <a href=\"#\">Logout</a>
+                            </div>
+                        </div>
+                        </li>";
+                    }                       
+                }    
+                else{
+                    // echo"<li><a href=\"../login.php\">Login</a></li>";
+                    echo"<li><button class=\"loginbtn\" onClick=\"location.href='http://localhost/vegemart/login.php';\">Login</button><li>";
+                }   
+            ?> 
+            </ul>
+        </header>
+            <script>
+                /* When the user clicks on the button, 
+                toggle between hiding and showing the dropdown content */
+                function dropFunc() {
+                document.getElementById("notifDrop").classList.toggle("show");
                 }
-            } );
-        </script>
-        
-        <script>
-            let visible = false
-            let dropdown = document.getElementById("sub-menu-1")
-            let image = document.getElementById("profile")
-            image.addEventListener('click', () => {
-                if(visible !== true) {
-                    dropdown.style.display = 'block'
-                    visible = true;
-                } else {
-                    dropdown.style.display = 'none'
-                    visible = false;
+
+                // Close the dropdown if the user clicks outside of it
+                window.onclick = function(event) {
+                    if (!event.target.matches('.notifbtn')) {
+                        var dropdowns = document.getElementsByClassName("dropdown-content");
+                        var i;
+                        for (i = 0; i < dropdowns.length; i++) {
+                            var openDropdown = dropdowns[i];
+                            if (openDropdown.classList.contains('show')) {
+                                openDropdown.classList.remove('show');
+                            }
+                        }
+                    }
                 }
-            } );
-        </script>
-        
+            </script>
     </body>
 </html>
