@@ -172,7 +172,7 @@
 
             .show {display: block;}
 
-            .nav-dropdown:hover .nav-dropdown-content {
+            .nav-dropdown:hover .dropdown-content {
                 display: block;
             }
 
@@ -213,10 +213,10 @@
             <a href="./index.php"><img class="logopic" src="http://localhost/vegemart/public/images/logob.png"></a>
             
             <ul class="main-nav">
-                <li><a href="http://localhost/vegemart/public/index.php">Home</a></li>
+                <li><a href="http://localhost/vegemart/public/products.php">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="http://localhost/vegemart/public/forum.php">Forum</a></li>
-                <li><a href="http://localhost/vegemart/public/help_desk">Help Desk</a></li>
+                <li><a href="http://localhost/vegemart/public/help_desk.php">Help Desk</a></li>
                 <?php  
                     if(isset($_SESSION["loggedInUserID"])||isset($_SESSION["loggedInSellerID"])){
                         if (isset($_SESSION["loggedInUserID"])) {

@@ -31,10 +31,11 @@
                                         <label>Last Name</label>
                                         <input class="input-box" type="text" name="editLName" placeholder="Edit last name" value=<?php echo $row['lName']?> required>
                                     </div>
-                                    <!-- while($rowEmail = mysqli_fetch_assoc($emailquery){
-                ?>                           echo"<div class="input-row">
+                                    
+                                        <!-- while($rowEmail = mysqli_fetch_assoc($emailquery){
+                                        echo"<div class=\"input-row\">
                                                 <label>Email</label> 
-                                                <input class="input-box" type="email" name="editEmail" placeholder="Edit email" value= required>
+                                                <input class=\"input-box\" type=\"email\" name=\"editEmail\" placeholder=\"Edit email\" value= required>
                                             </div>";
                                              -->
 
@@ -53,10 +54,6 @@
                                     <div class="input-row">
                                         <label>City</label> 
                                         <input class="input-box" type="text" name="editCity" placeholder="Edit city" value=<?php echo $row['city']?> required>                            
-                                    </div>
-                                    <div class="input-row">
-                                        <label>Username</label>    
-                                        <input class="input-box" type="text" name="editUsername" placeholder="Edit username" value=<?php echo $row['username']?> required>                                         
                                     </div>
                                     <div class="input-row">
                                         <label> Password</label> 

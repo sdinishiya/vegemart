@@ -18,7 +18,7 @@
         left: 50%;
         vertical-align: left;
         width: 50%;
-        height: 85%;
+        height: 78%;
         display: flex;
         z-index: 0;
         }
@@ -28,7 +28,7 @@
         border-radius: 15px;
         padding: 1rem;
         margin: 5%;
-        margin-top: 30%!important;
+        margin-top: 28%!important;
         align-self: center;
         text-align: left;
         
@@ -43,7 +43,7 @@
         }
         .description{
             position: relative;
-            margin-top: 10%;
+            margin-top: 11%;
             align-self: center;
             text-align: left;
         }
@@ -153,7 +153,7 @@
                                 <p style="font-size:140%">With "Delivery Malli" we thought of touching the hearts of our customers becoming their most trusted brother in delivering documents, food and other secured packages.</p>
                                 <p style="font-size:140%">Join one of the best delivery service</p>      
                                 <div class="row has-text-right mt-1 mb-1 mr-1">
-                                    <button class="button" onClick="location.href='http://localhost/vegemart/public/deliverer_signup.php';"><i class="fas fa-truck mr-1" ></i>Rider</button>
+                                    <button class="button" onClick="location.href='http://localhost/vegemart/public/deliverer/deliverer_signup.php';"><i class="fas fa-truck mr-1" ></i>Rider</button>
                                 </div> 
                             </div>
                         </div>
@@ -166,23 +166,39 @@
                 </div>
             </div>
         </div>
-        <div class="row pl-1 pr-2 mt-0 mb-0">
+        <div class="row mt-0 mb-0 pr-1 pl-1">
             <div class="columns group mt-0">
-                <div class="column is-12 pr-1">
+                <div class="column is-12">
                     <div class="forum">
                         <div class="column is-6">
                             <div class="has-text-left mb-0">
                                 <img class="vegetables" style="width:100%" src="./images/vege1.png">
                             </div>
                         </div>
-                        <div class="column is-6">
-                            <div class="has-text-right mb-1">
+                        <div class="column is-3">
+                            <div class="has-text-left">
                                 <img class="vegetables" style="width:100%;height:50%" src="./images/vege2.jpg">
                             </div>
+                        </div>
+                        <div class="column is-3">
+                            <div class="has-text-left">
+                                <img class="vegetables" style="width:100%;height:50%" src="./images/vege2.jpg">
+                            </div>
+                        </div>
+                        <div class="column is-3">
+                            <div class="has-text-left">
+                                <img class="vegetables" style="width:100%;height:50%" src="./images/vege2.jpg">
+                            </div>
+                        </div>
+                        <div class="column is-3">
+                            <div class="has-text-left">
+                                <img class="vegetables" style="width:100%;height:50%" src="./images/vege2.jpg">
+                            </div>
+                        </div>
                             <!-- <div class="has-text-left mb-0">
                                 <img class="vegetables" style="width:60%" src="./images/vege3.jpg">
                             </div> -->
-                        </div>
+                        
                     </div>
                 </div>
             </div>

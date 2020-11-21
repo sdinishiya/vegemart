@@ -18,12 +18,12 @@
                     <div class="row">
                     <fieldset>
                             <legend>Add Product</legend>
-                            <form id="addProduct" name="addProduct" action="seller_product_add_submit.php" method="post" enctype="multipart/form-data">
+                            <form id="addProduct" name="addProduct" action="../../src/seller/seller_product_add_submit.php" method="post" enctype="multipart/form-data">
                             <div class="columns group">
                                 <div class="column is-12 pl-2 pr-2">
                                     <div class="input-row">                                  
                                         <label for="product">Product Name</label>                                        
-                                        <select name="product" form="addProduct">
+                                        <select name="productName" form="addProduct">
                                             <option value="beans">Beans</option>
                                             <option value="beetroot">Beetroot</option>
                                             <option value="broccoli">Boccoli</option>
@@ -42,11 +42,11 @@
                                     </div>
                                     <div class="input-row">                                              
                                         <label for="quantity">Quantity (kg):</label>
-                                        <input type="text" class="input-box" id="quantity" name="quantity" placeholder="Quantity" required/><br>
+                                        <input type="text" class="input-box" id="quantity" name="quantity" placeholder="ex: 1" required/><br>
                                     </div>
                                     <div class="input-row">                                               
                                         <label for="minPrice">Minimum price per unit(Rs):</label>
-                                        <input type="text" class="input-box" id="minPrice" name="minPrice" placeholder="Minimum price" required/><br>
+                                        <input type="text" class="input-box" id="minPrice" name="minPrice" placeholder="ex: 100" required/><br>
                                     </div>
 
                                     <div class="input-row">                                               
@@ -55,25 +55,32 @@
                                     </div>
                                     <div class="input-row">                                               
                                         <label for="address">Address:</label>
-                                    <input type="text" class="input-box" id="address1" name="address1" placeholder="Address line 1" required/><br>
+                                    <input type="text" class="input-box" id="address1" name="address1" placeholder="ex: 75/2" required/><br>
                                     </div>
                                     <div class="input-row">   
                                     <label for="address"></label>                                            
-                                        <input type="text" class="input-box" id="address2" name="address2"placeholder="Address line 2" required/><br>
+                                        <input type="text" class="input-box" id="address2" name="address2"placeholder="ex: Bandarawella road" required/><br>
                                     </div>
                                     <div class="input-row">   
                                         <label for="address"></label>                                             
-                                        <input type="text" class="input-box" id="address3" name="city"placeholder="City" required/><br> 
+                                        <input type="text" class="input-box" id="address3" name="city"placeholder="ex: Badulla" required/><br> 
                                     </div>
                                     <div class="input-row">   
                                         <label for="description">Description:</label>                                             
-                                        <textarea rows="5" cols="35" name="description" form="addProduct">Product description</textarea>
+                                        <textarea rows="5" cols="35" name="description" form="addProduct" placeholder="Product description"></textarea>
                                     </div>                               
+                                    <div class="input-row">                                              
+                                        <label for="date">Date of product Expiration:</label>
+                                        <input type="date" class="input-box" name="expirationDate"><br>
+                                    </div>                          
                                     <br>
                                     <p>For advertisements please fill the checkbox</p>
                                     <div class="input-row">
                                         <label for="ad">Advertisement</label>
-                                        <input type="checkbox" id="ad" name="ad" value="ad"/>                                 
+                                        <input type="checkbox" id="ad" name="ad" value="ad" onclick="abc()"/> 
+                                    <div class="input-row">                                              
+                                        <label for="date" style="display:none;" id="label">Date of product availability:</label>
+                                        <input type="date" class="input-box" id="date" name="availableDate" style="display:none;"><br>
                                     </div>
                                 </div>
                                 

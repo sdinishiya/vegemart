@@ -42,18 +42,11 @@
         $userType=$_POST["type"];
 
         if ($password === $confirmPassword) {
-            $sql_u = "SELECT * FROM client WHERE username='".$username."'";
-            $sql_e = "SELECT * FROM users WHERE email='".$email."'";
-            $res_u = mysqli_query($con, $sql_u);
-            $res_e = mysqli_query($con, $sql_e);
-                              
-            if (mysqli_num_rows($res_u) > 0) {                       
-                echo "<script type='text/javascript'>
-                    alert('username already exists');
-                    window.history.back();             
-                </script>";                                                   
+            
+            $sql_e = "SELECT * FROM users WHERE email='".$email."'";            
+            $res_e = mysqli_query($con, $sql_e);           
                           
-            }else if(mysqli_num_rows($res_e) > 0){
+            if(mysqli_num_rows($res_e) > 0){
                 echo "<script type='text/javascript'>
                 alert('email already exists');
                 window.history.back();           
@@ -65,7 +58,7 @@
                     $imageName="default.png";
                 }  
                 $id = rand(); 
-                $client = "INSERT INTO `client` (`id`, `fName`,`lName`,`phoneNum`,`address1`,`address2`,`city`,`profilePic`,`username`) VALUES ('".$id."','".$fName."','".$lName."','".$phoneNum."','".$address1."','".$address2."','".$city."','".$imageName."','".$username."');";
+                $client = "INSERT INTO `client` (`id`, `fName`,`lName`,`phoneNum`,`address1`,`address2`,`city`,`profilePic`) VALUES ('".$id."','".$fName."','".$lName."','".$phoneNum."','".$address1."','".$address2."','".$city."','".$imageName."');";
                 $user = "INSERT INTO `users` (`id`,`email`,`password`, `userType`) VALUES ('".$id."','".$email."','".$password_hash."','".$userType."');";
                 mysqli_query($con,$client);
                 mysqli_query($con,$user);

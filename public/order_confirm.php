@@ -13,7 +13,7 @@
         <?php include "./includes/nav.php"; ?>
         <div class="columns group mb-0">
             <div class="column is-2"></div>
-            <div class="column is-8 mt-2 mb-0">
+            <div class="column is-8 mt-1 mb-0">
                 <section>
                     <ol class="progress-bar">
                         <li class="is-complete"><span>Shopping Cart</span></li>  
@@ -30,7 +30,7 @@
         
         <div class="columns group mb-0">
             <div class="column is-1"></div>
-            <div class="column is-5 pl-2 pr-2">
+            <div class="column is-5 pr-4">
                 <div class="image-row has-text-centered">
                     <img class="map" src="http://localhost/vegemart/public/images/map.jpg">
                 </div>
@@ -40,7 +40,7 @@
                     </div>
                 </div> -->
             </div>
-            <div class="column is-5 pl-3 mt-0 ">
+            <div class="column is-5 pl-4 mt-0 ">
                 <div class="row has-text-left pb-0">
                     <h2 style="text-align:left; font-size:20px; padding-bottom:0;">Conditions:</h2>
                     <p style="text-align:left;">Pickup location is shown in the map</p>

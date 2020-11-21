@@ -26,7 +26,7 @@
                                     <div class="column is-8 pl-1 has-text-left">
                                         <div class="input-row">
                                             <label for="productName">Product Name:</label>
-                                            <input type="text" class="input-box" id="productName" name="editProductName" placeholder="Product Name" value="<?php echo $row['name']?>" required/><br>
+                                            <input type="text" class="input-box" id="productName" name="editProductName" placeholder="Product Name" value="<?php echo $row['name']?>" readonly=true required/><br>
                                         </div>
                                         <div class="input-row">                                              
                                             <label for="quantity">Quantity (kg):</label>
@@ -50,7 +50,7 @@
                                         </div>
                                         <div class="input-row">   
                                             <label for="description">Description</label>   <br> 
-                                            <textarea rows="5" cols="30" name="Description" form="UpdateProduct" placeholder="Product Description"></textarea>
+                                            <textarea rows="5" cols="30" name="Description" form="UpdateProduct" placeholder="Product Description" value="<?php echo $row['description']?>"></textarea>
                                         </div>
                                         <br>
                                     </div>

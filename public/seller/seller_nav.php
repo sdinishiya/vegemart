@@ -7,6 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link href="images/logo.png" rel="shortcut icon">
         <link rel="stylesheet" type="text/css" href="../css/nav.css">
     </head>
 
@@ -15,7 +16,7 @@
             <a href="./seller_home.php"><img class="logopic" src="../images/logob.png"></a>
             
             <ul class="main-nav">
-                <li><a href="http://localhost/vegemart/public/index.php">Home</a></li>
+                <li><a href="http://localhost/vegemart/public/seller/seller_home.php">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="http://localhost/vegemart/public/forum.php">Forum</a></li>
                 <li><a href="http://localhost/vegemart/public/help_desk">Help Desk</a></li>

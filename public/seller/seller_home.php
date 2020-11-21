@@ -11,11 +11,11 @@
 
     <body>
         <?php include "./seller_nav.php"; ?>
-        <div class="row mt-1">
+        <div class="row">
 
             <div class="columns group mt-0">
                 <div class="column is-8 mt-0">
-                    <div class="row pl-2 pr-2 mt-0">
+                    <div class="row pl-1 pr-1 mt-0">
                         <fieldset>
                             <legend>Seller Profile</legend>
                             <div class="columns group mt-0">                            

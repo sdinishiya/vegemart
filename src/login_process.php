@@ -18,7 +18,7 @@
                     }
                     elseif($row['userType'] === "user"){
                         $_SESSION["loggedInUserID"] =$row['id']; 
-                        header('Location:../public/index.php');
+                        header('Location:../public/products.php');
                     }
                     elseif($row['userType'] === "deliverer"){
                         $_SESSION["loggedInDelivererID"] =$row['id']; 

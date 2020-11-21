@@ -16,9 +16,10 @@
                 <div class="column is-4 pl-1 pr-1">
                     <div class="row">
                         <div class="signupForm">
-                            <div class="row"><h2>Register</h2></div>
                             
-                            <form id ="deliverer-signup" action="../../src/deliverer/deliverer_signup_process.php" method="post" enctype="multipart/form-data">
+                            <div class="row"><h2>Deliverer Registration</h2></div>
+                            
+                            <form id ="deliverer-signup" action="../PHP/deliverer_signup_process.php" method="post" enctype="multipart/form-data">
                             <div class="columns group">
                                 
                                 <div class="column is-12">

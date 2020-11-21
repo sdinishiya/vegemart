@@ -46,14 +46,13 @@ fieldset {
     border-style:solid;
     border-color: #138D75;
     border-radius: 17px;
-    padding: 30px;
-    margin: 10px;
+    
     align-self: center;
 }
 
 fieldset legend{
     text-align: left;
-    padding: 5px;
+    
     font-size: 30px;
     font-weight: 500;
     font-family: Candara;
