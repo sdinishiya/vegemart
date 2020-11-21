@@ -50,8 +50,7 @@
             $message = base64_encode(urlencode("Product Added."));
             if (isset($_POST['ad'])){
                 $advertiseProduct = "INSERT INTO `advertisements` (`adID`,`productID`,`avdate`) VALUES ('".$adID."','".$productID."','".$availableDate."');";     
-                $advertiseQuery = mysqli_query($con,$advertiseProduct);
-                if (mysqli_query($con, $insertProduct)) {  
+                if (mysqli_query($con,$advertiseProduct)){
                     header('Location:../../public/seller/seller_home.php?msg=' . $message);
                 }
                 else{
