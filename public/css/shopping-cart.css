@@ -1,9 +1,5 @@
 @import url(./style.css);
 
-html{
-    height:90%;
-    width: 100%;
-}
 h1,h2,h3,h4,h5,h6,p,span,i {
     flex-wrap: wrap;
 }
@@ -16,38 +12,48 @@ h1,h2,h3,h4{
     flex: 1;
 }
 
-.heading h1{
-    padding-top: 0;
-    margin-bottom:1em;
-    font-family: Candara;
-    padding-left: 1em;
-    text-align: left;
-    font-family: Candara;
+#title{
+    text-align:left; 
+    padding: 0 1em; 
+    font-family:Candara; 
+    margin:auto;
+    font-size: 27px;
     color: black;
 }
 
-#title{
-    text-align:left; 
-    padding: 0 30px; 
-    font-family:Candara; 
-    margin:auto;
+.th{
+    font-size: 1rem;
 }
-
+.item-table h1 {
+    display: grid;
+    place-items: center;
+    font-size: 1em;
+}
 .item-img{
-    width: 100px;
+    height: 70px;
+    margin: auto;
 }
 .item-row{
-    padding: 5px !important;
+    /* padding: 5px !important; */
     vertical-align: middle;
 }
+
+hr{
+    margin: 0%;
+    padding: 0%;
+}
  
-#orderdiv {
+#ordersum {
+    display:grid;
+    place-items: center;
+    margin: 4em 0;
     background-color: #F2F3F4;
-    min-height: 110%;
+    /* padding: 1em 0; */
+
 }
 
 button {
-    background-color: #29BF3A;
+    background-color: #138D75;
     border-color: transparent;
     color: #fff;
     font-size: 1.2rem;
@@ -63,14 +69,20 @@ button {
     border-radius: 0.1em;
 }
 
+button:hover{
+    background-color: #1cc4a2;
+    color: white;
+}
+
 button > i{
     color: white !important
 }
 
 #ab{
-    color:#3e8e41; 
+    color:#138D75; 
+    text-decoration: none;
     font-size:20px; 
     font-weight: bold;
-    margin-top:10%; 
+    margin: 2rem; 
     text-align:left;
 }

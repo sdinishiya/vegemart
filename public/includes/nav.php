@@ -15,10 +15,10 @@
                 box-sizing: border-box;
             }
             body {
-                font-family:Candara;
                 line-height: 1.6;
                 margin: 0;
                 min-height: 90vh;
+                max-width:100;
             }
 
             ul {
@@ -29,7 +29,6 @@
             }
 
             .header {
-                font-family:Candara;
                 display:flex;
                 position: -webkit-sticky;
                 position: sticky;
@@ -48,6 +47,39 @@
                 margin-bottom:0;
                 cursor: pointer;
                 max-height:40px;
+            }
+
+            input[type=text] {
+                width: 160px;
+                max-height: 30px;
+                box-sizing: border-box;
+                border-color: transparent;
+                border-bottom: 2px solid #ccc;
+                margin-bottom: 1px;
+                margin-right:0;
+                font-size: 16px;
+                background-color: white;
+                background-image: url('searchicon.png');
+                background-position: 10px 0px; 
+                background-repeat: no-repeat;
+                padding: 12px 20px 5px 10px;
+                -webkit-transition: width 0.4s ease-in-out;
+                transition: width 0.4s ease-in-out;
+            }
+            
+            input[type=text]:focus {
+                outline-width: 0;
+                /* width: 80%; */
+            }
+
+            form .searchbtn{
+                float: right;
+                min-width:30px !important;
+                max-height: 30px;
+                background: #138D75;
+                font-size: 17px;
+                border: none;
+                cursor: pointer;
             }
 
             .main-nav a {
@@ -70,6 +102,7 @@
                 background-color: #138D75;
                 border-color: transparent;
                 color: #fff;
+                font-family: Candara;
                 font-size: 1.1rem;
                 cursor: pointer;
                 justify-content: center;
@@ -81,7 +114,7 @@
             }
 
             button > i{
-                color: white !important
+                color: white !important;
             }
 
             .notifbtn {
@@ -101,11 +134,11 @@
                 border-radius: 100%;
                 max-height: 40px;
                 cursor:pointer;
-                margin:0;
                 padding: 0.3em 0 0 0;
+                margin:0;
             } 
 
-            .dropdown {
+            .nav-dropdown {
                 position: relative;
                 display: inline-block;
             }
@@ -139,7 +172,7 @@
 
             .show {display: block;}
 
-            .dropdown:hover .dropdown-content {
+            .nav-dropdown:hover .nav-dropdown-content {
                 display: block;
             }
 
@@ -177,12 +210,13 @@
 
     <body>
         <header class="header">
-            <a href="./index.php"><img class="logopic" src="http://localhost/vegemart/public/images/blacklogo.png"></a>
+            <a href="./index.php"><img class="logopic" src="http://localhost/vegemart/public/images/logob.png"></a>
+            
             <ul class="main-nav">
-                <li><a href="./index.php">Home</a></li>
+                <li><a href="http://localhost/vegemart/public/index.php">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Forum</a></li>
-                <li><a href="#">Help Desk</a></li>
+                <li><a href="http://localhost/vegemart/public/forum.php">Forum</a></li>
+                <li><a href="http://localhost/vegemart/public/help_desk">Help Desk</a></li>
                 <?php  
                     if(isset($_SESSION["loggedInUserID"])||isset($_SESSION["loggedInSellerID"])){
                         if (isset($_SESSION["loggedInUserID"])) {
@@ -196,7 +230,7 @@
                         while($rowUser  = mysqli_fetch_assoc($resultInfo)){
                             echo "
                         <li>
-                        <div class=\"dropdown\">
+                        <div class=\"nav-dropdown\">
                         <i class=\"fa fa-bell\" style=\"font-size:16px; color:black; margin-left:1em; margin-right:0; padding-right:0;\"></i><button onclick=\"dropFunc()\" class=\"notifbtn\">Messages</button>
                             <div id=\"notifDrop\" class=\"dropdown-content\">
                                 <a href=\"#home\">You have a message from Nimal Bandara</a>
@@ -205,11 +239,11 @@
                         </li>
 
                         <li>
-                        <div class=\"dropdown\">
-                            <img class=\"dp\" src=\"http://localhost/vegemart/images/users/{$rowUser['profilePic']}\" alt=\"Avatar\">
+                        <div class=\"nav-dropdown\">
+                            <img class=\"dp\" src=\"http://localhost/vegemart/public/images/users/{$rowUser['profilePic']}\" alt=\"Avatar\">
                             <div class=\"dropdown-content\">
-                                <a href=\"#\">View Profile</a>
-                                <a href=\"#\">Logout</a>
+                                <a href=\"http://localhost/vegemart/public/seller/seller_profile_edit.php\">View Profile</a>
+                                <a href=\"http://localhost/vegemart/src/logout.php\">Logout</a>
                             </div>
                         </div>
                         </li>";
@@ -217,31 +251,31 @@
                 }    
                 else{
                     // echo"<li><a href=\"../login.php\">Login</a></li>";
-                    echo"<li><button class=\"loginbtn\" onClick=\"location.href='http://localhost/vegemart/login.php';\">Login</button><li>";
+                    echo"<li><button class=\"loginbtn\" onClick=\"location.href='http://localhost/vegemart/public/login.php';\">Login</button><li>";
                 }   
             ?> 
             </ul>
         </header>
-            <script>
-                /* When the user clicks on the button, 
-                toggle between hiding and showing the dropdown content */
-                function dropFunc() {
-                document.getElementById("notifDrop").classList.toggle("show");
-                }
+        <script>
+            /* When the user clicks on the button, 
+            toggle between hiding and showing the dropdown content */
+            function dropFunc() {
+            document.getElementById("notifDrop").classList.toggle("show");
+            }
 
-                // Close the dropdown if the user clicks outside of it
-                window.onclick = function(event) {
-                    if (!event.target.matches('.notifbtn')) {
-                        var dropdowns = document.getElementsByClassName("dropdown-content");
-                        var i;
-                        for (i = 0; i < dropdowns.length; i++) {
-                            var openDropdown = dropdowns[i];
-                            if (openDropdown.classList.contains('show')) {
-                                openDropdown.classList.remove('show');
-                            }
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function(event) {
+                if (!event.target.matches('.notifbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
                         }
                     }
                 }
-            </script>
+            }
+        </script>
     </body>
 </html>

@@ -1,0 +1,98 @@
+@import url(./style.css);
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css");
+
+h1,h2,h3,h4,h5,h6,p,span,i {
+    flex-wrap: wrap;
+}
+
+h1,h2,h3,h4{
+    text-transform: capitalize;
+    vertical-align: middle;
+}
+
+.heading{
+    flex: 1;
+}
+
+#title{
+    text-align:left; 
+    padding: 0 1.2em; 
+    font-family:Candara; 
+    margin: auto;
+    font-size: 27px;
+    color: black;
+}
+
+label{
+    text-align:left !important; 
+    padding: 0 1.2em; 
+    font-family:Candara; 
+    margin: auto;
+    font-size: 30px;
+    color: black;
+}
+
+.row p{
+    padding-bottom: 0;
+    margin: auto;
+}
+
+hr{
+    margin: 0%;
+    padding: 0%;
+}
+
+.card {
+    box-shadow: 6px 6px 20px -8px rgba(0, 0, 0, 0.75);
+    border-radius: 15px;
+    padding: 2em;
+    margin: auto;
+    align-self: center;
+    text-align: left;
+}
+
+.map{
+    max-width: 600px;
+}
+
+.img{
+    max-height: 150px;
+    text-align: center;
+}
+
+.item-img{
+    width: 50px;
+}
+.item-row{
+    padding: 0 !important;
+    vertical-align: middle;
+}
+
+#receipt{
+    display: grid;
+    place-items: center;
+}
+
+button {
+    background-color: #138D75;
+    border-color: transparent;
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+    justify-content: center;
+    padding-bottom: calc(0.5em - 1px);
+    padding-left: 4em;
+    padding-right: 4em;
+    padding-top: calc(0.5em - 1px);
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 0.1em;
+}
+
+button > i{
+    color: white !important
+}
+
+
+
+

@@ -1,60 +1,45 @@
 @import url(./style.css);
-
-body {
-    font-family: Georgia, serif;
-    background-color: #FFFFFF;
-}
-    
-/* slideshow css starts here */
+    /* slideshow css starts here */
 .slideshow-container{
-    background-color: #040316;
     display: flex;
-    float: right;
+    place-items: center;
+    max-width: 100%;
+    background-color: #040316;
 }
-.text h1{
+
+.text h1,p{
     color:white;
-    font-family: 'Helvetica';
+    font-family:Candara;
     font-weight: normal;
-    margin-bottom: -5%;
-    padding:0px;
-}
-.text p{
-    color:white;
-    font-family: 'Helvetica';
-    font-size: 16px;
-    font-weight: normal;
-    margin-bottom: 0px;
     padding:0px;
 }
 
 .advertisements {
     display: none;
     display: flex;
-    width: 27%;
-    height: 200px;
-    max-height: 100%;
-    margin: 2%;
-    z-index: 9999; 
-    padding: 1%; 
-    filter: brightness(90%);     
+    filter: brightness(90%);   
+    z-index: 3;
+    max-height: 20%;
+    max-width: 100%;
+    margin: 1.5em;
+    padding: 1em;  
 }
 
 .promotions{
     display: none;
     display: flex;
-    width: 27%;
-    height: 200px;
-    max-height: 100%;
-    z-index: 9998;  
-    margin-top: 2%;
-    padding: 1%; 
-    filter: brightness(90%);    
+    filter: brightness(90%);   
+    z-index: 3;
+    max-height: 200px;
+    max-width: 100%;
+    margin: 1.5em;
+    padding: 1em;     
 }
 
-    
-.slideshow-container > div > img {
-    height: 100%;
-    width: 100%;
+.advertisements img,.promotions img{
+    height: 220px;
+    width: 350px;
+
 }
 
 .active {
@@ -89,65 +74,54 @@ body {
 .search-box{
     display: flex; 
     height: 40px;
-    width: 40%;
+    width: 400px;
     background: white;
-    top: 1.5%;
-    left:21%;
+    top: 1.4%;
+    left:30%;
+    margin: 0.2em 0;
+    padding: 0%;
     text-align: center;
     border-radius: 5px;
-    z-index: 99999;  
+    z-index: 5;  
     color:white;
     background: rgba(255, 255, 255, 0.6);
     box-sizing: border-box;
-    border-radius: 10px rgba(0, 0, 0, 0.6);;
-    position:absolute;
+    position:fixed;
 
 }
 
-    /* search text */
+/* search text */
 ::placeholder { 
     color: #000000;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 15px;
     opacity: 1;
 }
 
-      /* input inside search*/
+/* input inside search*/
 .search-input{
-    margin-left: -1%;
-    height: 100%;
-    width: 87%;
+    box-sizing: border-box; 
+    background: rgb(187, 187, 187,0.5);
+    height: 35px;
+    width: 300px;
     border: none;
     outline: none;
+    margin-left:0;
     padding: 0 10px;
-    color: rgb(0, 0, 0);
-    font-size: 16px;
-   background: rgb(187, 187, 187,0.5);
-    box-sizing: border-box; 
-}
-/*clickable filter box*/
-.filter-box{
-    margin-top: 0%;
-    margin-left: 0%;
-    font-size: 20px;
-    font-weight: bold;
-    box-sizing: border-box;
-    background-color: rgb(187, 187, 187,0.5);
-    cursor: pointer;
-    height: 100%;
-    width: 18%; 
-    border-style: solid;
-    border-color:  rgb(187, 187, 187,0.5);
-    
+    font-size: 15px; 
 }
 
-/*filters text*/
-.filter-text{
-    margin-top: 2%;
-    margin-left: -15%;
-    color: #000000;
-    font-size: 18px;
-    font-family: Helvetica;
+/*clickable filter box*/
+.filter-box{
+    box-sizing: border-box; 
+    background: rgb(187, 187, 187,0.5);
+    height: 35px;
+    max-width: 200px;
+    margin-top: 0%;
+    margin-left: 0%;
+    padding: 0.2em 1em;
+    font-size: 15px;
+    cursor: pointer;
+    border: 0.15em solid rgba(163, 162, 162, 0.5);
 }
 
 .filter-box::before{
@@ -157,41 +131,46 @@ body {
     border-color:  #000000 transparent;  
     position: absolute;
     top: 40%;
-    left: 13.5%;
+    left: 16%;
 }
+
+.filter-text{
+    color: #000000;
+    font-family: Helvetica;
+    padding-right: 10px;
+}
+
+/* .filter-text i{
+    position: relative;
+    top: 30px;
+    left: 13.5%;
+    z-index: 1;
+} */
 
 /*dropdown filter box*/
 .dropdown{  
-    margin-left: -95%;
-    margin-top: 7%;  
+    position: relative;
     display: inline-block;  
     list-style:none;
     background-color: rgb(187, 187, 187,0.5);
 }
 
 .ul-class{
-    display:none;
-    overflow:auto;
+    display: none;
+    position: absolute;
+    right:280px;
+    top:35px;
     background-color: rgb(187, 187, 187,0.5);
+    min-width:140px;
+    border-radius: 10px 0; 
 }
 
-.ul-class ul{
-    background-color: rgb(187, 187, 187,0.5);
-    position: absolute;  
-    width: 10.5%;
-    border-radius: 0 0 10px 10px; 
-}
-/*     
-.ul-class ul li{
-    padding: 20px 0px 20px 0px;
-    font-size: 18px;
-}/*search icon*/
-      
 .dropdown-input{  
     display: flex;
-    padding:5px;
-    margin: 10px 20px;
-    min-width: 100px;
+    padding:0 5px 0;
+    margin: 1em;
+    min-width: 80px;
+    max-width: 100px;
     height:30px;
     color:  #000000;
     text-align: center;
@@ -200,39 +179,22 @@ body {
     background: rgb(255, 255, 255);
 }
 .show {display: block;}
-      
-/*search icon*/
+
 .search-button{  
     background: transparent;
-    margin-left: 87.3%;
-    width: 8%;
-    border-radius: 10px;
-    border: none;
+    height:35px;
+    width:35px;
+    border: 0.15em solid rgba(163, 162, 162, 0.5);
+    border-radius: 2px;
     cursor: pointer;
 }
 
-.icon{   
-    margin-left: 0%;
-    color: black;
-    z-index: 1; 
-    font-size: 18px;
-    cursor: pointer;
-}
-      
-.search-icon span{
-    position:relative;
-    top:-40px;
-    left: 2%;  
-    width: 55px;
-    margin-top: 0%;
-    margin-left: 3px;  
-}
-    
-/*product container starts here*/
+
+/* search-box css ends here */
+
 .items-container{
     display: flex;
     flex-wrap: wrap;
-    margin-left: 2%;
 }
 
 .items-container::after{
@@ -241,7 +203,7 @@ body {
     }
 
 .items-container div{
-    margin: 25px;
+    margin: 20px;
     border: 1px #ccc solid;
     padding: 15px;
 }
@@ -277,23 +239,7 @@ body {
         flex:auto;
         margin:auto;
     }
-
 }
-
-/*@media(max-width:769px){
-    .items-container{
-        display: flex;
-        justify-content: space-around;
-        flex-direction: row;
-        margin:100px;
-        
-    }
-    .items-container::after{
-        content:"";
-        flex:auto;
-        margin:100px;
-    }
-}*/
 
 @media(max-width:480px){
     .items-container{

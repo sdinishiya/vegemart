@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2020 at 08:31 PM
+-- Generation Time: Nov 21, 2020 at 02:14 PM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- PHP Version: 7.3.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -66,6 +66,7 @@ CREATE TABLE `client` (
 
 INSERT INTO `client` (`id`, `fName`, `lName`, `phoneNum`, `address1`, `address2`, `city`, `profilePic`, `username`) VALUES
 (231067611, 'darshana', 'vithanage', '0715556893', '75/2', 'bandarawella', 'badulla', 'may.jpg', 'darshana'),
+(861574788, 'Nimal', 'Bandara', '+947123456', '46/D', 'Colombo road', 'Kandy', 'may.jpg', ''),
 (1457947671, 'llll', ']', '0000000', ']', '000]', ']', 'back.png', ']'),
 (1649681227, 'a', 'a', 'a', 'a', 'a', 'a', 'default.png', 'e'),
 (1814794867, 'jala', 'jal', '555', '5', '55', '5', 'default.png', '5'),
@@ -125,13 +126,13 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`productID`, `sellerID`, `name`, `quantity`, `minPrice`, `imageName`, `address1`, `address2`, `city`, `description`, `exdate`, `time`, `datetime`) VALUES
-(887607488, 1961941923, 'k', 0, 0, 'White-Black-Logo (1).png', 'k', 'k', 'kk', 'k', '2020-11-06', '838:59:59', '0000-00-00 00:00:00.000000'),
-(887607489, 1961941923, '6', 6, 6, 'LDS OC Tshirt_bela-01.png', '6', '6', '6', '6', '2020-11-13', '00:00:00', '0000-00-00 00:00:00.000000'),
-(887607490, 1961941923, '5', 5, 5, 'TRAIN insane (15).png', '5', '5', '5', '5', '2020-11-06', '00:00:00', '0000-00-00 00:00:00.000000'),
-(887607491, 1961941923, '6', 66, 6, 'Mountain Bike Travel_Adventure Illustration T-Shirt (5).png', '6', '6', '6', '6', '2020-11-06', '838:59:59', '0000-00-00 00:00:00.000000'),
-(887607492, 1961941923, ';', 0, 0, 'add-button-with-plus-symbol-in-a-black-circle.png', '75/2', ';', 'Badulla', ';', '2020-11-06', '00:00:00', '0000-00-00 00:00:00.000000'),
-(887607493, 1961941923, '2', 2, 2, 'TRAIN insane (15).png', '2', '2', '2', '2', '2020-11-25', '00:00:00', '0000-00-00 00:00:00.000000'),
-(887607494, 1961941923, '3', 3, 3, 'TRAIN insane (14).png', '3', '3', '3', '3', '2020-11-26', '00:00:00', '2020-11-14 18:14:01.000000');
+(887607488, 861574788, 'Potato', 25, 30, 'potato.jpg', '46/D', 'Colombo road,', 'Kandy', 'lala', '2020-11-06', '838:59:59', '2020-11-02 14:36:32.000000'),
+(887607489, 861574788, 'Tomato', 60, 40, 'Tomato.jpg', '46/D', 'Colombo road,', 'Kandy', 'lala', '2020-11-13', '00:00:00', '2020-11-04 14:55:24.000000'),
+(887607490, 231067611, 'Beans', 75, 45, 'beans.png', '75/2', 'Bandarawela road,', 'Badulla', '5', '2020-11-06', '00:00:00', '0000-00-00 00:00:00.000000'),
+(887607491, 231067611, 'Pumpkin', 30, 55, 'Pumpkin.jpg', '75/2', 'Bandarawela road,', 'Badulla', 'lala', '2020-11-06', '838:59:59', '0000-00-00 00:00:00.000000'),
+(887607492, 861574788, 'Onion', 80, 35, 'onion.png', '46/D', 'Colombo road,', 'Kandy', 'la', '2020-11-06', '00:00:00', '0000-00-00 00:00:00.000000'),
+(887607493, 231067611, 'Radish', 32, 65, 'Radish.jpg', '75/2', 'Bandarawela road,', 'Badulla', 'la', '2020-11-25', '00:00:00', '0000-00-00 00:00:00.000000'),
+(887607494, 231067611, 'Carrot', 60, 42, 'carrot.jpg', '75/2', 'Bandarawela road,', 'Badulla', 'la', '2020-11-26', '14:30:04', '2020-11-14 18:14:01.000000');
 
 -- --------------------------------------------------------
 
@@ -179,6 +180,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `email`, `password`, `userType`) VALUES
 (81825894, '', 'e4da3b7fbbce2345d7772b0674a318d5', 'deliverer'),
 (231067611, 'darshana@gmail.com', 'af63d3f32c07622be553999677b7924c', 'seller'),
+(861574788, 'nimal@nimal.com', 'c177c76fa135dffda6d86ff076a8ddbb', 'seller'),
+(954714333, 'kamala@kamala.com', 'c1e1629de544a672b8c068d4bec22aad', 'user'),
 (1377695894, 'anushka.daraaaashana01@gmail.com', '8ce4b16b22b58894aa86c421e8759df3', 'deliverer'),
 (1457947671, '', '0fbd1776e1ad22c59a7080d35c7fd4db', 'seller'),
 (1649681227, 'anushka.darshana01@gmail.com', 'eccbc87e4b5ce2fe28308fd9f2a7baf3', 'user'),

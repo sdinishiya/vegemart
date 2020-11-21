@@ -45,8 +45,8 @@
                     <label>Display Picture</label>    
                 </div>
                 <div class="inputBox">
-                    <input type="password" id="password"  name="password"  minlength="8" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" autocomplete="off" title="Should be in required format" required="">
-                    <label><i class="fas fa-lock"></i>&nbsp;&nbsp;&nbsp;Password</label>                       
+                    <input type="password" id="password"  name="password" onfocus="this.placeholder = 'ex: Badulla'" onblur="this.placeholder = ''" minlength="8" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" autocomplete="off" title="Should be in required format" required="">
+                    <label><i class="fas fa-lock"></i>&nbsp;&nbsp;&nbsp;Password <span style="font-size:10px;">(minimum of 8 characters Including uppercase, lowercase & at least one special character)</span></label>                       
                 </div> 
                 <div class="inputBox">
                     <input type="password" id="confirm_password" name="confirm_password" minlength="8" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" autocomplete="off" title="Should be in required format" required="">

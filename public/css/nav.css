@@ -1,12 +1,13 @@
+@import url(./style.css);
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css");
+
 * {
     box-sizing: border-box;
 }
 body {
-    font-family:Candara;
     line-height: 1.6;
     margin: 0;
     min-height: 90vh;
-    
 }
 
 ul {
@@ -14,17 +15,26 @@ ul {
     padding: 0;
     color:black;
     list-style: none;
-    
 }
 
 .header {
-    font-family:Candara;
     display:flex;
-    top: 0; 
-    z-index:4;   
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    padding: 5px 1.5%;
+    border-bottom: 1px solid #D7DBDD;
+    width: 100%;
+    background-color: white;
+}
+
+.index-header {
+    display:flex;
+    top: 0;
+    z-index: 4;
     padding: 5px 1.5%;
     width: 100%;
-    background-color: transparent;
 }
 
 .logopic{
@@ -34,6 +44,39 @@ ul {
     margin-bottom:0;
     cursor: pointer;
     max-height:40px;
+}
+
+input[type=text] {
+    width: 160px;
+    max-height: 30px;
+    box-sizing: border-box;
+    border-color: transparent;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 1px;
+    margin-right:0;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 0px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 5px 10px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+  
+input[type=text]:focus {
+    outline-width: 0;
+    /* width: 80%; */
+}
+
+form .searchbtn{
+    float: right;
+    min-width:30px !important;
+    max-height: 30px;
+    background: #138D75;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
 }
 
 .main-nav a {
@@ -56,6 +99,7 @@ ul {
     background-color: #138D75;
     border-color: transparent;
     color: #fff;
+    font-family: Candara;
     font-size: 1.1rem;
     cursor: pointer;
     justify-content: center;
@@ -67,7 +111,7 @@ ul {
 }
 
 button > i{
-    color: white !important
+    color: white !important;
 }
 
 .notifbtn {
@@ -82,16 +126,18 @@ button > i{
     color:black;
 }
 /* <i class=\"fa fa-bell\" style=\"font-size:16px; color:black; margin-left:1em; margin-right:0; padding-right:0;\"></i> */
-
+.notifbtn:hover {
+    background-color:transparent;
+}
 .dp{
     border-radius: 100%;
     max-height: 40px;
     cursor:pointer;
-    margin:0;
     padding: 0.3em 0 0 0;
+    margin:0;
 } 
 
-.dropdown {
+.nav-dropdown {
     position: relative;
     display: inline-block;
 }
@@ -125,7 +171,7 @@ button > i{
 
 .show {display: block;}
 
-.dropdown:hover .dropdown-content {
+.nav-dropdown:hover .dropdown-content {
     display: block;
 }
 
@@ -134,13 +180,13 @@ Media Queries
 ==================================== */
 
 @media (min-width: 769px) {
-    .header,
+    .header,.index-header,
     .main-nav {
         display: flex;
         align-items:center;
         
     }
-    .header {
+    .header,.index-header {
         flex-direction: column;
         align-items: center;
         .header{
@@ -149,10 +195,11 @@ Media Queries
             max-width: 1150px;
         }
     }
+
 }
 
 @media (min-width: 1025px) {
-    .header {
+    .header,.index-header {
         flex-direction: row;
         justify-content: space-between;
     }

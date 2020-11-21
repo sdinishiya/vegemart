@@ -16,15 +16,29 @@
                 <div class="column is-3 pl-1 pr-1"></div>
                 <div class="column is-6 pl-1 pr-1">
                     <div class="row">
-                        <div class="addForm">
-                            <h1>Add Product</h1>
-                            <form id="addProduct" name="addProduct" action="../../src/seller/seller_product_add_submit.php" method="post" enctype="multipart/form-data">
+                    <fieldset>
+                            <legend>Add Product</legend>
+                            <form id="addProduct" name="addProduct" action="seller_product_add_submit.php" method="post" enctype="multipart/form-data">
                             <div class="columns group">
-                               
                                 <div class="column is-12 pl-2 pr-2">
-                                    <div class="input-row">
-                                        <label for="productName">Product Name:</label>
-                                        <input type="text" class="input-box" id="productName" name="productName" placeholder="Product Name" required/><br>
+                                    <div class="input-row">                                  
+                                        <label for="product">Product Name</label>                                        
+                                        <select name="product" form="addProduct">
+                                            <option value="beans">Beans</option>
+                                            <option value="beetroot">Beetroot</option>
+                                            <option value="broccoli">Boccoli</option>
+                                            <option value="cabbage">Cabbage</option>
+                                            <option value="carrot">Carrot</option>
+                                            <option value="cucumber">Cucumber</option>
+                                            <option value="eggplant">Eggplant</option>
+                                            <option value="garlic">Garlic</option>
+                                            <option value="onion">Onion</option>
+                                            <option value="pumpkin">Pumpkin</option>
+                                            <option value="potato">Potato</option>
+                                            <option value="radish">Radish</option>
+                                            <option value="sweetpotato">Sweet Potato</option>             
+                                            <option value="tomato">Tomato</option>                                          
+                                        </select>          
                                     </div>
                                     <div class="input-row">                                              
                                         <label for="quantity">Quantity (kg):</label>
@@ -37,7 +51,7 @@
 
                                     <div class="input-row">                                               
                                         <label for="image">Image:</label>
-                                        <input class="image-input" type="file" id="fileToUpload" name="fileToUpload" required/><br> 
+                                        <input class="image-input has-text-left"type="file" id="fileToUpload" name="fileToUpload" required/><br> 
                                     </div>
                                     <div class="input-row">                                               
                                         <label for="address">Address:</label>
@@ -53,21 +67,13 @@
                                     </div>
                                     <div class="input-row">   
                                         <label for="description">Description:</label>                                             
-                                        <textarea rows="5" cols="29" name="description" form="addProduct" placeholder="Product description"></textarea>
-                                    </div>     
-                                    <div class="input-row">                                              
-                                        <label for="date">Date of product Expiration:</label>
-                                        <input type="date" class="input-box" name="expirationDate"><br>
-                                    </div>                          
+                                        <textarea rows="5" cols="35" name="description" form="addProduct">Product description</textarea>
+                                    </div>                               
                                     <br>
                                     <p>For advertisements please fill the checkbox</p>
                                     <div class="input-row">
                                         <label for="ad">Advertisement</label>
-                                        <input type="checkbox" id="ad" name="ad" value="ad" onclick="abc()"/>                                 
-                                    </div>
-                                    <div class="input-row">                                              
-                                        <label for="date" style="display:none;" id="label">Date of product availability:</label>
-                                        <input type="date" class="input-box" id="date" name="availableDate" style="display:none;"><br>
+                                        <input type="checkbox" id="ad" name="ad" value="ad"/>                                 
                                     </div>
                                 </div>
                                 
@@ -77,8 +83,8 @@
                                 <input class="form-button" type="button" name="cancel" onclick="window.location.replace('seller_home.php')" value="Cancel">                                           
                             </div>
                             </form>
-                            <h3 class="error-msg"><?php include_once ('../includes/message.php'); ?></h3>
-                        </div>
+                            <h3 class="error-msg"><?php include_once('../includes/message.php'); ?></h3>
+                        </fieldset>
                     </div>
                 </div>
                 <div class="column is-3 pl-1 pr-1"></div>

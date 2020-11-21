@@ -10,11 +10,9 @@
     </head>
 
     <body>
-        <header class="header">
-            
-            <a href="./index.php"><img class="logopic" src='images/blacklogo.png'></a>            
+        <header class="index-header">
+            <a href="./index.php"><img class="logopic" src='images/logob.png'></a>            
             <ul class="main-nav">
-                
                 <li><a href="./help_desk.php">About us</a></li>
                 <li><button class="loginbtn" onClick="location.href='http://localhost/vegemart/public/login.php';">Login</button><li>
                 

@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../css/seller-home.css">
-        <link rel="stylesheet" type="text/css" href="../css/NavBar.css">
         <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="stylesheet" type="text/css" href="../css/footer.css">
         <title>Seller Dashboard | Vegemart</title>
@@ -12,16 +11,14 @@
 
     <body>
         <?php include "./seller_nav.php"; ?>
-        <div class="row">
-            <div class="heading">
-                <h1>Vegemart Seller</h1>
-            </div>
+        <div class="row mt-1">
+
             <div class="columns group mt-0">
                 <div class="column is-8 mt-0">
                     <div class="row pl-2 pr-2 mt-0">
-                    <h1 id="title">Seller Profile</h1>
-                        <div class="user-card">
-                            <div class="columns group">                            
+                        <fieldset>
+                            <legend>Seller Profile</legend>
+                            <div class="columns group mt-0">                            
                                 <?php
                                     include ('../../src/seller/seller_dashboard/seller_details.php');
                                 ?>                            
@@ -29,8 +26,8 @@
                             <div class="row has-text-right mt-2 mb-1 mr-1">
                                 <button class="button" onClick="location.href='http://localhost/vegemart/public/seller/seller_profile_edit.php';"><i class="fas fa-cog mr-1"></i>Edit Profile</button>
                             </div>
-                        </div>
-                        </div>
+                       </fieldset>                        
+                    </div>
                     <br/>
                 
                     <div class="items-grid pl-1 pr-2 mt-0">

@@ -36,7 +36,7 @@
             </div>
             <div class="l-footer">
                 
-                    <h1><img class="logo-image" src="./images/tlogo.png" alt="logo"></h1>
+                    <h1><img class="logo-image" src="./images/logow.png" alt="logo"></h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean consectetur maximus placerat. Aenean orci est, cursus a ante quis, venenatis posuere libero. In fermentum pharetra urna eget accumsan.</p>
             </div>
             <ul class="r-footer">

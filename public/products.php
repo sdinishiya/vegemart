@@ -1,77 +1,51 @@
-<?php
-    include_once ('./includes/nav.php');                       
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>Vegemart</title>
         <link href="images/logo.png" rel="shortcut icon">
-        <link rel="stylesheet" href="css/products.css">
-        <link rel="stylesheet" href="css/style.css"> 
-        <link rel="stylesheet" href="css/footer.css">
-        
+        <title>Products | Vegemart</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/products.css">
+        <link rel="stylesheet" href="./css/footer.css">
+
     </head>
 
     <body>
-        
+        <?php include_once "./includes/nav.php"; ?>
         <!--slideshow starts here -->
-    <div class="slideshow-container">
-        <div class="text ml-5 mr-5 mt-4">
-            <h1>Want some? Get some</h1>
-            <p>Get your vagetables delivered to your door step</p>
+        <div class="slideshow-container mt-0 pt-0 pb-0 mb-0">
+            <div class="columns group mt-0 mb-0">
+                <div class="column is-5 pl-1 pr-1 mt-0 mb-0">
+                    <div class="text ml-2 mr-1 mt-4">
+                        <h1>Want some? Get some</h1>
+                        <p>Get your vagetables delivered to your door step</p>
+                    </div>
+                </div>
+                <div class="column is-4 pl-2 pr-2 mt-0 mb-1">
+                    <div class="advertisements">  
+                        <img src="./images/ad1.jpg">  
+                    </div>
+                    <div class="advertisements">  
+                        <img src="./images/ad2.jpg">  
+                    </div>
+                    <div class="advertisements">  
+                        <img src="./images/ad.jpg">  
+                    </div>
+                </div>
+                <div class="column is-3 pl-1 pr-1 mt-0 mb-1">
+                    <div class="promotions">  
+                        <img src="./images/card1.png">  
+                    </div>
+                    <div class="promotions">  
+                        <img src="./images/card2.png">  
+                    </div>
+                    <div class="promotions">  
+                        <img src="./images/card3.png">  
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="advertisements">  
-            <img src="./images/card1.png">  
-        </div>
-        <div class="advertisements">  
-            <img src="./images/card2.png">  
-        </div>
-        <div class="advertisements">  
-            <img src="./images/card3.png">  
-        </div>
-        <!-- <div class="advertisements">  
-            <img src="./images/4.jpg">  
-        </div>
-        <div class="advertisements">  
-            <img src="./images/5.jpg">  
-        </div>
-        <div class="advertisements">  
-            <img src="./images/6.jpg">  
-        </div>
-        <div class="advertisements">  
-            <img src="./images/7.jpg">  
-        </div>
-        <div class="advertisements">  
-            <img src="./images/8.jpg">  
-        </div> -->
-        <div class="promotions">  
-            <img src="./images/1.jpg">  
-        </div>
-        <div class="promotions">  
-            <img src="./images/2.jpg">  
-        </div>
-        <div class="promotions">  
-            <img src="./images/3.jpg">  
-        </div>
-        <div class="promotions">  
-            <img src="./images/4.jpg">  
-        </div>
-        <div class="promotions">  
-            <img src="./images/5.jpg">  
-        </div>
-        <div class="promotions">  
-            <img src="./images/6.jpg">  
-        </div>
-        <div class="promotions">  
-            <img src="./images/7.jpg">  
-        </div>
-        <div class="promotions">  
-            <img src="./images/8.jpg">  
-        </div>
-        
-    </div>
 
         <script>
             var slideIndex1 = 0;
@@ -107,9 +81,7 @@
             setTimeout(showSlides, 5000); // Change image every 5 seconds
             }
         </script>
-    
-    <!--slideshow ends here -->       
-
+        <!--slideshow ends here -->      
         
         <!--search box starts here -->
         <form name="theform" action="" method="post">
@@ -125,6 +97,8 @@
                             <li><input type="text" size="1.75" name="max_price" pattern="\d*"  title="Should be valid price" class="dropdown-input" placeholder="Max price"></li>
                             <li><select name="location" class="dropdown-input">
                                 <option>  Location </option>
+                                <option>  Kandy </option>
+                                <option>  Badulla </option>
                                     <?php include ('../src/filter.php'); ?>
                                 </select>
                             </li>
@@ -140,7 +114,7 @@
             </li>
         </form>
 
-        <!--search box ends here -->
+        
         <script>
         /* When the user clicks on the button, 
         toggle between hiding and showing the dropdown content */
@@ -162,25 +136,27 @@
             }
         }
         </script>
+        <!--search box ends here -->
 
         <!-- products block starts here-->
-        <div class="items-container">
-            
-            <?php 
-            function showProducts($rowProduct){?>
-                <div class= "block" onclick= "window.location.href = 'bid.php?id=<?php echo $rowProduct['productID'] ?>'" style="cursor: pointer;">
-                    <img src= images/products/<?php echo $rowProduct['imageName'] ?>>
-                    <h3><?php echo $rowProduct['name'] ?></h3>
-                    <h3>Location: <?php echo $rowProduct['city'] ?> </h3>
-                    <h3>Rs. <?php echo $rowProduct['minPrice']  ?>(250g)</h3>
-                </div>
-            <?php
-            }
-            include_once ('../src/products.php');
-            ?>
-            
-             
-        </div>   
+        <div class="row mt-1 mb-0">
+            <div class="items-container">
+                <?php 
+                function showProducts($rowProduct){?>
+                    <div class= "block" onclick= "window.location.href = 'bid.php?id=<?php echo $rowProduct['productID'] ?>'" style="cursor: pointer;">
+                        <img src= images/products/<?php echo $rowProduct['imageName'] ?>>
+                        <h3><?php echo $rowProduct['name'] ?></h3>
+                        <h3>Location: <?php echo $rowProduct['city'] ?> </h3>
+                        <h3>Rs. <?php echo $rowProduct['minPrice']  ?>(250g)</h3>
+                    </div>
+                <?php
+                }
+                include_once ('../src/products.php');
+                ?>
+            </div>   
+        </div>
+
         <?php include_once "./includes/footer.php"; ?>      
     </body>
 </html>
+            

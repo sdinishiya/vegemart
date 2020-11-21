@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="./css/shopping-cart.css">
+        <link rel="stylesheet" type="text/css" href="./css/progress-bar.css">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
         <link rel="stylesheet" type="text/css" href="./css/footer.css">
         <title>Shopping Cart | Vegemart</title>
@@ -46,10 +47,10 @@
                             <div class="row item-row has-text-centered mb-0">
                                 <div class="columns group">
                                     <div class="column is-3">
-                                        <img class="item-img" src="../images/products/tomato.jpg">
+                                        <img class="item-img" src="http://localhost/vegemart/public/images/products/tomato.jpg">
                                     </div>
                                     <div class="column is-2">
-                                        <h3>Potato</h3>
+                                        <h3>Tomato</h3>
                                     </div>
                                     <div class="column is-2">
                                         <h3>50.00</h3>
@@ -64,7 +65,7 @@
                                 <hr>
                                 <div class="columns group">
                                     <div class="column is-3">
-                                        <img class="item-img" src="../images/products/potato.jpg">
+                                        <img class="item-img" src="http://localhost/vegemart/public/images/products/potato.jpg">
                                     </div>
                                     <div class="column is-2">
                                         <h3>Potato</h3>
@@ -84,7 +85,7 @@
                         </div>
                     </div>
                     <br><br>
-                    <a id="ab" href="index.php"><i class="fa fa-hand-o-left pr-1" style="font-size:22px; font-weight:500; color:#3e8e41;"></i>Continue shopping</a>
+                    <a id="ab" href="http://localhost/vegemart/public/products.php"><i class="fa fa-hand-o-left pr-1" style="font-size:22px; font-weight:500; color:#3e8e41;"></i>Continue shopping</a>
                 </div>
 
                 <div class="column is-4 pl-0 mt-0 pt-2" id="orderdiv">
@@ -123,7 +124,7 @@
                         </div>
                     </div>
                     <br><br>
-                    <button class="button" onClick="location.href='http://localhost/vegemart/public/confirm_order.php';">Checkout</button><br>
+                    <button class="button" onClick="location.href='http://localhost/vegemart/public/order_confirm.php';">Checkout</button><br>
                 </div>
             </div>
         </div>
