@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <link rel="stylesheet" href="../css/advertisement.css">     
+        <link rel="stylesheet" href="../css/advertisement.css">  
+        <link href="http://localhost/vegemart/public/images/logo.png" rel="shortcut icon">   
         <link rel="stylesheet" href="../css/footer.css">  
         <link rel="stylesheet" href="../css/style.css">
         

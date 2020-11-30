@@ -242,7 +242,7 @@
                         <div class=\"nav-dropdown\">
                             <img class=\"dp\" src=\"http://localhost/vegemart/public/images/users/{$rowUser['profilePic']}\" alt=\"Avatar\">
                             <div class=\"dropdown-content\">
-                                <a href=\"http://localhost/vegemart/public/seller/seller_profile_edit.php\">View Profile</a>
+                                <a href=\"http://localhost/vegemart/public/buyer_profile_edit.php\">View Profile</a>
                                 <a href=\"http://localhost/vegemart/src/logout.php\">Logout</a>
                             </div>
                         </div>

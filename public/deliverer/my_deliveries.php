@@ -4,17 +4,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../css/my-deliveries.css">
+        <link rel="stylesheet" href="../css/style.css"> 
+        <link rel="stylesheet" href="../css/footer.css">
         <title>My Deliveries | Vegemart</title>
     </head>
-
-
     <body>
         <?php include "./deliverer_nav.php"; ?>
 
         <div class="row">
-            <div class="heading">
-                <h1>My Deliveries</h1>
-            </div>
+            <h1 id="heading">My Deliveries</h1>
             <br>
             <div class="columns group mt-0">
                 <div class="column is-1 mt-0"></div>
@@ -130,6 +128,5 @@
 
         </div>
         <?php include_once "../includes/footer.php"; ?>    
-       
     </body>
 </html>

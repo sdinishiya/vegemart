@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <link href="images/logo.png" rel="shortcut icon">
+        <link href="http://localhost/vegemart/public/images/logo.png" rel="shortcut icon">
         <title>Products | Vegemart</title>
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/products.css">
@@ -96,10 +96,16 @@
                             <li><input type="text" size="1.75" name="min_price" pattern="\d*" title="Should be valid price" class="dropdown-input" placeholder="Min price"></li>            
                             <li><input type="text" size="1.75" name="max_price" pattern="\d*"  title="Should be valid price" class="dropdown-input" placeholder="Max price"></li>
                             <li><select name="location" class="dropdown-input">
-                                <option>  Location </option>
-                                <option>  Kandy </option>
-                                <option>  Badulla </option>
-                                    <?php include ('../src/filter.php'); ?>
+                                <option style="color:gray">  Location </option>
+                                    <?php 
+                                        include ('../src/filter.php'); 
+                                        while($row = mysqli_fetch_assoc($result)){?>
+                                            <option value= <?php echo $row['city'] ?>><?php echo $row['city'] ?></option>
+                                    <?php
+                                        }
+                                        mysqli_close($con);
+                                    ?>
+
                                 </select>
                             </li>
                         </ul>
@@ -152,6 +158,11 @@
                 <?php
                 }
                 include_once ('../src/products.php');
+                while($rowProduct  = mysqli_fetch_assoc($resultProduct)){
+                    showProducts($rowProduct);
+                } 
+                mysqli_close($con);
+            
                 ?>
             </div>   
         </div>

@@ -44,6 +44,7 @@ hr{
 }
  
 #ordersum {
+    margin-top:3%!important;
     display:grid;
     place-items: center;
     margin: 4em 0;

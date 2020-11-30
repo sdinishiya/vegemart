@@ -36,7 +36,6 @@
         $address1 = $_POST["address1"];
         $address2 = $_POST["address2"];
         $city = $_POST["city"];
-        $username = $_POST["username"];
         $password = $_POST["password"];
         $confirmPassword = $_POST["confirm_password"];
         $userType=$_POST["type"];

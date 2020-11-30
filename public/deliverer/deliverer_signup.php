@@ -19,7 +19,7 @@
                             
                             <div class="row"><h2>Deliverer Registration</h2></div>
                             
-                            <form id ="deliverer-signup" action="../PHP/deliverer_signup_process.php" method="post" enctype="multipart/form-data">
+                            <form id ="deliverer-signup" action="../../src/deliverer/deliverer_signup_process.php" method="post" enctype="multipart/form-data">
                             <div class="columns group">
                                 
                                 <div class="column is-12">

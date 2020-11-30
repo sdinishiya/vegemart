@@ -8,9 +8,6 @@
     $userquery = mysqli_query($con,$selectusers);
     $emailquery=mysqli_query($con,$selectemail);
 
-    while($row = mysqli_fetch_assoc($userquery)){
-        include ('../../public/seller/seller_profile_details.php');
-    }
-    mysqli_close($con);
+    
 
 ?>

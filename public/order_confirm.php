@@ -1,7 +1,17 @@
+<?php
+    include ('../config/dbconfig.php');
+    include ('../src/session.php');
+?>
+<?php
+    if (isset($_SESSION["loggedInUserID"])) {
+        $userID = $_SESSION["loggedInUserID"];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <link href="http://localhost/vegemart/public/images/logo.png" rel="shortcut icon">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="./css/order-confirm.css">
         <link rel="stylesheet" type="text/css" href="./css/progress-bar.css">
@@ -31,14 +41,26 @@
         <div class="columns group mb-0">
             <div class="column is-1"></div>
             <div class="column is-5 pr-4">
-                <div class="image-row has-text-centered">
+                <?php
+                    $productID=$_GET['id'];
+                    $product= "SELECT * FROM products WHERE productID='$productID';";  
+                    $productQuery=mysqli_query($con,$product);
+                    while ($rowproduct  = mysqli_fetch_assoc($productQuery)) {
+                        $sellerID=$rowproduct['sellerID'];
+                        $seller= "SELECT * FROM client WHERE id='$sellerID';";  
+                        $sellerQuery=mysqli_query($con,$seller);
+                        while ($rowseller  = mysqli_fetch_assoc($sellerQuery)) {
+                ?>
+                <!-- <div class="image-row has-text-centered">
                     <img class="map" src="http://localhost/vegemart/public/images/map.jpg">
-                </div>
-                <!-- <div class="mapouter">
-                    <div class="gmap_canvas">
-                        <iframe width="100%" height="%" id="gmap_canvas" src="https://maps.google.com/maps?q=badulla%20badulla&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>                               
-                    </div>
                 </div> -->
+                <div class="mapouter">
+                    <iframe class="gmap_canvas" src="https://maps.google.com/maps?q=<?php echo $rowseller['address1']?>%20<?php echo $rowseller['address2']?>%20<?php echo $rowseller['city']?>&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>                               
+                </div>
+                <?php
+                        }
+                    }
+                ?>
             </div>
             <div class="column is-5 pl-4 mt-0 ">
                 <div class="row has-text-left pb-0">
@@ -49,6 +71,16 @@
                     <p style="text-align:left;">Self Pickup should be done before 8pm</p>
                     <br>
                 </div>
+                <?php
+                    $productID=$_GET['id'];
+                    $product= "SELECT * FROM products WHERE productID='$productID';";  
+                    $productQuery=mysqli_query($con,$product);
+                    while ($rowproduct  = mysqli_fetch_assoc($productQuery)) {
+                        $sellerID=$rowproduct['sellerID'];
+                        $seller= "SELECT * FROM client WHERE id='$sellerID';";  
+                        $sellerQuery=mysqli_query($con,$seller);
+                        while ($rowseller  = mysqli_fetch_assoc($sellerQuery)) {
+                ?>
                 <div class="row">
                     <div class="columns group">
                         <div class="column is-4 has-text-left">
@@ -62,15 +94,26 @@
                             <h3 class="mb-0 mt-0" style="text-align:left;"></h3>
                             <h3 class="mb-0 mt-0" style="text-align:left;"></h3><br> 
                         </div>
+                        
                         <div class="column is-8 pr-2 has-text-left">
-                            <h3 class="mb-1 mt-0" style="text-align:left;">0711234567</h3>
-                            <h3 class="mb-0 mt-0" style="text-align:left;">22/A</h3>
-                            <h3 class="mb-0 mt-0" style="text-align:left;">D. M. Rupasinghe Mawatha,</h3>
-                            <h3 class="mb-0 mt-0" style="text-align:left;">Badulla</h3><br> 
-
-                            <h3 class="mb-0 mt-0" style="text-align:left;">11/B</h3>
-                            <h3 class="mb-0 mt-0" style="text-align:left;">E.L. Perera Mawatha</h3>
-                            <h3 class="mb-0 mt-0" style="text-align:left;">Badulla</h3><br>  
+                            <h3 class="mb-1 mt-0" style="text-align:left;"><?php echo $rowseller['phoneNum']?></h3>
+                            <h3 class="mb-0 mt-0" style="text-align:left;"><?php echo $rowseller['address1']?></h3>
+                            <h3 class="mb-0 mt-0" style="text-align:left;"><?php echo $rowseller['address2']?>,</h3>
+                            <h3 class="mb-0 mt-0" style="text-align:left;"><?php echo $rowseller['city']?></h3><br>
+                            <?php
+                                $userID=$_SESSION["loggedInUserID"];
+                                $user = "SELECT * FROM client WHERE id='$userID';";  
+                                $userQuery=mysqli_query($con,$user);
+                                while ($rowuser  = mysqli_fetch_assoc($userQuery)) {
+                            ?>
+                            <h3 class="mb-0 mt-0" style="text-align:left;"><?php echo $rowuser['address1']?></h3>
+                            <h3 class="mb-0 mt-0" style="text-align:left;"><?php echo $rowuser['address2']?></h3>
+                            <h3 class="mb-0 mt-0" style="text-align:left;"><?php echo $rowuser['city']?></h3><br>  
+                            <?php
+                                }
+                            }
+                        }
+                            ?>
                         </div>
                     </div>
                 </div>    
@@ -84,50 +127,64 @@
                 <div class="card">
                     <div class="item-table pl-1 pr-1 ml-1 mr-1 mt-0">
                     <h1 class="has-text-left pl-1" id="title">Your Items</h1>
-                        <div class="row item-row has-text-centered mt-0 mb-0">               
+                        <div class="row item-row has-text-centered mt-0 mb-0">                          
+                            <?php
+                                if (isset($_SESSION["loggedInUserID"])) {
+                                    $userID = $_SESSION["loggedInUserID"];
+                                }
+                                    $items = "SELECT * FROM cart WHERE userID='$userID';";    
+                                    $itemQuery=mysqli_query($con,$items);
+                                    $total=0;
+                                    $count=0;
+                                    while ($rowItems = mysqli_fetch_assoc($itemQuery)) {
+                                        $productID=$rowItems['productID']; 
+                                        $bid = "SELECT * FROM bidding WHERE productID='$productID' AND amount=(SELECT MAX(amount) AS amount FROM bidding WHERE productID='$productID');";    
+                                        $bidQuery=mysqli_query($con,$bid);
+                                        while ($rowBid  = mysqli_fetch_assoc($bidQuery)) { 
+                                            $total=$total+($rowBid['bidPrice']*$rowBid['bidQuantity']);
+                                            $count=$count+1;                                    
+                                            $product = "SELECT * FROM products WHERE productID='$productID';"; 
+                                            $productQuery=mysqli_query($con,$product);                                
+                                            while ($rowProduct = mysqli_fetch_assoc($productQuery)) {           
+                            ?>             
                             <div class="columns group mt-0">
                                 <div class="column is-4">
-                                    <img class="item-img" src="http://localhost/vegemart/public/images/products/tomato.jpg">
+                                    <img class="item-img" src="http://localhost/vegemart/public/images/products/<?php echo $rowProduct['imageName']?>">
                                 </div>
                                 <div class="column is-4">
-                                    <h3>Tomato</h2>
+                                    <h3><?php echo $rowProduct['name']?></h2>
                                 </div>
                                 <div class="column is-4">
-                                    <h3>100.00</h2>
+                                    <h3><?php echo $rowBid['bidPrice']*$rowBid['bidQuantity']?>.00</h2>
                                 </div>
                             </div>
-                            <div class="columns group">
-                                <div class="column is-4">
-                                        <img class="item-img" src="http://localhost/vegemart/public/images/products//potato.jpg">
-                                </div>
-                                <div class="column is-4">
-                                    <h3>Potato</h2>
-                                </div>
-                                <div class="column is-4">
-                                    <h3>100.00</h2>
-                                </div>
-                            </div>
+                            <?php
+                                    }
+                                }
+                            }
+                            ?>
                         </div>
                         <hr>
                         <div class="columns group mt-1">    
-                            <div class="column is-8 pl-2 has-text-left">
+                            <div class="column is-5 pl-2 has-text-left">
                                 <h2 style="text-align:left;">Sub Total</h2>
-                                <h2 style="text-align:left;">Delivery Charge</h2>
+                                <h2 style="text-align:left;display:none;" id="label">Delivery Charge</h2>
                                 <h1 style="text-align:left;">Total</h1>
                             </div>
-                            <div class="column is-4 pr-2 has-text-right">
-                                <h2 style="text-align:right;">200.00</h2>
-                                <h2 style="text-align:right;">50.00</h2>
-                                <h1 style="text-align:right;">250.00</h1>
+                            <div class="column is-7 pr-2 has-text-right">
+                                <h2 style="text-align:right;">Rs. <?php echo "$total"?>.00</h2>
+                                <h2 style="text-align:right;display:none;" id="charge">50.00</h2>
+                                <h1 style="text-align:right;" id="total">Rs. <?php echo "$total"?>.00</h1>
                             </div>
                         </div>
                     </div>
+                   
                     <div class="payhere has-text-centered">
                         <form method="post" action="https://sandbox.payhere.lk/pay/checkout">
                             <input type="hidden" name="merchant_id" value="1215900" style="display: none;"> <!-- Replace your Merchant ID -->
                             <input type="hidden" name="return_url" value="http://localhost/vegemart/public/order_done.php" style="display: none;">
                             <input type="hidden" name="cancel_url" value="http://localhost/vegemart/public/order_confirm" style="display: none;">
-                            <input type="hidden" name="notify_url" value="http://localhost/vegemart/public/payment.php" style="display: none;">
+                            <input type="hidden" name="notify_url" value="http://localhost/vegemart/src/payment.php" style="display: none;">
 
                             <input type="text" name="order_id" value="ItemNo12345" style="display: none;">
                             <input type="text" name="items" value="Vegemart Cart" style="display: none;">
@@ -155,7 +212,7 @@
                     </div>    
                     <div class="column is-7 has-text-left mt-1"> 
                         <label for="delivery">Delivery</label>
-                        <input style="text-align:left;" type="checkbox" id="title" name="delivery" value="delivery">     
+                        <input style="text-align:left;" type="checkbox" id="delivery" name="check" value="delivery" onclick="abc()">     
                         <p>Delivery is provided within the district only</p>                                           
                     </div>                               
                 </div>
@@ -168,7 +225,7 @@
                     </div>    
                     <div class="column is-7 has-text-left mt-1"> 
                         <label for="selfpick">Self Pickup</label>
-                        <input style="text-align:left;" type="checkbox" id="title" name="selfpick" value="selfpick">
+                        <input style="text-align:left;" type="checkbox" id="title" name="check" value="selfpick" onclick="onlyOne(this)">
                         <p>Please pickup during the day of purchase</p>                                             
                     </div>                               
                 </div>
@@ -178,3 +235,22 @@
         <?php include_once "./includes/footer.php"; ?>   
     </body>
 </html>
+<script>
+    function abc(){
+        var checkBox=document.getElementById("delivery");
+        var charge=document.getElementById("charge"); 
+        var label=document.getElementById("label"); 
+        var total= document.getElementById("total");
+        if(checkBox.checked==true){
+            charge.style.display="block";
+            label.style.display="block";  
+            total.innerHTML = "Rs. <?php echo "$total"+50?>.00"
+        }
+        else{
+            charge.style.display="none"; 
+            label.style.display="none"; 
+            total.innerHTML = "Rs. <?php echo "$total"?>.00"          
+        }
+
+    };
+    </script>

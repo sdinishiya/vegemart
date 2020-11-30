@@ -1,12 +1,72 @@
 @import url(./style.css);
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css");
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700&subset=latin,latin-ext);
 
 h1,h2,h3,h4,h5,h6,p,span,i {
     flex-wrap: wrap;
 }
 
+h1,h2,h3{
+    font-family:Candara; 
+}
+
+#heading{
+    font-family: Candara;
+    color: #138D75;
+    margin: 0 2em 0;
+}
+
+#title{
+    text-align:center; 
+    padding: 0 1em; 
+    font-family:Candara; 
+    margin:auto;
+    font-size: 24px;
+    color: black;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.select-box {
+    background-color: #138D75;
+    width: 100%;
+    float: left;
+    border: 1px solid;
+    padding-top: 0;
+    text-align: left;
+    height: 55px;
+    display: block;
+    font-weight: 400;
+    position: relative;
+    border-radius: 2px;
+}
+/* #00cf9b */
+select {
+    background-color: #138D75; 
+    border-radius: 0px;
+    background-image:url(http://minimalcoding.net/wp-content/uploads/2015/06/icon.png); 
+    background-position: top 20px right 10px;
+    background-repeat:no-repeat;
+    display: block;
+    height: 54px;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    outline: none;
+    letter-spacing: 1px;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    line-height: 54px;
+    color: #fff;
+    font-size: 16px;    
+}
+
 button {
-    background-color: #29BF3A;
+    background-color: #138D75;
     border-color: transparent;
     color: #fff;
     font-size: 1rem;
@@ -26,8 +86,23 @@ button > i{
 }
 
 .item-row{
-    background-color: #caf3cf !important;
+    background-color: #eceeed;
     border-radius: 10px !important;
     padding: 5px !important;
     vertical-align: middle;
+}
+
+.card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color:#FDFEFE;
+    /* padding: 2em; */
+    margin: auto;
+    align-self: center;
+    text-align: left;
+}
+
+#cash{
+    max-height: 100px;
+    text-align: center;
+    padding: 1em 0 0;
 }
