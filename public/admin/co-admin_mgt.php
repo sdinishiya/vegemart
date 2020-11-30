@@ -48,28 +48,27 @@
                           </tr>
                       
                       <?php
-                      
-                      $sql ="SELECT * FROM `admin`";
+                      $userType="coadmin";
+                      $sql ="SELECT * FROM `users` WHERE userType='$userType'";
                       $result = mysqli_query($con,$sql);        
-                      while($row = mysqli_fetch_assoc($result)){
-                        $adminID=$row['adminID'];
-                        $sql_email="SELECT * FROM `admin` WHERE adminID='$adminID'";
-                        $res_email=$result = mysqli_query($con,$sql_email);    
-                        while($rowEmail = mysqli_fetch_assoc($res_email)){
+                      while($row = mysqli_fetch_assoc($result)){ 
+                        $adminID=$row['id']; 
+                        $sql_admin ="SELECT * FROM `admin` WHERE adminID='$adminID'"; 
+                        $result_admin = mysqli_query($con,$sql_admin);
+                        while($row_admin = mysqli_fetch_assoc($result_admin)){                       
                           echo "
                               <tr>                  
-                                  <td>".$row['adminID']."</td>
-                                  <td>".$row['name']."</td>
-                                  <td>".$rowEmail['email']."</td>
-                                  <td>".$row['contactNum']."</td>
-                                  <td>".$row['address1']."</td>
-                                  <td>".$row['address2']."</td>
-                                  <td>".$row['city']."</td>
-                                  <td>".$row['status']."</td>                                  
-                              </tr>";
-                              
-                      } 
+                                  <td>".$row['id']."</td>
+                                  <td>".$row_admin['name']."</td>
+                                  <td>".$row['email']."</td>
+                                  <td>".$row_admin['contactNum']."</td>
+                                  <td>".$row_admin['address1']."</td>
+                                  <td>".$row_admin['address2']."</td>
+                                  <td>".$row_admin['city']."</td>
+                                  <td>".$row_admin['status']."</td>                                  
+                              </tr>";                         
                     }
+                  }
                       echo "</table>";
                       ?>
               </div>
@@ -77,6 +76,10 @@
               <div class="coadmin-dashboard">
                   <form class="update-box" method="POST" action="submit-co-admin.php">
                       <table>
+                          <tr>
+                              <th> ID : </th>
+                              <td><input class="input-l" type="text" placeholder="ID" id="id" name="id" readonly=true required></td>
+                          </tr>
                           <tr>
                               <th> Name : </th>
                               <td><input class="input-l" type="text" placeholder="Admin Name" id="name" name="name" pattern="^[A-Za-z ]+$" required></td>
@@ -90,13 +93,25 @@
                               <td><input class="input-l" type="text" placeholder="Contact" id="contact_no" name="contact" pattern='^\+?\d{11}' required></td>
                           </tr>
                           <tr>
-                              <th> Status : </th>
-                              <td><input class="input-m" type="text" placeholder="Active status" id="status" name="status"  required></td>
+                              <th> No : </th>
+                              <td><input class="input-l" type="text" placeholder="Postal number" id="postal" name="postal"  required></td>
+                          </tr>
+                          <tr>
+                              <th> Street : </th>
+                              <td><input class="input-l" type="text" placeholder="Street" id="street" name="street"  required></td>
+                          </tr>
+                          <tr>
+                              <th> City : </th>
+                              <td><input class="input-l" type="text" placeholder="City" id="city" name="city"  required></td>
                           </tr>
                           <tr>
                               <th>Password : </th>
-                              <td><input class="input-m" type="password" placeholder="Password" id="password" name="password"
+                              <td><input class="input-l" type="password" placeholder="Password" id="password" name="password"
                               pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"></td>
+                          </tr>
+                          <tr>
+                              <th> Status : </th>
+                              <td><input class="input-m" type="text" placeholder="Active status" id="status" name="status"  required></td>
                           </tr>
 
                       </table>
@@ -117,9 +132,13 @@
           {
               table.rows[i].onclick = function()
               {
+                  document.getElementById("id").value = this.cells[0].innerHTML;
                   document.getElementById("name").value = this.cells[1].innerHTML;
                   document.getElementById("email").value = this.cells[2].innerHTML;
                   document.getElementById("contact_no").value = this.cells[3].innerHTML;
+                  document.getElementById("postal").value = this.cells[4].innerHTML;
+                  document.getElementById("street").value = this.cells[5].innerHTML;
+                  document.getElementById("city").value = this.cells[6].innerHTML;
                   document.getElementById("status").value = this.cells[7].innerHTML;
                   // document.getElementById("password").value = this.cells[3].innerHTML;
                   
@@ -207,7 +226,7 @@
            <label for="street"> Street </label>
          </div>
          <div class="col-6">
-         <input type="text" id="street" name="street" placeholder="address2" style="width: 100%" required />
+         <input type="text" id="street" name="address2" placeholder="address2" style="width: 100%" required />
          </div>
        </div>
 

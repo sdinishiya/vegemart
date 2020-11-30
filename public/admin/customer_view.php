@@ -38,40 +38,45 @@
         
         <table class="user" id="myTable">
             <tr>
-                <th>Customer ID</th>
-                <th>Customer Name</th>
-                <th>Customer Email</th>
+                <th>Seller ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Seller Email</th>
                 <th>Contact No.</th>
-                <th>DoB</th>
-                <th>Postbox</th>
+                <th>No</th>
                 <th>Street</th>
                 <th>City</th>
                 <th>Status</th>
             </tr>
         
-        <?php
+            <?php
         
-        $sql ="SELECT * FROM `customer`";
-
-        $result = mysqli_query($con,$sql);        
-        while($row = mysqli_fetch_assoc($result)){
-        
-            echo "
-                <tr>                  
-                    <td>".$row['user_id']."</td>
-                    <td>".$row['user_name']."</td>
-                    <td>".$row['email']."</td>
-                    <td>".$row['phone']."</td>
-                    <td>".$row['dob']."</td>
-                    <td>".$row['postal_number']."</td>
-                    <td>".$row['street']."</td>
-                    <td>".$row['city']."</td>
-                    <td>".$row['active_status']."</td>
-                </tr>";
-                
-        } 
-        echo "</table>";
-        ?>
+                $userType="user";
+                $sql ="SELECT * FROM `users` WHERE userType='$userType'";
+                $result = mysqli_query($con,$sql);        
+                while($row = mysqli_fetch_assoc($result)){ 
+                $sellerID=$row['id']; 
+                $sql_seller ="SELECT * FROM `client` WHERE id='$sellerID'"; 
+                $result_seller = mysqli_query($con,$sql_seller);
+                while($row_seller = mysqli_fetch_assoc($result_seller)){
+            
+                    echo "
+                        <tr>                  
+                            <td>".$row['id']."</td>
+                            <td>".$row_seller['fName']."</td>
+                            <td>".$row_seller['lName']."</td>
+                            <td>".$row['email']."</td>
+                            <td>".$row_seller['phoneNum']."</td>
+                            <td>".$row_seller['address1']."</td>
+                            <td>".$row_seller['address2']."</td>
+                            <td>".$row_seller['city']."</td>
+                            <td>".$row['active_status']."</td>
+                        </tr>";
+                    
+                    } 
+                }
+            echo "</table>";
+            ?>
         
         
         </div>
@@ -83,14 +88,14 @@
         {
             table.rows[i].onclick = function()
             {
-                document.getElementById("cus_name").value = this.cells[1].innerHTML;
-                document.getElementById("cus_id").value = this.cells[0].innerHTML;
-                document.getElementById("email").value = this.cells[2].innerHTML;
-                document.getElementById("dob").value = this.cells[4].innerHTML;
-                document.getElementById("contact_number").value = this.cells[3].innerHTML;
+                document.getElementById("fname").value = this.cells[1].innerHTML;
+                document.getElementById("id").value = this.cells[0].innerHTML;
+                document.getElementById("lname").value = this.cells[2].innerHTML;
+                document.getElementById("email").value = this.cells[3].innerHTML;
                 document.getElementById("street").value = this.cells[6].innerHTML;
                 document.getElementById("postal_number").value = this.cells[5].innerHTML;
                 document.getElementById("city").value = this.cells[7].innerHTML;
+                document.getElementById("contact_number").value = this.cells[4].innerHTML;
                 document.getElementById("active_status").value = this.cells[8].innerHTML;
             };
         }
@@ -108,30 +113,27 @@
                     <table>
                         <tr>
                             <th>Customer ID :</th>
-                            <td><input class="input-s" type="text" placeholder="ID" id="cus_id" name="id" readonly="true" required></td>
-                            <th>Customer Name :</th>
-                            <td><input width="50px" class="input-l" type="text" placeholder="Customer Name" id="cus_name" readonly="true" required></td>
-                            <th>Customer Email :</th>
-                            <td><input class="input-l" type="text" placeholder="Customer Email" id="email" readonly="true" required></td>
-                            
-                        </tr>
-                        <tr>
-                            <th>Contact No. :</th>
-                            <td><input class="input-m" type="text" placeholder="Contact" id="contact_number" readonly="true" required></td>
-                            <th>Date of Birth :</th>
-                            <td><input class="input-m" type="text" placeholder="yyyy-mm-dd" id="dob" readonly="true" required></td>
-                            <th>Active Status :</th>
-                            <td><input class="input-s" type="text" id="active_status" placeholder="Status" readonly="true" required></td>
-
-                        </tr>
-                        <tr>
+                            <td><input class="input-l" type="text" placeholder="ID" id="id" name="id" readonly="true" required></td>
                             <th>Postbox No. :</th>
                             <td><input class="input-m" type="text" placeholder="Postbox" id="postal_number" readonly="true" required></td>
+                            <th>Customer Email :</th>
+                            <td><input class="input-l" type="text" placeholder="Customer Email" id="email" readonly="true" required></td>
+                        </tr>
+                        <tr>
+                            <th>First Name :</th>
+                            <td><input width="50px" class="input-l" type="text" placeholder="First Name" id="fname" readonly="true" required></td>
                             <th>Street Name :</th>
-                            <td><input class="input-m" type="text" placeholder="Street" id="street" readonly="true" required></td>
+                            <td><input class="input-l" type="text" placeholder="Street" id="street" readonly="true" required></td>
+                            <th>Contact No. :</th>
+                            <td><input class="input-l" type="text" placeholder="Contact" id="contact_number" readonly="true" required></td>
+                        </tr>
+                        <tr>
+                            <th>Last Name :</th>
+                            <td><input width="50px" class="input-l" type="text" placeholder="Last Name" id="lname" readonly="true" required></td>
                             <th>City :</th>
-                            <td><input class="input-m" type="text" placeholder="City" id="city" readonly="true" required></td>
-
+                            <td><input class="input-l" type="text" placeholder="City" id="city" readonly="true" required></td>
+                            <th>Active Status :</th>
+                            <td><input class="input-s" type="text" id="active_status" placeholder="Status" readonly="true" required></td>
                         </tr>
                     </table>
 

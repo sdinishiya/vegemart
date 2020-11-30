@@ -71,28 +71,30 @@
         
         <?php
         
-        $sql ="SELECT * FROM `seller`";
-
-        $result = mysqli_query($con,$sql);        
-        while($row = mysqli_fetch_assoc($result)){
+            $userType="seller";
+            $sql ="SELECT * FROM `users` WHERE userType='$userType'";
+            $result = mysqli_query($con,$sql);        
+            while($row = mysqli_fetch_assoc($result)){ 
+              $sellerID=$row['id']; 
+              $sql_seller ="SELECT * FROM `client` WHERE id='$sellerID'"; 
+              $result_seller = mysqli_query($con,$sql_seller);
+              while($row_seller = mysqli_fetch_assoc($result_seller)){
         
-            echo "
-                <tr>                  
-                    <td>".$row['user_id']."</td>
-                    <td>".$row['user_name']."</td>
-                    <td>".$row['email']."</td>
-                    <td>".$row['phone']."</td>
-                    <td>".$row['dob']."</td>
-                    <td>".$row['postal_number']."</td>
-                    <td>".$row['street']."</td>
-                    <td>".$row['city']."</td>
-                    <td>".$row['products']."</td>
-                    <td>".$row['quantity']."</td>
-                    <td>".$row['rankings']."</td>
-                    <td>".$row['active_status']."</td>
-                </tr>";
+                echo "
+                    <tr>                  
+                        <td>".$row['id']."</td>
+                        <td>".$row_seller['fName']."</td>
+                        <td>".$row_seller['lName']."</td>
+                        <td>".$row['email']."</td>
+                        <td>".$row_seller['phoneNum']."</td>
+                        <td>".$row_seller['address1']."</td>
+                        <td>".$row_seller['address2']."</td>
+                        <td>".$row_seller['city']."</td>
+                        <td>".$row['active_status']."</td>
+                    </tr>";
                 
         } 
+      }
         echo "</table>";
         ?>
         
