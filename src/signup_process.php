@@ -39,6 +39,7 @@
         $password = $_POST["password"];
         $confirmPassword = $_POST["confirm_password"];
         $userType=$_POST["type"];
+        $active_status=1;
 
         if ($password === $confirmPassword) {
             
@@ -58,14 +59,17 @@
                 }  
                 $id = rand(); 
                 $client = "INSERT INTO `client` (`id`, `fName`,`lName`,`phoneNum`,`address1`,`address2`,`city`,`profilePic`) VALUES ('".$id."','".$fName."','".$lName."','".$phoneNum."','".$address1."','".$address2."','".$city."','".$imageName."');";
-                $user = "INSERT INTO `users` (`id`,`email`,`password`, `userType`) VALUES ('".$id."','".$email."','".$password_hash."','".$userType."');";
+                $user = "INSERT INTO `users` (`id`,`email`,`password`, `userType`, `active_status`) VALUES ('".$id."','".$email."','".$password_hash."','".$userType."','".$active_status."');";
                 mysqli_query($con,$client);
                 mysqli_query($con,$user);
                 header('Location:../public/login.php');
             }
                               
         }else {
-            header('Location:../public/includes/message.php');
+            echo "<script type='text/javascript'>
+                alert('password does not match');
+                window.history.back();           
+                </script>";
         }
 
     }

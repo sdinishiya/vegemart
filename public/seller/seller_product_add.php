@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="http://localhost/vegemart/public/images/logo.png" rel="shortcut icon">
-    <link rel="stylesheet" type="text/css" href="../css/seller-product-add.css">
+    <link rel="stylesheet" type="text/css" href="../css/seller-product-edit.css">
     <link rel="stylesheet" type="text/css" href="../css/footer.css"> 
     <script src="../jquery-3.5.1.min.js"></script>   
     <title>Add New Product</title>
@@ -17,33 +17,34 @@
                 <div class="column is-3 pl-1 pr-1"></div>
                 <div class="column is-6 pl-1 pr-1">
                     <div class="row">
-                    <fieldset>
-                            <legend>Add Product</legend>
+                        <div class="updateForm">
+                            <h2 style="font-size:20px;">Add Product</h2><br>
                             <form id="addProduct" name="addProduct" action="../../src/seller/seller_product_add_submit.php" method="post" enctype="multipart/form-data">
                             <div class="columns group">
                                 <div class="column is-12 pl-2 pr-2">
                                     <div class="input-row">                                  
                                         <label for="product">Product Name</label>                                        
                                         <select name="productName" form="addProduct">
-                                            <option value="beans">Beans</option>
-                                            <option value="beetroot">Beetroot</option>
-                                            <option value="broccoli">Boccoli</option>
-                                            <option value="cabbage">Cabbage</option>
-                                            <option value="carrot">Carrot</option>
-                                            <option value="cucumber">Cucumber</option>
-                                            <option value="eggplant">Eggplant</option>
-                                            <option value="garlic">Garlic</option>
-                                            <option value="onion">Onion</option>
-                                            <option value="pumpkin">Pumpkin</option>
-                                            <option value="potato">Potato</option>
-                                            <option value="radish">Radish</option>
-                                            <option value="sweetpotato">Sweet Potato</option>             
-                                            <option value="tomato">Tomato</option>                                          
+                                            <option value="Beans">Beans</option>
+                                            <option value="Beetroot">Beetroot</option>
+                                            <option value="Broccoli">Broccoli</option>
+                                            <option value="Cabbage">Cabbage</option>
+                                            <option value="Carrot">Carrot</option>
+                                            <option value="Cucumber">Cucumber</option>
+                                            <option value="Eggplant">Eggplant</option>
+                                            <option value="Garlic">Garlic</option>
+                                            <option value="Onion">Onion</option>
+                                            <option value="Pumpkin">Pumpkin</option>
+                                            <option value="Potato">Potato</option>
+                                            <option value="Radish">Radish</option>
+                                            <option value="Sweetpotato">Sweet Potato</option>             
+                                            <option value="Tomato">Tomato</option>                                          
                                         </select>          
                                     </div>
                                     <div class="input-row">                                              
-                                        <label for="quantity">Quantity (kg):</label>
-                                        <input type="text" class="input-box" id="quantity" name="quantity" placeholder="ex: 1" required/><br>
+                                        <label for="quantity">Quantity (g):</label>
+                                        <input type="number" class="input-box" id="quantity" name="quantity" placeholder="ex: 500" min="250" step="50" required/><br>
+                                        type="number" name="quantity"  min="250" step="50"
                                     </div>
                                     <div class="input-row">                                               
                                         <label for="minPrice">Minimum price per unit(Rs):</label>
@@ -92,7 +93,7 @@
                             </div>
                             </form>
                             <h3 class="error-msg"><?php include_once('../includes/message.php'); ?></h3>
-                        </fieldset>
+                        </div>
                     </div>
                 </div>
                 <div class="column is-3 pl-1 pr-1"></div>

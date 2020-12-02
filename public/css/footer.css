@@ -16,7 +16,10 @@ footer{
     flex-flow: row wrap;
     padding: 30px;
     color: #fff;
-    background: #262626;
+    background-image: url('../images/footer.jpg');
+    background-size: cover ;
+    background-repeat: repeat-y;
+    filter: brightness(0.9);
 }
 .footer > *{
     flex: 1 100%;
@@ -35,7 +38,7 @@ h2{
     padding-left: 0;
 }
 .footer li{
-    line height: 2em;
+    
     padding-bottom:1em;
 }
 .footer a{
@@ -56,12 +59,12 @@ h2{
 }
 
 .r-footer h2{
-    color: #999;
+    color: white;
 }
 
 .box a{
     text-decoration: none;
-    color: #999;
+    color: white;
 }
 .h-box{
     column-count: 2;
@@ -69,12 +72,12 @@ h2{
 }
 .b-footer{
     text-align: center;
-    color: #999;
+    color: white;
     padding-top: 50px;
 }
 .l-footer p{
     padding-right: 20%;
-    color: #999;
+    color: white;
 }
 .logo-image{
     height: 50px;

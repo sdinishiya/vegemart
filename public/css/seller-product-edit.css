@@ -4,6 +4,9 @@ body {
     background-image: url('../images/bg1.png');
     background-size: cover;
 }
+h1,h2,h3{
+    font-family: Candara !important;
+}
 
 h1,h2,h3,h4,h5,h6,p{
     flex-wrap: wrap;
@@ -14,11 +17,13 @@ p{
 }
 
 .updateForm {
-    background-color: #fff;
+    box-shadow: 4px 4px 20px -8px rgba(0, 0, 0, 0.75);
+    background-color: white;
     border-radius: 15px;
-    padding: 30px;
+    padding: 1rem;
     margin: 10px;
     align-self: center;
+    align-items: center;
 }
 
 .input-row{
@@ -93,7 +98,7 @@ textarea{
     margin: 20px;
     border: none;
     outline: none;
-    background:#4db151;;
+    background: #138D75;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
@@ -102,7 +107,7 @@ textarea{
 }
 
 .updateForm .form-button:hover{
-    background-color: #3e8e41;
+    background-color: #1cc4a2;
     color: white;
 }
 

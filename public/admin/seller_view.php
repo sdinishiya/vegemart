@@ -150,13 +150,11 @@
        <!--script for onClickNav() for the navigation menu-->
     <script src="../../js/onClickNav.js"></script>
     <div class="row">
-            <div class="col-7"></div>
-            <div class="col-1"><a href="#" class="button"> Update </a></div>
-            <div class="col-0"></div>
-            <div class="col-1"><a href="#" class="button"> Delete </a></div>
-            <div class="col-0"></div>
-            <div class="col-1"><a href="admin-dash.php" class="button"> Back </a></div>
-            <div class="col-1"></div>
+        <div class="col-3"></div>
+        <div class="col-2"><a href="#" class="button"> View Activity Logs </a></div>
+        <div class="col-2"><a href="#" class="button"> Update </a></div>
+        <div class="col-2"><a href="#" class="button"> Delete </a></div>
+        <div class="col-2"><a href="admin-dash.php" class="button"> Back </a></div>
 
         </div>
 

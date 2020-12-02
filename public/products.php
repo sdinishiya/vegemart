@@ -33,7 +33,7 @@
                         <img src="./images/ad.jpg">  
                     </div>
                 </div>
-                <div class="column is-3 pl-1 pr-1 mt-0 mb-1">
+                <div class="column is-3  pr-1 mt-0 mb-1">
                     <div class="promotions">  
                         <img src="./images/card1.png">  
                     </div>
@@ -151,7 +151,7 @@
                 function showProducts($rowProduct){?>
                     <div class= "block" onclick= "window.location.href = 'bid.php?id=<?php echo $rowProduct['productID'] ?>'" style="cursor: pointer;">
                         <img src= images/products/<?php echo $rowProduct['imageName'] ?>>
-                        <h3><?php echo $rowProduct['name'] ?></h3>
+                        <h3 style="text-transform: capitalize;"><?php echo $rowProduct['name'] ?></h3>
                         <h3>Location: <?php echo $rowProduct['city'] ?> </h3>
                         <h3>Rs. <?php echo $rowProduct['minPrice']  ?>(250g)</h3>
                     </div>

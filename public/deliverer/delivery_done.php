@@ -23,14 +23,12 @@
                             <p>You successfully delivered order <a href="#">#1656346</a></p>
                             <p>Your payment will be credited to your bank account</p>
                             <p>If you have any questions or queries feel free to contact us at the Vegemart help desk </p><br>
-                                               
+                            <a id="ab" href="http://localhost/vegemart/public/deliverer/deliverer_home.php"><i class="fa fa-hand-o-left pr-1" style="font-size:22px; font-weight:500; color:#3e8e41;"></i>Back To Home</a>                 
+                            <br>
                             <img class="logo mt-2 mb-1" src="http://localhost/vegemart/public/images/logob.png">
                         </div>
                     </div>
-                    <br>
-                    <a id="ab" href="http://localhost/vegemart/public/deliverer/deliverer_home.php"><i class="fa fa-hand-o-left pr-1" style="font-size:22px; font-weight:500; color:#3e8e41;"></i>Back To Home</a>
-                    <br>
-                </div>
+                  </div>
                 <div class="column is-3 mt-0"></div>
             </div>
         </div>

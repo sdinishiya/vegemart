@@ -11,22 +11,22 @@
         <footer class="footer">
             <div class="row">
                 <div class="columns group">
-                    <div class="column is-3" style="color: #999">
+                    <div class="column is-3" style="color: white">
                         <i class="fa fa-shopping-bag" style="font-size:60px; color:white;"></i>
                         <h3>Shop for freshness</h3>
                         <p>Safe and high quality</p>
                     </div>
-                    <div class="column is-3" style="color: #999">
+                    <div class="column is-3" style="color: white">
                         <i class="fa fa-truck" style="font-size:60px; color:white;"></i>
                         <h3>Quick delivery</h3>
                         <p>Safe and high quality</p>
                     </div>
-                    <div class="column is-3" style="color: #999">
+                    <div class="column is-3" style="color: white">
                         <i class="fa fa-credit-card" style="font-size:60px; color:white;"></i>
                         <h3>Secure Payment</h3>
                         <p>Safe and high quality</p>
                     </div>
-                    <div class="column is-3" style="color: #999">
+                    <div class="column is-3" style="color: white">
                         <i class="fa fa-handshake-o" style="font-size:60px; color:white;"></i>
                         <h3>Help local farmers</h3>
                         <p>Safe and high quality</p>
@@ -36,8 +36,8 @@
             </div>
             <div class="l-footer">
                 
-                    <h1><img class="logo-image" src="./images/logow.png" alt="logo"></h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean consectetur maximus placerat. Aenean orci est, cursus a ante quis, venenatis posuere libero. In fermentum pharetra urna eget accumsan.</p>
+                    <h1><img class="logo-image" src="http://localhost/vegemart/public/images/logow.png" alt="logo"></h1>
+                    <p>Vegemart ia an online website that takes the pride in connecting the farmer community, We strive to give quality products at reasonable price and to collaborate with the farmers to make a difference economkcally. Let's collaborate!  </p>
             </div>
             <ul class="r-footer">
                 <li><br>

@@ -24,14 +24,20 @@
                 <div class="bid-card">
                     <div class="columns group mb-0">
                         <div class="column is-3 pt-1 pl-1 pr-1 mt-1 mb-0" id="seller-info">
-                            <p class="sub" style="text-align:left; padding:0 1em;">Seller Name</p>
                             <?php
                                 $productID=$_GET['id'];
                                 include ('../src/seller/seller_dashboard/seller_details.php');
                                 while ($rowUser  = mysqli_fetch_assoc($resultSeller)) {                       
                             ?>
+                            <form action="seller/seller_home.php" method="POST">
+                            <input type="hidden"  id="sellerID" name="sellerID" value="<?php echo $rowUser['id']?>" required/><br>
+                            <p class="sub" style="text-align:left; padding:0 1em;">Seller Name</p>
+                            
                                 <h3 style="text-align:left; padding:0 1em;"><?php echo $rowUser['fName'] . " " . $rowUser['lName'] ?></h3>
-                                <span class="has-text-centered"><a id="ab" href="http://localhost/vegemart/public/seller/seller_home.php">View seller</a></span>
+                                
+                                    
+                                    <label class="has-text-left"><input type="submit" name="send" value="Submit" class="invisibutton has-text-left">View Seller</label>
+                                <form>
                                 <div class="rating-block mt-1 pt-0 pl-1 has-text-left">
                                     <i style="text-align:left; padding-bottom:0;" class="fas fa-star star-colored"></i>
                                     <i style="text-align:left; padding-bottom:0;" class="fas fa-star star-colored"></i>
@@ -54,13 +60,13 @@
                                 while ($rowProduct  = mysqli_fetch_assoc($resultProduct)) {                       
                             ?>
                             <p class="sub" style="text-align:left; padding:0 1em;">Product auctioned</p>
-                            <h3 style="text-align:left; padding:0 1em;"><?php echo $rowProduct['name']?></h3>
+                            <h3 style="text-align:left; padding:0 1em;text-transform: capitalize;"><?php echo $rowProduct['name']?></h3>
 
                             <p class="sub" style="text-align:left; padding:0 1em;">Minimum price per 250g</p>
                             <h3 style="text-align:left; padding:0 1em;">Rs.<?php echo $rowProduct['minPrice']?>.00</h3>
 
                             <p class="sub" style="text-align:left; padding:0 1em;">Quantity available</p>
-                            <h3 style="text-align:left; padding:0 1em;"><?php echo $rowProduct['quantity']?> kg</h3><br><hr><br>
+                            <h3 style="text-align:left; padding:0 1em;"><?php echo $rowProduct['quantity']?> grams</h3><br><hr><br>
                              
                             <h2 style="color: #138D75; font-size:24px; font-family: Candara;" class="mt-0 pt-0">Place your bid now <i style="font-size:1.2em; text-align:center; margin:0.4em 0.1em; color: #138D75;" class="fa fa-hand-o-right"></i></h2>
                             <p style="color: red;">Caution! Once you win a bid, You cannot remove the won item from your cart.</p>
@@ -96,10 +102,10 @@
                             <form action="../src/bid_submit.php" method="post">
                                 <div class="columns group mt-2 mb-0 has-text-centered">
                                     <div class="column is-6">
-                                        <input class="input-box" style="max-width: 150px;" type="number" name="quantity" placeholder="Bidding Quantity(g)" min="250" step="50" required>
+                                        <input class="input-box" style="max-width: 150px;" type="number" name="quantity" placeholder="Bidding Quantity(g)" min="250" step="50">
                                     </div>
                                     <div class="column is-6">
-                                        <input class="input-box" style="max-width: 150px;" type="number" name="bid" placeholder="Enter bid(Rs.)" min="30" required>
+                                        <input class="input-box" style="max-width: 150px;" type="number" name="bid" placeholder="Enter bid(Rs.)" min="30">
                                     </div>
                                     <input type="hidden" name="productID" value="<?php echo $_GET['id']?>">
                                     <input type="hidden" name="userID" value="<?php echo $_SESSION["loggedInUserID"]?>">
@@ -133,34 +139,33 @@
                             }                            
                             ?>
                             <div class="row mt-0 mb-0 pt-0 pb-0 pl-1 pr-1" id="other-bids">
-                                <h2 style="font-family: Candara" class="pb-0 pt-1 mb-0 has-text-centered">Other bids</h2>  
-                            </div>                                 
-                            <div class="row mt-0 mb-0 pt-0 pb-0 pl-1 pr-1" id="other-bids"> 
+                                <h2 style="font-family: Candara; padding-left:2em;" class="pb-0 pt-1 mb-0">Other bids</h2> 
+                                <?php 
+                                $productID=$_GET['id'];     
+                                $bid = "SELECT * FROM bidding WHERE productID='$productID' GROUP BY bidID ORDER BY amount DESC LIMIT 3 ;";    
+                                $bidQuery=mysqli_query($con,$bid);
+                                while ($rowBid  = mysqli_fetch_assoc($bidQuery)) { 
+                                    $userID = $rowBid['userID'];
+                                    $user = "SELECT * FROM client WHERE id='$userID'";    
+                                    $userQuery=mysqli_query($con,$user);                                    
+                                    while ($rowUser  = mysqli_fetch_assoc($userQuery)) {                       
+                                ?> 
+
                                 <div class="columns group mt-0 mb-0 has-text-left">
                                     <div class="column is-9 mmt-0 mb-0 pt-0 pb-0 pl-1">
-                                    <?php
-                                    $otherBids = "SELECT userID,startTime,MAX(amount) AS amount FROM bidding WHERE productID='$productID' GROUP BY userID ORDER BY MAX(amount)  DESC LIMIT 3;";    
-                                    $otherBidsQuery=mysqli_query($con,$otherBids);
-                                    while ($rowOtherBids  = mysqli_fetch_assoc($otherBidsQuery)) { 
-                                        $userID = $rowOtherBids['userID'];
-                                        $user = "SELECT * FROM client WHERE id='$userID'";    
-                                        $userQuery=mysqli_query($con,$user);                                    
-                                        while ($rowUser  = mysqli_fetch_assoc($userQuery)) { 
-                                    ?>
-                                        <p><img class="user-dp" src="http://localhost/vegemart/public/images/users/<?php echo $rowUser['profilePic']?>" alt="Avatar"><?php echo $rowUser['fName'] . " " . $rowUser['lName'] ?></p>
-                                        <p><?php echo $rowOtherBids['startTime']?></p>
+                                        <p><img class="user-dp" src="http://localhost/vegemart/public/images/users/default.png" alt="Avatar"><?php echo $rowUser['fName'] . " " . $rowUser['lName'] ?></p>
+                                        <p><?php echo $rowBid['startTime']?></p>
                                     </div>
                                     <div class="column is-3 mt-0 mb-0 pt-0 pb-0 pl-1">
-                                        <p><?php echo $rowOtherBids['amount']?></p>
+                                        <p>Rs. <?php echo $rowBid['amount']?>.00</p>
                                     </div>
-                                    <?php       
-                                            }
-                                        }                     
-                                    ?>
                                 </div>
-                                <hr>                        
+                                <hr>
+                                <?php    
+                                        }
+                                    }                            
+                                ?>
                             </div>
-                            
                             <div class="removeBid has-text-centered">
                                 <button>Remove Bid</button>
                             </div>

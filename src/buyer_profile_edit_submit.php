@@ -1,5 +1,5 @@
 <?php
-    include ('../src/session.php'); 
+    include ('./session.php'); 
     include ('../config/dbconfig.php');
  
     if(empty(session_id())){
@@ -63,14 +63,14 @@
                     } 
                         $updateUser= "UPDATE `users` SET email = '".$newEmail."',`password` = '".$newPassword."' WHERE id = '".$id."' ";
                     if($imageName==""){
-                        $updateQuery= "UPDATE `client` SET fName = '".$newFName."', lName = '".$newLName."', phoneNum = '".$newPhoneNum."', address1 = '".$newAddress1."', address2 = '".$newAddress2."', city = '".$newCity."', username = '".$newUsername."' WHERE id = '".$id."' ";
+                        $updateQuery= "UPDATE `client` SET fName = '".$newFName."', lName = '".$newLName."', phoneNum = '".$newPhoneNum."', address1 = '".$newAddress1."', address2 = '".$newAddress2."', city = '".$newCity."' WHERE id = '".$id."' ";
                     }
                     else{
-                        $updateQuery= "UPDATE `client` SET fName = '".$newFName."', lName = '".$newLName."', phoneNum = '".$newPhoneNum."',profilePic = '".$imageName."', address1 = '".$newAddress1."', address2 = '".$newAddress2."', city = '".$newCity."', username = '".$newUsername."' WHERE id = '".$id."' ";   
+                        $updateQuery= "UPDATE `client` SET fName = '".$newFName."', lName = '".$newLName."', phoneNum = '".$newPhoneNum."',profilePic = '".$imageName."', address1 = '".$newAddress1."', address2 = '".$newAddress2."', city = '".$newCity."' WHERE id = '".$id."' ";   
                     }   
                     if (mysqli_query($con,$updateQuery) && mysqli_query($con,$updateUser)) {
                         $message = base64_encode(urlencode("Successfully Edited!"));
-                        header('Location:index.php?msg=' . $message);
+                        header('Location:../public/products.php?msg=' . $message);
                         exit();
                     } 
                     else {

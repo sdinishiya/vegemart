@@ -33,27 +33,19 @@
         $lName = $_POST["lName"];
         $email = $_POST["email"];
         $phoneNum = $_POST["phoneNum"];
-        $vehicle = $_POST["vehicle"];
+        $vehicle = $_POST['vehicle'];;
         $vehicleNo = $_POST["vehicleNo"];
+        $address1 = $_POST["address1"];
+        $address2 = $_POST["address2"];
         $city = $_POST["city"];
-        $username = $_POST["username"];
         $password = $_POST["password"];
         $confirmPassword = $_POST["confirmPassword"];
         $userType = "deliverer";
-
+        $active_status=1;
         if ($password === $confirmPassword) {
-            $sql_u = "SELECT * FROM deliverer WHERE username='".$username."'";
             $sql_e = "SELECT * FROM users WHERE email='".$email."'";
-            $res_u = mysqli_query($con, $sql_u);
             $res_e = mysqli_query($con, $sql_e);
-                              
-            if (mysqli_num_rows($res_u) > 0) {                       
-                echo "<script type='text/javascript'>
-                    alert('username already exists');
-                    window.history.back();             
-                </script>";                                                   
-                          
-            }else if(mysqli_num_rows($res_e) > 0){
+            if(mysqli_num_rows($res_e) > 0){
                 echo "<script type='text/javascript'>
                 alert('email already exists');
                 window.history.back();           
@@ -65,15 +57,18 @@
                 if($imageName==""){
                     $imageName="default.png";
                 }
-                $deliverer = "INSERT INTO `deliverer` (`delivererID`, `fName`,`lName`,`phoneNum`,`vehicle`,`vehicleNo`,`city`,`profilePic`,`username`) VALUES ('".$id."','".$fName."','".$lName."','".$phoneNum."','".$vehicle."','".$vehicleNo."','".$city."','".$imageName."','".$username."');";
-                $user = "INSERT INTO `users` (`id`,`email`,`password`,`userType`) VALUES ('".$id."','".$email."','".$password_hash."','".$userType."');";
+                $deliverer = "INSERT INTO `deliverer` (`delivererID`, `fName`,`lName`,`phoneNum`,`vehicle`,`vehicleNo`,`address1`,`address2`,`city`,`profilePic`) VALUES ('".$id."','".$fName."','".$lName."','".$phoneNum."','".$vehicle."','".$vehicleNo."','".$address1."','".$address2."','".$city."','".$imageName."');";
+                $user = "INSERT INTO `users` (`id`,`email`,`password`, `userType`, `active_status`) VALUES ('".$id."','".$email."','".$password_hash."','".$userType."','".$active_status."');";
                 mysqli_query($con,$deliverer);
                 mysqli_query($con,$user);
                 header('Location:../../public/login.php');
             }
                               
         }else {
-            header('Location:../../public/index.php');
+            echo "<script type='text/javascript'>
+                alert('password does not match');
+                window.history.back();           
+                </script>";
         }
 
     }

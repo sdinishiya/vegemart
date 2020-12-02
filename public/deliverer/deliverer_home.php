@@ -91,7 +91,7 @@
                             </div>
                             <div class="column is-3">
                                 <p class="mb-0 pb-0">D. M. Rupasinghe mawatha,</p>
-                                <p>Badulla</p>
+                                <p>Anuradhapura</p>
                             </div>
                             <div class="column is-1">
                                 <p class="mb-0 pb-0">Carrot</p>
@@ -105,8 +105,8 @@
                                 <p class="mb-0 pb-0">Chanaka Malshan</p>
                             </div>
                             <div class="column is-3">
-                                <p class="mb-0 pb-0">D. M. Rupasinghe mawatha,</p>
-                                <p class="mb-0 pb-0">Kandy</p>
+                                <p class="mb-0 pb-0">R.M Bandara mawatha,</p>
+                                <p class="mb-0 pb-0">Anuradhapura</p>
                                 <button class="button mt-1" onClick="location.href='http://localhost/vegemart/public/deliverer/delivery.php';">Accept</button>
                             </div>
                         </div>

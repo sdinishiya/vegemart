@@ -1,10 +1,20 @@
 <?php
-include ('../config/dbconfig.php');
-include ('../src/session.php');
-
+    
     if (basename($_SERVER['PHP_SELF']) == "seller_home.php"){
-        $sellerID=$_SESSION["loggedInSellerID"];  
+        if(isset($_SESSION["loggedInSellerID"])){
+            $sellerID=$_SESSION["loggedInSellerID"];
+        }  
+        else{
+            if(isset($_POST["send"])){
+                $_SESSION["loggedInUserToSellerID"]=$_POST["sellerID"];
+                $sellerID=$_SESSION["loggedInUserToSellerID"];
+            }
+            else{
+                $sellerID=$_SESSION["loggedInUserToSellerID"];
+            }
+        }
         //$sellerID=1695357733;
+        
         $retrieveInfo =  "SELECT * FROM client WHERE id='$sellerID';"; //Selecting all data from Table according to sellerID
         $resultInfo = mysqli_query($con, $retrieveInfo); //Passing SQL      
     }

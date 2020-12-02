@@ -1,105 +1,91 @@
-<?php
-    session_start();
-?>
- 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Deliverer Sign up</title>
+        <title>Rider</title>
+        <link href="http://localhost/vegemart/public/images/logo.png" rel="shortcut icon">
         <link type="text/css" rel=stylesheet href="../css/deliverer-signup.css">
+        <script src="https://kit.fontawesome.com/85eb26c5dd.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="row">
-            <div class="columns group\">
-                <div class="column is-4 pl-1 pr-1"></div>
-                <div class="column is-4 pl-1 pr-1">
-                    <div class="row">
-                        <div class="signupForm">
-                            
-                            <div class="row"><h2>Deliverer Registration</h2></div>
-                            
-                            <form id ="deliverer-signup" action="../../src/deliverer/deliverer_signup_process.php" method="post" enctype="multipart/form-data">
-                            <div class="columns group">
-                                
-                                <div class="column is-12">
-                                    <div class="input-row">
-                                        <input type="text" name="fName" placeholder="First Name" required>
-                                    </div>
-                                    <div class="input-row">
-                                        <input type="text" name="lName" placeholder="Last Name" required>
-                                      
-                                    </div>
-                                    <div class="input-row">
-                                        <input type="email" name="email" placeholder="Email" required>
-                                       
-                                    </div> 
-                                    <div class="input-row">
-                                        <input type="text" name="phoneNum" placeholder="Mobile" required>
-                                         
-                                    </div>  
-                                    <div class="input-row">
-                                        <label for="vehicle">Choose Vehicle:</label>
-                                        <select id="vehicle" name="vehicle" form="deliverer-signup">
-                                            <option value="bike">Bike</option>
-                                            <option value="tuk">Tuk</option>
-                                            <option value="lorry">Lorry</option>
-                                        </select>   
-                                    </div>
-                                    <div class="input-row">
-                                        <input type="text" name="vehicleNo" placeholder="Vehicle Registration Number" required>
-                                    
-                                    </div>
-                                    <div class="input-row">
-                                        <input type="text" name="city" placeholder="City" required>
-                              
-                                    </div>
-                                    <div class="input-row">
-                                        <label>Display Picture</label>
-                                        <input class type="file" id="profilePic" placeholder="Display Picture" name="profilePic"/>
-                           
-                                    </div>
-                                    <div class="input-row">
-                                        <input type="text" name="username" placeholder="Username" required>
-                         
-                                    </div>
-                                    <div class="input-row">
-                                        <input type="password" name="password" id="password" onkeyup="check()" placeholder="Password">                                         
-               
-                                    </div> 
-                                    <div class="input-row">
-                                        <input type="password" name="confirmPassword" id="confirm_password" onkeyup="check()" placeholder="Confirm password" required> 
-                       
-                                    </div>                                    
-                                    <span id="message" style="background-color: transparent;"></span>
-                                </div>
-                                
-                                </div>
-                                <div class="row">
-                                    <input class="form-button" type="submit" name="register" value="Sign up">
-                                    <input class="form-button" type="reset" name="" value="Reset">                                         
-                                </div>
-                            </form>                            
-                        </div>
-                    </div>
+        <div class="login">
+            <h2>RIDE NOW!</h2>  
+            <p>Create an account to be a rider!</p>  
+            <form id ="deliverer-signup" class="" action="../../src/deliverer/deliverer_signup_process.php" method="post" enctype="multipart/form-data" autocomplete="off">
+                <div class="inputBox">                
+                    <input type="text" autocomplete="off" name="fName" id="fName" onfocus="this.placeholder = 'ex: Imashi'" onblur="this.placeholder = ''" pattern="[a-zA-Z]{1,32}" autocomplete="off" list="autocompleteOff"  title="Should be a valid name" required="">
+                    <label><i class="far fa-user"></i>&nbsp;&nbsp;&nbsp;First Name</label>
                 </div>
-                <div class="column is-4 pl-1 pr-1\"></div>
-            </div>
-        </div>        
-
-    <script>
-        var check = function() {
-            if (document.getElementById('password').value == document.getElementById('confirm_password').value){
-                    document.getElementById('message').style.color = 'green';
-                    document.getElementById('message').innerHTML = 'Password is matching';
-            } 
-            else{
-                document.getElementById('message').style.color = 'red';
-                document.getElementById('message').style.backgroundColor = 'white';
-                document.getElementById('message').innerHTML = 'Password does not match';
-            }
-        }
-    </script>
-        
+                <div class="inputBox">
+                    <input type="text" name="lName" onfocus="this.placeholder = 'ex: Dissanayake'" onblur="this.placeholder = ''" pattern="[a-zA-Z]{1,32}" autocomplete="off" title="Should be a valid name" required="">
+                    <label><i class="far fa-user"></i>&nbsp;&nbsp;&nbsp;Last Name</label>    
+                </div>
+                <div class="inputBox">
+                    <input type="email" name="email" onfocus="this.placeholder = 'ex: example@vegemart.lk'" onblur="this.placeholder = ''" autocomplete="off" title="Should be a valid email as the given in the example" required="">
+                    <label><i class="fas fa-envelope"></i>&nbsp;&nbsp;&nbsp;Email</label>    
+                </div> 
+                <div class="inputBox">
+                    <input type="text" name="phoneNum" onfocus="this.placeholder = 'ex: +94771570227'" onblur="this.placeholder = ''" pattern='^\+?\d{11}' title="Should be a valid contact number as the given in the example" autocomplete="off" required="">
+                    <label><i class="fas fa-phone-alt"></i>&nbsp;&nbsp;&nbsp;Contact number</label>    
+                </div>  
+                <div class="input-row">
+                    <label for="vehicle" style="color:white">Choose Vehicle:</label>
+                    <select id="vehicle" name="vehicle" form="deliverer-signup">
+                        <option value="bike">Bike</option>
+                        <option value="tuk">Tuk</option>
+                        <option value="lorry">Lorry</option>
+                    </select>   
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="vehicleNo" onfocus="this.placeholder = 'ex: WP KC-4539'" onblur="this.placeholder = ''" title="Should be like ex: WP KC-4539" autocomplete="off" required="">
+                    <label><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;&nbsp;Vehicle Registration Number</label>    
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="address1" onfocus="this.placeholder = 'ex: 75/2'" onblur="this.placeholder = ''" title="Should be like ex: 75/2" autocomplete="off" required="">
+                    <label><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;&nbsp;Address Line 1</label>    
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="address2" onfocus="this.placeholder = 'ex: Bandarawella road'" onblur="this.placeholder = ''" title="Should be like ex: Bandarawella road" autocomplete="off" required="">
+                    <label><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;&nbsp;Address Line 2</label>    
+                </div>                
+                <div class="inputBox">
+                    <input type="text" name="city" onfocus="this.placeholder = 'ex: Badulla'" onblur="this.placeholder = ''" title="Should be like ex: Badulla" autocomplete="off" required="">
+                    <label><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;&nbsp;City</label>    
+                </div>
+                <div class="inputBox">
+                    <input type="file" id="profilePic" name="profilePic"/>
+                    <label>Display Picture</label>    
+                </div>
+                <div class="inputBox">
+                    <input type="password" id="password"  name="password" onfocus="this.placeholder = 'ex: Vithanage12#'" onblur="this.placeholder = ''" minlength="8" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" autocomplete="off" title="Should be in required format" required="">
+                    <label><i class="fas fa-lock"></i>&nbsp;&nbsp;&nbsp;Password</label>   
+                    <p style="font-size:10px;margin-top:-2%;text-align:left;color:white;">(minimum of 8 characters Including uppercase, lowercase & at least one special character)</p>                    
+                </div> 
+                <div class="inputBox">
+                    <input type="password" id="confirmPassword" name="confirmPassword" minlength="8" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" autocomplete="off" title="Should be in required format" required="">
+                    <label><i class="fas fa-key"></i>&nbsp;&nbsp;&nbsp;Confirm Password</label>  
+                     
+                </div> 
+                <div>
+                    <input class="button" type="submit" name="register" value="Sign up">
+                    <input class="button" type="reset" name="" value="Reset">
+                </div>                     
+            </form>       
+        </div>
     </body>
 </html>
+
+<script>
+    var check = function() {
+            var numbers = ^[0-9]+$;
+        if (document.getElementById('fName').value == $numbers){
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = 'Password is matching';
+        } 
+        else{
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').style.backgroundColor = 'white';
+            document.getElementById('message').innerHTML = 'Password does not match';
+        }
+    }
+</script>

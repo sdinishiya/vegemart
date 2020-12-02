@@ -20,7 +20,7 @@
         } 
         else {
             $message = base64_encode(urlencode("Sorry, there was an error uploading your file."));
-            header('Location:Location:../../public.seller/seller_profile_edit.php?msg=' . $message);
+            header('Location:Location:../../public/seller/seller_profile_edit.php?msg=' . $message);
             exit();
             }
     }
@@ -49,7 +49,7 @@
         
                 if ($newPassword != $newConfirmPassword){
                     $message = base64_encode(urlencode("Passwords do not match"));
-                    header('Location:../../public.seller/seller_profile_edit.php?msg=' . $message);
+                    header('Location:../../public/seller/seller_profile_edit.php?msg=' . $message);
                     exit();
                 }
                 
@@ -59,10 +59,10 @@
                     } 
                         $updateUser= "UPDATE `users` SET email = '".$newEmail."',`password` = '".$newPassword."' WHERE id = '".$id."' ";
                     if($imageName==""){
-                        $updateQuery= "UPDATE `client` SET fName = '".$newFName."', lName = '".$newLName."', phoneNum = '".$newPhoneNum."', address1 = '".$newAddress1."', address2 = '".$newAddress2."', city = '".$newCity."', username = '".$newUsername."' WHERE id = '".$id."' ";
+                        $updateQuery= "UPDATE `client` SET fName = '".$newFName."', lName = '".$newLName."', phoneNum = '".$newPhoneNum."', address1 = '".$newAddress1."', address2 = '".$newAddress2."', city = '".$newCity."' WHERE id = '".$id."' ";
                     }
                     else{
-                        $updateQuery= "UPDATE `client` SET fName = '".$newFName."', lName = '".$newLName."', phoneNum = '".$newPhoneNum."',profilePic = '".$imageName."', address1 = '".$newAddress1."', address2 = '".$newAddress2."', city = '".$newCity."', username = '".$newUsername."' WHERE id = '".$id."' ";   
+                        $updateQuery= "UPDATE `client` SET fName = '".$newFName."', lName = '".$newLName."', phoneNum = '".$newPhoneNum."',profilePic = '".$imageName."', address1 = '".$newAddress1."', address2 = '".$newAddress2."', city = '".$newCity."' WHERE id = '".$id."' ";   
                     }   
                     if (mysqli_query($con,$updateQuery) && mysqli_query($con,$updateUser)) {
                         $message = base64_encode(urlencode("Successfully Edited!"));
@@ -71,7 +71,7 @@
                     } 
                     else {
                         $message = base64_encode(urlencode("SQL Error while Registering"));
-                        header('Location:../../public.seller/seller_profile_edit.php?msg=' . $message);
+                     //   header('Location:../../public/seller/seller_profile_edit.php?msg=' . $message);
                         exit();
                     }
                 }

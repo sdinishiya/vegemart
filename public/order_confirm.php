@@ -141,7 +141,7 @@
                                         $bid = "SELECT * FROM bidding WHERE productID='$productID' AND amount=(SELECT MAX(amount) AS amount FROM bidding WHERE productID='$productID');";    
                                         $bidQuery=mysqli_query($con,$bid);
                                         while ($rowBid  = mysqli_fetch_assoc($bidQuery)) { 
-                                            $total=$total+($rowBid['bidPrice']*$rowBid['bidQuantity']);
+                                            $total=$total+($rowBid['amount']);
                                             $count=$count+1;                                    
                                             $product = "SELECT * FROM products WHERE productID='$productID';"; 
                                             $productQuery=mysqli_query($con,$product);                                
@@ -155,7 +155,7 @@
                                     <h3><?php echo $rowProduct['name']?></h2>
                                 </div>
                                 <div class="column is-4">
-                                    <h3><?php echo $rowBid['bidPrice']*$rowBid['bidQuantity']?>.00</h2>
+                                    <h3><?php echo $rowBid['amount']?>.00</h2>
                                 </div>
                             </div>
                             <?php
@@ -189,7 +189,7 @@
                             <input type="text" name="order_id" value="ItemNo12345" style="display: none;">
                             <input type="text" name="items" value="Vegemart Cart" style="display: none;">
                             <input type="text" name="currency" value="LKR" style="display: none;">
-                            <input type="text" name="amount" value="250" style="display: none;">
+                            <input type="text" name="amount" value="<?php echo "$total"?>" style="display: none;">
 
                             <input type="text" name="first_name" value="Imashi" style="display: none;">
                             <input type="text" name="last_name" value="Dissanayaka" style="display: none;">
@@ -212,7 +212,7 @@
                     </div>    
                     <div class="column is-7 has-text-left mt-1"> 
                         <label for="delivery">Delivery</label>
-                        <input style="text-align:left;" type="checkbox" id="delivery" name="check" value="delivery" onclick="abc()">     
+                        <input style="text-align:left;" type="checkbox" id="delivery" name="delivery" value="delivery" onclick="abc()">     
                         <p>Delivery is provided within the district only</p>                                           
                     </div>                               
                 </div>
@@ -225,7 +225,7 @@
                     </div>    
                     <div class="column is-7 has-text-left mt-1"> 
                         <label for="selfpick">Self Pickup</label>
-                        <input style="text-align:left;" type="checkbox" id="title" name="check" value="selfpick" onclick="onlyOne(this)">
+                        <input style="text-align:left;" type="checkbox" id="title" name="selfpick" value="selfpick" onclick="onlyOne(this)">
                         <p>Please pickup during the day of purchase</p>                                             
                     </div>                               
                 </div>

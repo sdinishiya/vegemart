@@ -16,7 +16,18 @@
             <a href="./seller_home.php"><img class="logopic" src="../images/logob.png"></a>
             
             <ul class="main-nav">
-                <li><a href="http://localhost/vegemart/public/seller/seller_home.php">Home</a></li>
+                <?php  
+                if(isset($_SESSION["loggedInSellerID"])){?>
+                    <li><a href="http://localhost/vegemart/public/seller/seller_home.php">Home</a></li>
+                <?php
+                }
+                ?>
+                <?php  
+                if(isset($_SESSION["loggedInUserID"])){?>
+                    <li><a href="http://localhost/vegemart/public/products.php">Home</a></li>
+                <?php
+                }
+                ?>
                 <li><a href="#">About</a></li>
                 <li><a href="http://localhost/vegemart/public/forum.php">Forum</a></li>
                 <li><a href="http://localhost/vegemart/public/help_desk">Help Desk</a></li>
@@ -44,9 +55,14 @@
                         <li>
                         <div class=\"nav-dropdown\">
                             <img class=\"dp\" src=\"http://localhost/vegemart/public/images/users/{$rowUser['profilePic']}\" alt=\"Avatar\">
-                            <div class=\"dropdown-content\">
-                                <a href=\"http://localhost/vegemart/public/seller/seller_profile_edit.php\">View Profile</a>
-                                <a href=\"http://localhost/vegemart/src/logout.php\">Logout</a>
+                            <div class=\"dropdown-content\">";
+                            if(isset($_SESSION["loggedInUserID"])){
+                               echo" <a href=\"http://localhost/vegemart/public/buyer_profile_edit.php\">View Profile</a>";
+                            }
+                            if(isset($_SESSION["loggedInSellerID"])){
+                                echo" <a href=\"http://localhost/vegemart/public/seller/seller_profile_edit.php\">View Profile</a>";
+                             }
+                                echo"<a href=\"http://localhost/vegemart/src/logout.php\">Logout</a>
                             </div>
                         </div>
                         </li>";

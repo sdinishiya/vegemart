@@ -29,7 +29,7 @@
                                     <img class="user-img" src= "https://www.flaticon.com/premium-icon/icons/svg/2633/2633302.svg">
                                 </div>
                                 <div class="column is-10 has-text-centered">
-                                    <p class="justify-text">How long does an auction last? <b>User2</b></p>
+                                    <p class="justify-text">How long does an auction last?  <b>Namal Perera</b></p>
                                     <hr>
                                     <div class="row">
                                         <div class="columns group">
@@ -37,7 +37,7 @@
                                                 <img class="tech-img" src= "https://www.flaticon.com/svg/static/icons/svg/3346/3346501.svg">
                                             </div>
                                             <div class="column is-10 has-text-centered">
-                                                <p class="justify-text">An auction typically lasts 6 hours. <b>Co-admin</b></p>
+                                                <p class="justify-text">An auction typically lasts 6 hours. <b> - Imashi</b></p>
 
                                             </div>
                                         </div>
@@ -52,7 +52,7 @@
                                     <img class="user-img" src= "https://www.flaticon.com/premium-icon/icons/svg/1993/1993736.svg">
                                 </div>
                                 <div class="column is-10 has-text-centered">
-                                    <p class="justify-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<b>User4</b></p>
+                                    <p class="justify-text">Can the products be delivered to the buyers? <b> Adam Fernando</b></p>
                                     <hr>
                                     <div class="row">
                                         <div class="columns group">
@@ -60,7 +60,7 @@
                                                 <img class="tech-img" src= "https://www.flaticon.com/svg/static/icons/svg/3346/3346501.svg">
                                             </div>
                                             <div class="column is-10 has-text-centered">
-                                                <p class="justify-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <b>Co-admin</b></p>
+                                                <p class="justify-text">Delivery can be done depending on the deliveres in your area and according to their availability.  <b>- Dineshiya</b></p>
                                             </div>
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@
                                                 <img class="user-img" src= "https://www.flaticon.com/premium-icon/icons/svg/2633/2633302.svg">
                                             </div>
                                             <div class="column is-10 has-text-centered pr-1">
-                                                <p class="justify-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.?</p>
+                                                <p class="justify-text">Can the products be delivered to the buyers? </p>
                                                 <a style="color:#626567; font-size:16px; text-align:right!important; margin-right:10px;" href=\"#\">View Answer</a>
                                             </div>
                                         </div>
@@ -102,7 +102,7 @@
                                                 <img class="user-img" src= "https://www.flaticon.com/svg/static/icons/svg/843/843298.svg">
                                             </div>
                                             <div class="column is-10 has-text-centered pr-1">
-                                                <p class="justify-text">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum?</p>
+                                                <p class="justify-text">Can we advertise our products in your website?</p>
                                                 <a style="color:#626567; font-size:16px; text-align:right!important; margin-right:10px;" href=\"#\">View Answer</a>
                                             </div>
                                         </div>

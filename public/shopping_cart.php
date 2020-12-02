@@ -38,7 +38,7 @@
                                         <h2>Bid Price (Rs.)</h2>
                                     </div>
                                     <div class="column is-3">
-                                        <h2>Bid Quantity (kg)</h2>
+                                        <h2>Bid Quantity (grams)</h2>
                                     </div>
                                     <div class="column is-2">
                                         <h2>Total (Rs.)</h2>
@@ -60,7 +60,7 @@
                                 $bid = "SELECT * FROM bidding WHERE productID='$productID' AND amount=(SELECT MAX(amount) AS amount FROM bidding WHERE productID='$productID');";    
                                 $bidQuery=mysqli_query($con,$bid);
                                 while ($rowBid  = mysqli_fetch_assoc($bidQuery)) { 
-                                    $total=$total+($rowBid['bidPrice']*$rowBid['bidQuantity']);
+                                    $total=$total+($rowBid['amount']);
                                     $count=$count+1;                                    
                                     $product = "SELECT * FROM products WHERE productID='$productID';"; 
                                     $productQuery=mysqli_query($con,$product);                                
@@ -82,7 +82,7 @@
                                         <h3><?php echo $rowBid['bidQuantity']?></h3>
                                     </div>
                                     <div class="column is-2">
-                                        <h3><?php echo $rowBid['bidPrice']*$rowBid['bidQuantity']?>.00</h3>
+                                        <h3><?php echo $rowBid['amount']?>.00</h3>
                                     </div>
                                 </div>
                                 <hr>

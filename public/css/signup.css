@@ -103,7 +103,7 @@ p{
     border: none;
     outline: none;
     color: #fff;
-    background:#03a9f4;
+    background:#138D75;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
@@ -112,7 +112,7 @@ p{
 }
 
 .login .button:hover{
-    background-color: #3e8e41;
+    background-color: #1cc4a2;
     color: white;
 }
 

@@ -21,7 +21,7 @@
     z-index: 3;
     max-height: 20%;
     max-width: 100%;
-    margin: 1.5em;
+    margin: 0.5em;
     padding: 1em;  
 }
 
@@ -32,13 +32,13 @@
     z-index: 3;
     max-height: 200px;
     max-width: 100%;
-    margin: 1.5em;
+    margin: 0.5em;
     padding: 1em;     
 }
 
 .advertisements img,.promotions img{
-    height: 220px;
-    width: 350px;
+    height: 200px;
+    width: 300px;
 
 }
 

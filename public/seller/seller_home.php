@@ -1,4 +1,5 @@
 <?php
+     ob_start();
     include ('../../config/dbconfig.php');
     include ('../../src/session.php');
 ?>
@@ -21,14 +22,13 @@
             <div class="columns group mt-0">
                 <div class="column is-8 mt-0">
                     <div class="row pl-1 pr-1 mt-0">
-                        <fieldset>
-                            <legend>Seller Profile</legend>
+                    <div class="card pl-1 pr-1 mt-1">
+                           
                             <div class="columns group mt-0">                            
                                 <?php
                                     include ('../../src/seller/seller_dashboard/seller_details.php'); 
-                                    sellerProfile($con);                               
                                     while ($rowUser  = mysqli_fetch_assoc($resultInfo)) {
-                                        $_SESSION["loggedInSellerID"] = $rowUser['id'];?>
+                                    ?>
                                         <div class="column is-3">
                                             <div class="row pt-3 pb-2 pl-2">
                                                 <img class="user-image" src= "../images/users/<?php echo $rowUser['profilePic']?>" alt="Display Picture">
@@ -67,10 +67,16 @@
                                         }                                    
                                     ?>                            
                             </div>
-                            <div class="row has-text-right mt-2 mb-1 mr-1">
-                                <button class="button" onClick="location.href='http://localhost/vegemart/public/seller/seller_profile_edit.php';"><i class="fas fa-cog mr-1"></i>Edit Profile</button>
-                            </div>
-                       </fieldset>                        
+                            <?php
+                                if(isset($_SESSION["loggedInSellerID"])){
+                            ?>
+                                <div class="row has-text-right mt-2 mb-1 mr-1">
+                                    <button class="button" onClick="location.href='http://localhost/vegemart/public/seller/seller_profile_edit.php';"><i class="fas fa-cog mr-1"></i>Edit Profile</button>
+                                </div>
+                            <?php
+                                }
+                            ?>
+                       </div>                        
                     </div>
                     <br/>
                 
@@ -88,7 +94,7 @@
                                     <h4>Unit Price (Rs.)</h4>
                                 </div>
                                 <div class="column is-2">
-                                    <h4>Quantity (kg)</h4>
+                                    <h4>Quantity (grams)</h4>
                                 </div>
                                 <div class="column is-3">
                                     <h4></h4>
@@ -98,7 +104,7 @@
                         <?php
                             include ('../../src/seller/seller_dashboard/product_details.php');
                             while ($row = mysqli_fetch_assoc($result)) {
-                                $_SESSION["loggedInSellerID"] = $row['sellerID'];?>
+                            ?>
                                 <div class="item-table">
                                     <div class="row item-row has-text-centered mb-0">
                                         <div class="columns group">
@@ -114,9 +120,15 @@
                                             <div class="column is-2">
                                                 <h4><?php echo $row['quantity'] ?></h4>
                                             </div>
-                                            <div class="column is-3">
-                                                <button class="button" onClick="location.href='http://localhost/vegemart/public/seller/seller_product_edit.php?id=<?php echo $row['productID']?>';">Update Product</button>               
-                                            </div>
+                                            <?php
+                                                if(isset($_SESSION["loggedInSellerID"])){
+                                            ?>
+                                                <div class="column is-3">
+                                                    <button class="button" onClick="location.href='http://localhost/vegemart/public/seller/seller_product_edit.php?id=<?php echo $row['productID']?>';">Update Product</button>               
+                                                </div>
+                                            <?php
+                                                }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -124,10 +136,15 @@
                                 }
                             mysqli_close($con);
                         ?>
-                    
-                        <div id="addProduct">
-                            <button class="button" onClick="location.href='http://localhost/vegemart/public/seller/seller_product_add.php';">Add New Product</button>
-                        </div>
+                        <?php
+                            if(isset($_SESSION["loggedInSellerID"])){
+                        ?>
+                            <div id="addProduct">
+                                <button class="button" onClick="location.href='http://localhost/vegemart/public/seller/seller_product_add.php';">Add New Product</button>
+                            </div>
+                        <?php
+                            }
+                        ?>
                     </div>
                 </div>
                 <div class="column is-4">
@@ -184,6 +201,7 @@
                 </div>
             </div>
         </div>
-        <?php include_once "../includes/footer.php"; ?> 
+        <?php include_once "../includes/footer.php"; 
+        ob_end_flush();?> 
     </body>
 </html>

@@ -1,51 +1,140 @@
-@import url(./style.css);
-
-*{
-    font-family: Arial;
-}
+html {
+    height: 100%;
+} 
 
 body {
-    background-image: url('../images/del1.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: url('../images/bg_deli.jpg');
     background-size: cover;
+    backdrop-filter: brightness(60%); 
 }
 
-.signupForm {
+a{
+    position: relative;
+    top: 0px; 
+    left: 5px; 
+    text-decoration: none;
+    display: flex;
+    padding: 6px 11px;
+}
+
+a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.login{
+    display: flex;  
+    flex-direction: column;
+    position: relative;
+    margin: 1%;
+    width: 36%;
+    padding: 42px;
     background: rgba(0,0,0,.8);
-    border-radius: 15px;
-    padding: 1.5rem;
-    align-self: center;
+    box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.5);
-    border-radius: 10px;
+   
 }
 
-.signupForm h2{
+.login h2{
+    margin: 0 0 0px;
+    padding: 0px;
     color: #fff;
-    flex-wrap: wrap;
+    text-align: center;
+    font-family: Helvetica;
+
 }
 
-.input-row{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10px 20px;
-    align-self: center;
+p{
+    color: #B6B2B1;
+    text-align: center;
+    margin: 15px;
 }
 
-.input-row label, ::placeholder{
-    color: #fff;
-    margin-top: 5px;
-    margin-right: 5px;
+.login .inputBox{
+    position: relative;
 }
 
-.input-row input{
-    display: flex;
-    flex: 1 0 150px;
-    flex-wrap: wrap;
+.login .inputBox input{
+    width: 90%;
+    padding: 10px 0;
     font-size: 16px;
     color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+    margin-left: 4%;
     border: none;
     border-bottom: 1px solid #fff;
     outline: none;
     background: transparent;
+}
+
+.login .inputBox label{
+    position: absolute;
+    top: 0;
+    left: 0;  
+    padding: 10px 0;
+    margin-left: 5.5%;
+    font-size: 16px; 
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login .inputBox input:focus ~ label,
+.login .inputBox input:valid ~ label{
+    top: -22px;
+    left: 0;
+    color: #03a9f4;
+    font-size: 14px;
+} 
+
+.login .button{
+    margin-top: 10px;  
+    margin-left: 18%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    background:#138D75;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-flex;
+    font-size: 16px;
+}
+
+.login .button:hover{
+    background-color: #3e8e41;
+    color: white;
+}
+
+
+
+.login .form-check-inline label{
+    display: inline-flex;
+    margin-left: 5px;
+    font-size: 17px;
+    color: #fff;
+}
+
+.previous {
+    font-size: 20px;
+    color: white;
+}
+
+.round {
+    border-radius: 50%;
+} 
+.input-row label, ::placeholder{
+   margin-top: 5px;
+    margin-right: 5px;
 }
 
 select {
@@ -53,7 +142,7 @@ select {
     flex-wrap: wrap;
     font-size: 16px;
     width: 150px;
-    padding: 5px;
+    padding: 3px;
     border: none;
     border-bottom: 1px solid #fff;
     background-color: transparent;
@@ -79,46 +168,29 @@ select option:hover{
         padding: 5px\9;
     }
 }
+@import url(./style.css);
 
-.img-row{
-    display: flex;
-    flex-wrap: wrap;
-    margin:12px;
-    align-items: center;
+*{
+    font-family: Arial;
 }
 
-.image-input{
-    display: flex;
-    font-size: 14px;
-    max-width: 200px;
-    color: #fff;
-    background-color: transparent;
-    border-color: transparent;
-}
 
-.signupForm .form-button{
-    display: inline-flex;
-    justify-content: center;
+.input-row{
+    display: flex;
     flex-wrap: wrap;
-    white-space: nowrap;
-    margin: 20px;
-    border: none;
-    outline: none;
-    background:#138D75;
     padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 1rem;
+    align-self: center;
 }
 
-.signupForm .form-button:hover{
-    background-color: #1cc4a2;
-    color: white;
-}
 
-span{
+.input-row input{
+    display: flex;
+    flex: 1 0 150px;
+    flex-wrap: wrap;
     font-size: 16px;
-    padding: 5px;
-    background-color: transparent;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
 }

@@ -7,7 +7,7 @@
         $userID = $_POST['userID'];
         $bidQuantity = $_POST['quantity'];
         $bidPrice = $_POST['bid'];
-        $amount = $bidQuantity*$bidPrice;
+        $amount = ($bidPrice/$bidQuantity)*250;
         
         $insertBid = "INSERT INTO `bidding` (`productID`,`userID`,`bidQuantity`,`bidPrice`,`amount`,`startTime`) VALUES ('".$productID."','".$userID."','".$bidQuantity."','".$bidPrice."','".$amount."',NOW());";
         if (mysqli_query($con, $insertBid)) {                            

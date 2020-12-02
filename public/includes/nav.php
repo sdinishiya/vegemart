@@ -210,7 +210,7 @@
 
     <body>
         <header class="header">
-            <a href="./index.php"><img class="logopic" src="http://localhost/vegemart/public/images/logob.png"></a>
+            <a href="./products.php"><img class="logopic" src="http://localhost/vegemart/public/images/logob.png"></a>
             
             <ul class="main-nav">
                 <li><a href="http://localhost/vegemart/public/products.php">Home</a></li>
