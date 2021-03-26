@@ -95,19 +95,28 @@
                             </div>
                             <div class="column is-1">
                                 <p class="mb-0 pb-0">Carrot</p>
-                                <p class="mb-0 pb-0">Beans</p>
+                                <p class="mb-0 pb-0">Beans </p>
                             </div>
                             <div class="column is-1">
                                 <p class="mb-0 pb-0">5</p>
                                 <p class="mb-0 pb-0">5</p>
                             </div>
                             <div class="column is-2">
-                                <p class="mb-0 pb-0">Chanaka Malshan</p>
+                                <p class="mb-0 pb-0">Chanaka Malshan </p>
                             </div>
                             <div class="column is-3">
                                 <p class="mb-0 pb-0">R.M Bandara mawatha,</p>
                                 <p class="mb-0 pb-0">Anuradhapura</p>
+
                                 <button class="button mt-1" onClick="location.href='http://localhost/vegemart/public/deliverer/delivery.php';">Accept</button>
+                                <button class="button mt-1" onclick="myFunction()">Click me</button>
+
+                                <p id="demo"></p>
+                                    <script>
+                                        function myFunction() {
+                                        document.getElementById("demo").innerHTML = "Hello World";
+                                        }
+                                    </script>
                             </div>
                         </div>
                     </div>

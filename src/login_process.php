@@ -57,8 +57,19 @@
                         } 
                         
                     }
+                    elseif($row['userType'] === "coadmin"){
+                        $_SESSION["loggedInCoAdminID"] =$row['id']; 
+                        $_SESSION["userType"] =$row['userType']; 
+                        if($active_status == 1){
+                            $log_customer_sql = "INSERT INTO logs (userID, userType, active_status,login_status,date_time) 
+                            VALUES ('".$_SESSION["loggedInCoAdminID"]."','".$_SESSION["userType"]."',1,1,NOW())";                
+                            $execute_querry = mysqli_query($con, $log_customer_sql);
+                            header('Location:../public/admin/admin-dash.php'); 
+                        } 
+                        
+                    }
                 }
-                
+
                 else{  
                     //return false;  
                     echo "<script>alert('Password does not match');
