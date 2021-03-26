@@ -49,13 +49,31 @@
             $password_hash = md5($password); 
             if($imageName==""){
                 $imageName="default.png";
-            }  
-            $id = rand(); 
-            $admin = "INSERT INTO `admin` (`adminID`, `name`,`contactNum`,`address1`,`address2`,`city`,`profilePic`) VALUES ('".$id."','".$name."','".$phoneNum."','".$address1."','".$address2."','".$city."','".$imageName."');";
-            $user = "INSERT INTO `users` (`id`,`email`,`password`, `userType`) VALUES ('".$id."','".$email."','".$password_hash."','".$userType."');";
-            mysqli_query($con,$admin);
-            mysqli_query($con,$user);
-            header('Location:co-admin_mgt.php?msg=' . $message);
+            }
+            
+            $user = "INSERT INTO `users` (`email`,`password`, `userType`) VALUES ('".$email."','".$password_hash."','".$userType."');";
+            $result1= mysqli_query($con,$user);
+            $user_id = mysqli_insert_id($con);
+
+            $admin = "INSERT INTO `admin` (`user_id`,`name`,`contactNum`,`address1`,`address2`,`city`,`profilePic`) VALUES ('".$user_id."','".$name."','".$phoneNum."','".$address1."','".$address2."','".$city."','".$imageName."');";
+            $result2= mysqli_query($con,$admin);
+
+            if ($result1 == true){
+                echo 'done1';
+            }else{
+                if($resut2 ==true){
+                    echo 'done2';
+                }else{
+                    echo 'failed';
+                }
+            }
+
+            // if ($result1 == true && $result2 == true ){ 
+            //     header('Location:co-admin_mgt.php?msg=' . $message);
+            // }
+            // else{
+            //     echo'failed';
+            // }
         }
     }
 ?>  
